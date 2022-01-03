@@ -1,0 +1,184 @@
+{
+  "content": [
+    {
+      "id": "2960199385a7060f",
+      "name": "A",
+      "description": null,
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-08-24T14:18:00.000+00:00"
+    },
+    {
+      "id": "297be5bd4e60c735",
+      "name": "asd",
+      "description": "asd",
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-09-16T07:02:31.000+00:00"
+    },
+    {
+      "id": "29d89710a345cb5c",
+      "name": "Azure IoT Hub",
+      "description": null,
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-08-19T09:15:02.000+00:00"
+    },
+    {
+      "id": "291df581d9a62322",
+      "name": "bulk import stuff",
+      "description": null,
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-08-16T13:59:13.000+00:00"
+    },
+    {
+      "id": "29eb952000d455dc",
+      "name": "Dävu's Workspace - daily",
+      "description": null,
+      "version": 4,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": true,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": [
+          "david@akenza.io"
+        ]
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": "2021-11-23T17:01:47.000+00:00",
+      "created": "2021-03-02T09:08:17.000+00:00"
+    },
+    {
+      "id": "29460fa8e406e3e0",
+      "name": "dävu's workspace - weakly",
+      "description": null,
+      "version": 1,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": true,
+        "lifecycleMessageInterval": "WEEKLY",
+        "lifecycleMessageRecipients": [
+          "marius@akenza.io",
+          "david@akenza.io"
+        ]
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": "2021-11-23T17:37:19.000+00:00",
+      "created": "2021-11-23T17:02:46.000+00:00"
+    },
+    {
+      "id": "29d4d84b195be365",
+      "name": "Fabian's Workspace",
+      "description": "dont touch it",
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-03-02T19:49:17.000+00:00"
+    },
+    {
+      "id": "29cb64eccc4e62d7",
+      "name": "Integration Tests",
+      "description": null,
+      "version": 1,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": "2021-08-12T09:09:15.000+00:00",
+      "created": "2021-08-12T09:00:15.000+00:00"
+    },
+    {
+      "id": "293181620804550a",
+      "name": "Load Testing",
+      "description": null,
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-08-12T11:47:14.000+00:00"
+    },
+    {
+      "id": "2958db0c32bae76b",
+      "name": "Marius2",
+      "description": null,
+      "version": 0,
+      "properties": {},
+      "settings": {
+        "lifecycleMessages": false,
+        "lifecycleMessageInterval": "DAILY",
+        "lifecycleMessageRecipients": []
+      },
+      "organizationId": "28af7266058d1565",
+      "updated": null,
+      "created": "2021-09-15T14:38:20.000+00:00"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 10,
+    "unpaged": false,
+    "paged": true
+  },
+  "totalPages": 3,
+  "totalElements": 29,
+  "last": false,
+  "number": 0,
+  "sort": {
+    "sorted": false,
+    "unsorted": true,
+    "empty": true
+  },
+  "size": 10,
+  "numberOfElements": 10,
+  "first": true,
+  "empty": false
+}

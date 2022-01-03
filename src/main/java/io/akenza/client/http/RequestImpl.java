@@ -23,12 +23,12 @@ public class RequestImpl<T> implements Request<T> {
 
     private final OkHttpClient client;
     private final String url;
-    private final String method;
+    private final HttpMethod method;
     private final Map<String, String> headers;
     private final TypeReference<T> tType;
     private Object body;
 
-    public RequestImpl(OkHttpClient client, String url, String method, TypeReference<T> tType) {
+    public RequestImpl(OkHttpClient client, String url, HttpMethod method, TypeReference<T> tType) {
         this.client = client;
         this.url = url;
         this.method = method;
@@ -95,7 +95,7 @@ public class RequestImpl<T> implements Request<T> {
         }
         okhttp3.Request.Builder builder = new okhttp3.Request.Builder()
                 .url(url)
-                .method(method, body);
+                .method(method.value(), body);
         for (Map.Entry<String, String> e : headers.entrySet()) {
             builder.addHeader(e.getKey(), e.getValue());
         }
@@ -127,6 +127,12 @@ public class RequestImpl<T> implements Request<T> {
 
     protected T readResponseBody(ResponseBody body) throws IOException {
         String payload = body.string();
+
+        //handle no content
+        if (payload.isEmpty()) {
+            return null;
+        }
+
         return json.fromJson(payload, tType);
     }
 

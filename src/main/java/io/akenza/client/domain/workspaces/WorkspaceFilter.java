@@ -4,6 +4,10 @@ import io.akenza.client.utils.BaseFilter;
 import io.akenza.client.utils.SortDirection;
 
 public class WorkspaceFilter extends BaseFilter {
+    public static WorkspaceFilter create() {
+        return new WorkspaceFilter();
+    }
+
     public WorkspaceFilter withSearch(String search) {
         parameters.put("search", search);
         return this;
