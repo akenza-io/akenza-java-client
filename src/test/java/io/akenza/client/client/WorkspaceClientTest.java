@@ -1,9 +1,8 @@
 package io.akenza.client.client;
 
-import com.google.common.io.Resources;
 import io.akenza.client.AkenzaAPI;
+import io.akenza.client.TestUtils;
 import io.akenza.client.domain.workspaces.*;
-import io.akenza.client.workspaces.WorkspaceTest;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
@@ -14,8 +13,6 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static com.google.common.io.Resources.getResource;
-import static java.nio.charset.Charset.defaultCharset;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 class WorkspaceClientTest {
@@ -39,7 +36,7 @@ class WorkspaceClientTest {
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader("Content-Type", "application/json")
-                .setBody(getFixture("workspace.json"))
+                .setBody(TestUtils.getFixture("workspaces/workspace.json"))
         );
         //act
         Workspace workspace = client.workspaces().getById("someWorkspaceId").execute();
@@ -62,7 +59,7 @@ class WorkspaceClientTest {
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader("Content-Type", "application/json")
-                .setBody(getFixture("workspace-list.json"))
+                .setBody(TestUtils.getFixture("workspaces/workspace-list.json"))
         );
         //act
         WorkspacePage page = client.workspaces().list("someOrganizationId", WorkspaceFilter.create()).execute();
@@ -78,7 +75,7 @@ class WorkspaceClientTest {
         server.enqueue(new MockResponse()
                 .setResponseCode(201)
                 .setHeader("Content-Type", "application/json")
-                .setBody(getFixture("workspace.json"))
+                .setBody(TestUtils.getFixture("workspaces/workspace.json"))
         );
         //act
         Workspace workspace = client.workspaces().create(ImmutableCreateWorkspaceCommand.builder().name("My Workspace").organizationId("2800000000000000").build()).execute();
@@ -104,7 +101,7 @@ class WorkspaceClientTest {
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
                 .setHeader("Content-Type", "application/json")
-                .setBody(getFixture("workspace.json"))
+                .setBody(TestUtils.getFixture("workspaces/workspace.json"))
         );
         //act
         Workspace workspace = client.workspaces().update(ImmutableUpdateWorkspaceCommand.builder().id("2900000000000000").name("My Workspace").build()).execute();
@@ -138,10 +135,5 @@ class WorkspaceClientTest {
         //assert
         RecordedRequest recordedRequest = server.takeRequest(2, TimeUnit.SECONDS);
         assertThat(recordedRequest.getRequestUrl().url().getPath()).isEqualTo("/v3/workspaces/2900000000000000");
-    }
-
-
-    private static String getFixture(String resource) throws IOException {
-        return Resources.toString(getResource(WorkspaceTest.class, resource), defaultCharset());
     }
 }

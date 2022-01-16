@@ -15,7 +15,6 @@ import java.util.Map;
  */
 public class WorkspaceClient extends BaseClient {
     private static final String WORKSPACE_URI_TEMPLATE = "v3/workspaces/%s";
-    public static final String X_API_KEY = "x-api-key";
 
     public WorkspaceClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
         super(client, baseUrl, apiKey);

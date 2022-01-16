@@ -1,5 +1,6 @@
 package io.akenza.client;
 
+import io.akenza.client.client.DataQueryClient;
 import io.akenza.client.client.WorkspaceClient;
 import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.RateLimitInterceptor;
@@ -119,5 +120,9 @@ public class AkenzaAPI {
 
     public WorkspaceClient workspaces() {
         return new WorkspaceClient(client, baseUrl, apiKey);
+    }
+
+    public DataQueryClient dataQuery() {
+        return new DataQueryClient(client, baseUrl, apiKey);
     }
 }
