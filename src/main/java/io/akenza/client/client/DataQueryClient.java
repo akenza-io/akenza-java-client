@@ -3,6 +3,7 @@ package io.akenza.client.client;
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.domain.data.DataQuery;
 import io.akenza.client.domain.data.DeviceData;
+import io.akenza.client.domain.data.ImmutableDataQuery;
 import io.akenza.client.http.HttpMethod;
 import io.akenza.client.http.RequestImpl;
 import okhttp3.HttpUrl;
@@ -10,6 +11,9 @@ import okhttp3.OkHttpClient;
 
 import java.util.List;
 
+/**
+ * Client for querying device data
+ */
 public class DataQueryClient extends BaseClient {
     private static final String DEVICE_DATA_URI_TEMPLATE = "v3/devices/%s/query";
     private static final String DEVICE_DATA_TOPICS_URI_TEMPLATE = "v3/devices/%s/query/topics";
@@ -19,6 +23,24 @@ public class DataQueryClient extends BaseClient {
         super(client, baseUrl, apiKey);
     }
 
+
+    /**
+     * Query device data for the default filter criteria
+     *
+     * @param deviceId the akenza device id of the device
+     * @return a list of device data
+     */
+    public RequestImpl<List<DeviceData>> query(String deviceId) {
+        return query(deviceId, ImmutableDataQuery.builder().build());
+    }
+
+    /**
+     * Query device data for the provided filter criteria
+     *
+     * @param deviceId the akenza device id of the device
+     * @param query    the filter query
+     * @return a list of device data
+     */
     public RequestImpl<List<DeviceData>> query(String deviceId, DataQuery query) {
         final String path = String.format(DEVICE_DATA_URI_TEMPLATE, deviceId);
 
@@ -34,6 +56,12 @@ public class DataQueryClient extends BaseClient {
         return request;
     }
 
+    /**
+     * Query the list of topics for a device
+     *
+     * @param deviceId the akenza device id of the device
+     * @return a list of topics
+     */
     public RequestImpl<List<String>> queryTopics(String deviceId) {
         final String path = String.format(DEVICE_DATA_TOPICS_URI_TEMPLATE, deviceId);
 
@@ -48,8 +76,14 @@ public class DataQueryClient extends BaseClient {
         return request;
     }
 
+    /**
+     * Query the latest data point for a device
+     *
+     * @param deviceId the akenza device id of the device
+     * @return the latest data point
+     */
     public RequestImpl<DeviceData> queryLatestSample(String deviceId) {
-        final String path = String.format(DEVICE_DATA_TOPICS_URI_TEMPLATE, deviceId);
+        final String path = String.format(DEVICE_DATA_LAST_SAMPLE_URI_TEMPLATE, deviceId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
