@@ -2,7 +2,7 @@
   {
     "timestamp": "2022-01-16T19:11:59.858+00:00",
     "dateStored": "2022-01-16T19:12:00.326+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "temperature": 18.4,
       "humidity": 46,
@@ -14,7 +14,7 @@
   {
     "timestamp": "2022-01-16T19:11:59.858+00:00",
     "dateStored": "2022-01-16T19:12:00.225+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "motion": 2,
       "occupancy": 0
@@ -24,7 +24,7 @@
   {
     "timestamp": "2022-01-16T19:01:59.901+00:00",
     "dateStored": "2022-01-16T19:02:00.373+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "temperature": 18.4,
       "humidity": 46,
@@ -36,7 +36,7 @@
   {
     "timestamp": "2022-01-16T19:01:59.901+00:00",
     "dateStored": "2022-01-16T19:02:00.270+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "motion": 1,
       "occupancy": 0
@@ -46,7 +46,7 @@
   {
     "timestamp": "2022-01-16T18:51:59.954+00:00",
     "dateStored": "2022-01-16T18:52:00.427+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "temperature": 18.4,
       "humidity": 46,
@@ -58,7 +58,7 @@
   {
     "timestamp": "2022-01-16T18:51:59.954+00:00",
     "dateStored": "2022-01-16T18:52:00.325+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "motion": 2,
       "occupancy": 0
@@ -68,7 +68,7 @@
   {
     "timestamp": "2022-01-16T18:41:59.992+00:00",
     "dateStored": "2022-01-16T18:42:00.556+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "temperature": 18.5,
       "humidity": 46,
@@ -80,7 +80,7 @@
   {
     "timestamp": "2022-01-16T18:41:59.992+00:00",
     "dateStored": "2022-01-16T18:42:00.354+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "motion": 1,
       "occupancy": 0
@@ -90,7 +90,7 @@
   {
     "timestamp": "2022-01-16T18:32:00.043+00:00",
     "dateStored": "2022-01-16T18:32:00.576+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "temperature": 18.4,
       "humidity": 46,
@@ -102,7 +102,7 @@
   {
     "timestamp": "2022-01-16T18:32:00.043+00:00",
     "dateStored": "2022-01-16T18:32:00.474+00:00",
-    "deviceId": "0200000000000000",
+    "akenzaDeviceId": "0200000000000000",
     "data": {
       "motion": 2,
       "occupancy": 0

@@ -9,8 +9,8 @@ import io.akenza.client.domain.devices.objects.enums.Connectivity;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Value.Immutable
 @JsonSerialize(as = ImmutableUpdateDeviceCommand.class)
@@ -27,6 +27,12 @@ public abstract class UpdateDeviceCommand {
     public abstract String name();
 
     /**
+     * device ID
+     */
+    @Nullable
+    public abstract String deviceId();
+
+    /**
      * Description
      */
     @Nullable
@@ -35,16 +41,19 @@ public abstract class UpdateDeviceCommand {
     /**
      * Tags
      */
+    @Nullable
     public abstract List<AssignTagCommand> tags();
 
     /**
      * Custom Fields
      */
+    @Nullable
     public abstract List<UpsertCustomFieldValueCommand> customFields();
 
     /**
      * Workspace ID
      */
+    @Nullable
     public abstract UpdateLoRaPropertiesCommand loraProperties();
 
     /**
@@ -67,7 +76,8 @@ public abstract class UpdateDeviceCommand {
     /**
      * Additional Properties
      */
-    public abstract HashMap<String, Object> properties();
+    @Nullable
+    public abstract Map<String, Object> properties();
 
     /**
      * Online timeout

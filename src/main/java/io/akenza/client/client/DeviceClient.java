@@ -19,6 +19,7 @@ import java.util.Map;
  */
 public class DeviceClient extends BaseClient {
     private static final String DEVICE_URI_TEMPLATE = "v3/devices/%s";
+    private static final String ASSET_URI_TEMPLATE = "v3/assets/%s";
 
     public DeviceClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
         super(client, baseUrl, apiKey);
@@ -34,7 +35,7 @@ public class DeviceClient extends BaseClient {
      * @return a page with devices
      */
     public Request<DevicePage> list(DeviceFilter filter, String workspaceId, String organizationId) {
-        final String path = String.format(DEVICE_URI_TEMPLATE, "");
+        final String path = String.format(ASSET_URI_TEMPLATE, "");
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
@@ -65,11 +66,11 @@ public class DeviceClient extends BaseClient {
     /**
      * Retrieve a device by id
      *
-     * @param deviceId the akenza workspace id
+     * @param akenzaDeviceId the akenza workspace id
      * @return a device
      */
-    public Request<Device> getById(String deviceId) {
-        final String path = String.format(DEVICE_URI_TEMPLATE, deviceId);
+    public Request<Device> getById(String akenzaDeviceId) {
+        final String path = String.format(ASSET_URI_TEMPLATE, akenzaDeviceId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
@@ -127,11 +128,11 @@ public class DeviceClient extends BaseClient {
     /**
      * Delete a device
      *
-     * @param deviceId the akenza workspace id
+     * @param akenzaDeviceId the akenza device id
      * @return an empty response
      */
-    public Request<Void> delete(String deviceId) {
-        final String path = String.format(DEVICE_URI_TEMPLATE, deviceId);
+    public Request<Void> delete(String akenzaDeviceId) {
+        final String path = String.format(DEVICE_URI_TEMPLATE, akenzaDeviceId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
@@ -143,4 +144,7 @@ public class DeviceClient extends BaseClient {
         request.withHeader(X_API_KEY, apiKey);
         return request;
     }
+
+    // TODO 21.01.22: add bulk operations
+    // TODO 21.01.22: add de- / register
 }

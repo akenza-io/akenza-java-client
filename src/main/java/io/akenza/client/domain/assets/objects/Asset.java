@@ -6,6 +6,7 @@ import io.akenza.client.domain.devices.objects.Tag;
 import io.akenza.client.utils.Audited;
 import org.immutables.value.Value;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +15,27 @@ public interface Asset extends Audited {
 
     String name();
 
+    @Nullable
     String description();
 
+    /**
+     * only available on get requests
+     */
+    @Nullable
     AssetType type();
 
     String workspaceId();
 
     String organizationId();
 
+    @Nullable
     String integrationId();
 
     /**
      * Integration
      * only available on get requests
      */
+    @Nullable
     Integration integration();
 
     @Value.Default
@@ -44,5 +52,6 @@ public interface Asset extends Audited {
      * Uplink Metrics
      * only available on get requests
      */
+    @Nullable
     UplinkMetrics uplinkMetrics();
 }

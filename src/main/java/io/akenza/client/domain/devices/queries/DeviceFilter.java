@@ -3,10 +3,7 @@ package io.akenza.client.domain.devices.queries;
 import io.akenza.client.domain.assets.queries.AssetFilter;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class DeviceFilter extends AssetFilter {
+public class DeviceFilter extends AssetFilter<DeviceFilter> {
     public static final String LORA_PROPERTIES = "loraProperties";
     public static final String ACTILITY_PROPERTIES = "actilityProperties";
 
@@ -55,34 +52,21 @@ public class DeviceFilter extends AssetFilter {
     }
 
     @NotNull
-    @SuppressWarnings("unchecked")
     private DeviceFilter addLoraProperty(String propertyName, Object propertyValue) {
-        Map<String, Object> loraProperties = new HashMap<>();
-        if (parameters.containsKey(LORA_PROPERTIES)) {
-            loraProperties = ((Map<String, Object>) parameters.get(LORA_PROPERTIES));
-        } else {
-            parameters.put(LORA_PROPERTIES, loraProperties);
-        }
-        loraProperties.put(propertyName, propertyValue);
+        parameters.put(LORA_PROPERTIES.concat(".").concat(propertyName), propertyValue);
         return this;
     }
 
     @NotNull
-    @SuppressWarnings("unchecked")
     private DeviceFilter addActilityProperty(String propertyName, Object propertyValue) {
-        Map<String, Object> loraProperties = new HashMap<>();
-        Map<String, Object> actilityProperties = new HashMap<>();
-        if (parameters.containsKey(LORA_PROPERTIES)) {
-            loraProperties = ((Map<String, Object>) parameters.get(LORA_PROPERTIES));
-        } else {
-            parameters.put(LORA_PROPERTIES, loraProperties);
-        }
-        if (loraProperties.containsKey(ACTILITY_PROPERTIES)) {
-            actilityProperties = ((Map<String, Object>) parameters.get(ACTILITY_PROPERTIES));
-        } else {
-            parameters.put(ACTILITY_PROPERTIES, actilityProperties);
-        }
-        actilityProperties.put(propertyName, propertyValue);
+        parameters.put(LORA_PROPERTIES.concat(".")
+                .concat(ACTILITY_PROPERTIES).concat(".")
+                .concat(propertyName), propertyValue);
+        return this;
+    }
+
+    @Override
+    protected DeviceFilter getThis() {
         return this;
     }
 }

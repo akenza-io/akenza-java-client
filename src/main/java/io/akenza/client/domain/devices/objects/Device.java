@@ -7,6 +7,7 @@ import io.akenza.client.domain.devices.objects.enums.Connectivity;
 import io.akenza.client.domain.devices.objects.enums.DeviceOnlineState;
 import org.immutables.value.Value;
 
+import javax.annotation.Nullable;
 import java.util.Map;
 
 @Value.Immutable
@@ -15,6 +16,7 @@ import java.util.Map;
 public interface Device extends Asset {
     String deviceId();
 
+    @Nullable
     Map<String, Object> properties();
 
     Connectivity connectivity();
@@ -25,14 +27,17 @@ public interface Device extends Asset {
      * Online
      * only available on get requests
      */
+    @Nullable
     Boolean online();
 
     /**
      * Online State
      * only available on get requests
      */
+    @Nullable
     DeviceOnlineState onlineState();
 
+    @Nullable
     Boolean registered();
 
     String dataFlowId();
@@ -41,7 +46,9 @@ public interface Device extends Asset {
      * Data Flow
      * only available on get requests
      */
+    @Nullable
     DataFlow dataFlow();
 
+    @Nullable
     LoRaProperties loraProperties();
 }

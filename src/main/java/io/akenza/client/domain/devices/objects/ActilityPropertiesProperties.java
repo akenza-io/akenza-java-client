@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.akenza.client.domain.devices.objects.enums.ActilityMotionIndicator;
 import org.immutables.value.Value;
 
+import javax.annotation.Nullable;
+
 @Value.Immutable
 @JsonSerialize(as = ImmutableActilityPropertiesProperties.class)
 @JsonDeserialize(as = ImmutableActilityPropertiesProperties.class)
@@ -17,5 +19,6 @@ public interface ActilityPropertiesProperties {
 
     ActilityMotionIndicator motionIndicator();
 
+    @Nullable
     String routingProfileId();
 }

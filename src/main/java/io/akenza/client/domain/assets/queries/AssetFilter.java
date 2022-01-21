@@ -5,27 +5,26 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-public class AssetFilter extends BaseFilter {
+public abstract class AssetFilter<T extends BaseFilter<T>> extends BaseFilter<T> {
     public static final String ASSET_IDS = "assetIds";
     public static final String CUSTOM_FIELDS = "customFields";
     public static final String TAGS = "tags";
     public static final String IDS = "ids";
 
-    public AssetFilter withSearch(String search) {
+    public T withSearch(String search) {
         parameters.put("search", search);
-        return this;
+        return getThis();
     }
 
-    public AssetFilter withIntegrationId(String integrationId) {
+    public T withIntegrationId(String integrationId) {
         parameters.put("integrationId", integrationId);
-        return this;
+        return getThis();
     }
 
     @SuppressWarnings("unchecked")
-    public AssetFilter withAssetId(String assetId) {
+    public T withAssetId(String assetId) {
         Set<String> assetIds = new HashSet<>();
         if (parameters.containsKey(ASSET_IDS)) {
             assetIds = (Set<String>) parameters.get(ASSET_IDS);
@@ -33,11 +32,11 @@ public class AssetFilter extends BaseFilter {
             parameters.put(ASSET_IDS, assetIds);
         }
         assetIds.add(assetId);
-        return this;
+        return getThis();
     }
 
     @SuppressWarnings("unchecked")
-    public AssetFilter withAssetIds(List<String> assetIds) {
+    public T withAssetIds(List<String> assetIds) {
         Set<String> existingIds = new HashSet<>();
         if (parameters.containsKey(ASSET_IDS)) {
             existingIds = (Set<String>) parameters.get(ASSET_IDS);
@@ -45,63 +44,64 @@ public class AssetFilter extends BaseFilter {
             parameters.put(ASSET_IDS, assetIds);
         }
         existingIds.addAll(assetIds);
-        return this;
+        return getThis();
     }
 
-    public AssetFilter withDataFlowId(String dataFlowId) {
+    public T withDataFlowId(String dataFlowId) {
         parameters.put("dataFlowId", dataFlowId);
-        return this;
+        return getThis();
     }
 
-    public AssetFilter withState(String state) {
+    public T withState(String state) {
         parameters.put("state", state);
-        return this;
+        return getThis();
     }
 
-    public AssetFilter withPackageName(String packageName) {
+    public T withPackageName(String packageName) {
         parameters.put("packageName", packageName);
-        return this;
+        return getThis();
     }
 
-    public AssetFilter withCustomField(String customFieldId) {
+    public T withCustomField(String customFieldId) {
         return addId(CUSTOM_FIELDS, customFieldId);
     }
 
-    public AssetFilter withCustomFields(List<String> customFieldIds) {
+    public T withCustomFields(List<String> customFieldIds) {
         return addIds(CUSTOM_FIELDS, customFieldIds);
     }
 
-    public AssetFilter withTag(String tagId) {
+    public T withTag(String tagId) {
         return addId(TAGS, tagId);
     }
 
-    public AssetFilter withTags(List<String> tagIds) {
+    public T withTags(List<String> tagIds) {
         return addIds(TAGS, tagIds);
     }
 
     @NotNull
-    @SuppressWarnings("unchecked")
-    private AssetFilter addId(String tags, String tagId) {
-        Set<String> existingIds = new HashSet<>();
-        if (parameters.containsKey(tags)) {
-            existingIds = ((Map<String, Set<String>>) parameters.get(tags)).get(IDS);
-        } else {
-            parameters.put(tags, Map.of(IDS, existingIds));
-        }
-        existingIds.add(tagId);
-        return this;
+    private T addId(String parameterName, String parameterValue) {
+        Set<String> existingIds = getOrCreateParameter(parameterName);
+        existingIds.add(parameterValue);
+        return getThis();
     }
 
     @NotNull
-    @SuppressWarnings("unchecked")
-    private AssetFilter addIds(String parameter, List<String> tagIds) {
-        Set<String> existingIds = new HashSet<>();
-        if (parameters.containsKey(parameter)) {
-            existingIds = ((Map<String, Set<String>>) parameters.get(parameter)).get(IDS);
-        } else {
-            parameters.put(parameter, Map.of(IDS, existingIds));
-        }
+    private T addIds(String parameter, List<String> tagIds) {
+        Set<String> existingIds = getOrCreateParameter(parameter);
         existingIds.addAll(tagIds);
-        return this;
+        return getThis();
+    }
+
+    @SuppressWarnings("unchecked")
+    @NotNull
+    private Set<String> getOrCreateParameter(String parameter) {
+        Set<String> existingIds = new HashSet<>();
+        String parameterId = parameter.concat(".").concat(IDS);
+        if (parameters.containsKey(parameter)) {
+            existingIds = (Set<String>) parameters.get(parameterId);
+        } else {
+            parameters.put(parameterId, existingIds);
+        }
+        return existingIds;
     }
 }

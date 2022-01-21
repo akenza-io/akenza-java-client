@@ -1,6 +1,7 @@
 package io.akenza.client;
 
 import io.akenza.client.client.DataQueryClient;
+import io.akenza.client.client.DeviceClient;
 import io.akenza.client.client.WorkspaceClient;
 import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.RateLimitInterceptor;
@@ -53,7 +54,6 @@ public class AkenzaAPI {
         return new AkenzaAPI(baseUrl, apiKey, options);
     }
 
-
     public AkenzaAPI(String baseUrl, String apiKey) {
         this(baseUrl, apiKey, new HttpOptions());
     }
@@ -67,7 +67,6 @@ public class AkenzaAPI {
     public static AkenzaAPI create(String baseUrl, String apiKey) {
         return new AkenzaAPI(baseUrl, apiKey);
     }
-
 
     public AkenzaAPI(String apiKey, HttpOptions options) {
         this(DEFAULT_BASE_URL, apiKey, options);
@@ -84,7 +83,6 @@ public class AkenzaAPI {
     public static AkenzaAPI create(String apiKey, HttpOptions options) {
         return new AkenzaAPI(apiKey, options);
     }
-
 
     public AkenzaAPI(String apiKey) {
         this(DEFAULT_BASE_URL, apiKey, new HttpOptions());
@@ -124,5 +122,9 @@ public class AkenzaAPI {
 
     public DataQueryClient dataQuery() {
         return new DataQueryClient(client, baseUrl, apiKey);
+    }
+
+    public DeviceClient deviceClient() {
+        return new DeviceClient(client, baseUrl, apiKey);
     }
 }

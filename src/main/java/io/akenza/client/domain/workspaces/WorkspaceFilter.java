@@ -2,7 +2,7 @@ package io.akenza.client.domain.workspaces;
 
 import io.akenza.client.utils.BaseFilter;
 
-public class WorkspaceFilter extends BaseFilter {
+public class WorkspaceFilter extends BaseFilter<WorkspaceFilter> {
     public static WorkspaceFilter create() {
         return new WorkspaceFilter();
     }
@@ -14,6 +14,11 @@ public class WorkspaceFilter extends BaseFilter {
 
     public WorkspaceFilter withName(String name) {
         parameters.put("name", name);
+        return this;
+    }
+
+    @Override
+    protected WorkspaceFilter getThis() {
         return this;
     }
 }

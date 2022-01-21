@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
+import javax.annotation.Nullable;
+
 @Value.Immutable
 @JsonSerialize(as = ImmutableGpsCoordinates.class)
 @JsonDeserialize(as = ImmutableGpsCoordinates.class)
@@ -11,10 +13,12 @@ public interface GpsCoordinates {
     /**
      * Latitude
      */
-    double latitude();
+    @Nullable
+    Double latitude();
 
     /**
      * Longitude
      */
-    double longitude();
+    @Nullable
+    Double longitude();
 }

@@ -28,13 +28,21 @@ public abstract class CreateDeviceCommand {
     public abstract String description();
 
     /**
+     * device ID
+     */
+    @Nullable
+    public abstract String deviceId();
+
+    /**
      * Tags
      */
+    @Nullable
     public abstract List<AssignTagCommand> tags();
 
     /**
      * Custom Fields
      */
+    @Nullable
     public abstract List<UpsertCustomFieldValueCommand> customFields();
 
     /**
@@ -62,6 +70,7 @@ public abstract class CreateDeviceCommand {
     /**
      * Additional Properties
      */
+    @Nullable
     public abstract Map<String, Object> properties();
 
     /**
