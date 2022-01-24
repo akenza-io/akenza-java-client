@@ -34,8 +34,18 @@ public abstract class UpsertCustomFieldValueCommand {
 
     @Value.Check
     protected void check() {
-        Preconditions.checkState(!(fieldMetaId() == null && string() == null && number() == null && date() == null && json() == null && gpsCoordinates() == null)
-                                         || (fieldMetaId() != null && string() != null && number() != null && date() != null && json() != null && gpsCoordinates() != null),
+        Preconditions.checkState(!(fieldMetaId() == null
+                                           && string() == null
+                                           && number() == null
+                                           && date() == null
+                                           && json() == null
+                                           && gpsCoordinates() == null)
+                                         || (fieldMetaId() != null
+                                                     && string() != null
+                                                     && number() != null
+                                                     && date() != null
+                                                     && json() != null
+                                                     && gpsCoordinates() != null),
                 "Exactly one of the following fields have to be set: fieldMetaId, string, number, date, json, gpsCoordinates");
     }
 }
