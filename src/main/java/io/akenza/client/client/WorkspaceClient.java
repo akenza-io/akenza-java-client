@@ -1,21 +1,18 @@
 package io.akenza.client.client;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import io.akenza.client.domain.workspaces.Workspace;
-import io.akenza.client.domain.workspaces.WorkspaceFilter;
-import io.akenza.client.domain.workspaces.WorkspacePage;
+import io.akenza.client.domain.workspaces.*;
+import io.akenza.client.http.HttpMethod;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 import java.util.Map;
 
 /**
- * Workspace API client
+ * Client for interacting with workspaces
  */
-@Slf4j
 public class WorkspaceClient extends BaseClient {
     private static final String WORKSPACE_URI_TEMPLATE = "v3/workspaces/%s";
 
@@ -23,7 +20,13 @@ public class WorkspaceClient extends BaseClient {
         super(client, baseUrl, apiKey);
     }
 
-    //TODO make pagination work
+    /**
+     * Retrieve a list of workspaces for the specified organization
+     *
+     * @param organizationId the akenza organization id
+     * @param filter         an optional filter for restricting the search and providing pagination parameters
+     * @return a page with workspace
+     */
     public Request<WorkspacePage> list(String organizationId, WorkspaceFilter filter) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, "");
 
@@ -39,13 +42,18 @@ public class WorkspaceClient extends BaseClient {
         builder.addQueryParameter("organizationId", organizationId);
 
         String url = builder.build().toString();
-        //TODO implement enum for HTTP methods
-        var request = new RequestImpl<>(client, url, "GET", new TypeReference<WorkspacePage>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<WorkspacePage>() {
         });
-        request.withHeader("x-api-key", apiKey);
+        request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 
+    /**
+     * Retrieve a workspace by id
+     *
+     * @param workspaceId the akenza workspace id
+     * @return a workspace
+     */
     public Request<Workspace> getById(String workspaceId) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, workspaceId);
 
@@ -54,14 +62,19 @@ public class WorkspaceClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, "GET", new TypeReference<Workspace>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<Workspace>() {
         });
-        request.withHeader("x-api-key", apiKey);
+        request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 
-    //TODO implement CreateWorkspaceCommand or find out how to best use Immutables for that
-    public Request<Workspace> create(Workspace workspace) {
+    /**
+     * Create a new workspace
+     *
+     * @param workspace a workspace create command
+     * @return the newly created workspace
+     */
+    public Request<Workspace> create(CreateWorkspaceCommand workspace) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, "");
 
         HttpUrl.Builder builder = baseUrl
@@ -69,14 +82,20 @@ public class WorkspaceClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, "POST", new TypeReference<Workspace>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Workspace>() {
         });
-        request.withHeader("x-api-key", apiKey);
+        request.withHeader(X_API_KEY, apiKey);
         request.withBody(workspace);
         return request;
     }
 
-    public Request<Workspace> update(Workspace workspace) {
+    /**
+     * Update an existing workspace
+     *
+     * @param workspace a workspace update command
+     * @return the updated workspace
+     */
+    public Request<Workspace> update(ImmutableUpdateWorkspaceCommand workspace) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, workspace.id());
 
         HttpUrl.Builder builder = baseUrl
@@ -84,14 +103,20 @@ public class WorkspaceClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, "PUT", new TypeReference<Workspace>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<Workspace>() {
         });
-        request.withHeader("x-api-key", apiKey);
+        request.withHeader(X_API_KEY, apiKey);
         request.withBody(workspace);
         return request;
     }
 
-    public Request<Workspace> delete(String workspaceId) {
+    /**
+     * Delete a workspace
+     *
+     * @param workspaceId the akenza workspace id
+     * @return
+     */
+    public Request<Void> delete(String workspaceId) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, workspaceId);
 
         HttpUrl.Builder builder = baseUrl
@@ -99,9 +124,9 @@ public class WorkspaceClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, "DELETE", new TypeReference<Workspace>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader("x-api-key", apiKey);
+        request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 }
