@@ -1,0 +1,118 @@
+{
+  "id": "0200000000000000",
+  "name": "test deregister",
+  "description": null,
+  "type": "DEVICE",
+  "workspaceId": "2900000000000000",
+  "organizationId": "2800000000000000",
+  "integration": {
+    "id": "0600000000000000",
+    "name": "swisscom deRegister",
+    "type": "SWISSCOM_ACTILITY",
+    "global": false
+  },
+  "customFields": [
+    {
+      "meta": {
+        "id": "6900000000000011",
+        "workspaceId": "2900000000000000",
+        "name": "text",
+        "type": "STRING",
+        "created": "2021-04-15T00:00:00.000+00:00",
+        "updated": "2021-04-15T00:00:00.000+00:00"
+      },
+      "created": null,
+      "updated": null,
+      "STRING": "asfasf",
+      "NUMBER": null,
+      "DATE": null,
+      "JSON": {},
+      "GPS_COORDINATES": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "meta": {
+        "id": "6900000000000012",
+        "workspaceId": "2900000000000000",
+        "name": "some text",
+        "type": "STRING",
+        "created": "2021-04-01T00:00:00.000+00:00",
+        "updated": "2021-04-01T00:00:00.000+00:00"
+      },
+      "created": null,
+      "updated": null,
+      "STRING": "asfasf",
+      "NUMBER": null,
+      "DATE": null,
+      "JSON": {},
+      "GPS_COORDINATES": {
+        "latitude": null,
+        "longitude": null
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": "7100000000000001",
+      "name": "test 2",
+      "description": null
+    },
+    {
+      "id": "7100000000000002",
+      "name": "tag",
+      "description": null
+    }
+  ],
+  "uplinkMetrics": {
+    "uplinkId": "5aa0950c-b61f-4c5a-9f7b-cf60f8c94bf6",
+    "deviceId": "0200000000000006",
+    "uplinkSize": 29,
+    "timestamp": "2021-12-09T15:57:55Z",
+    "id": "0200000000000001"
+  },
+  "created": "2022-01-03T14:00:22.000+00:00",
+  "updated": "2022-01-18T11:10:54.000+00:00",
+  "deviceId": "AFAFAFAFAFAFAFAF",
+  "properties": {},
+  "connectivity": "LORA",
+  "onlineTimeout": 86400,
+  "online": null,
+  "onlineState": "UNKNOWN",
+  "registered": true,
+  "dataFlowId": "0800000000000000",
+  "dataFlow": {
+    "id": "0800000000000000",
+    "name": "swisscom -> pass -> db",
+    "deviceType": null,
+    "deviceConnector": {
+      "id": "0700000000000000",
+      "name": "Actility Connector"
+    }
+  },
+  "loraProperties": {
+    "carrier": "SWISSCOM_ACTILITY",
+    "activationMode": "OTAA",
+    "loraVersion": "1.0.0",
+    "deviceClass": "A",
+    "deviceEui": "AFAFAFAFAFAFAFAF",
+    "deviceAddress": null,
+    "applicationEui": "AFAFAFAFAFAFAFAF",
+    "joinEui": null,
+    "applicationKey": "AFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF",
+    "applicationSessionKey": null,
+    "networkSessionKey": null,
+    "forwardingNetworkSessionIntegrityKey": null,
+    "networkSessionEncryptionKey": null,
+    "servingNetworkSessionIntegrityKey": null,
+    "actilityProperties": {
+      "actilityId": "0000000",
+      "connectivityPlanId": "swisscom-cs/swisscom-cp-nb-notrouted",
+      "deviceProfileId": "LORA/SwisscomA.1_FCC_Rx2-SF9",
+      "motionIndicator": "NEAR_STATIC",
+      "routingProfileId": "TWA_100015943.49486"
+    },
+    "ttnProperties": null
+  }
+}
