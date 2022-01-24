@@ -1,0 +1,546 @@
+{
+  "content": [
+    {
+      "id": "0200000000000000",
+      "name": "kinesis device",
+      "description": null,
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": null,
+      "customFields": [],
+      "tags": [],
+      "uplinkMetrics": {
+        "uplinkId": "efe80efd-a7a7-417a-a5a6-a7963ce5a128",
+        "akenzaDeviceId": "0200000000000000",
+        "uplinkSize": 34,
+        "timestamp": "2021-10-22T08:18:41Z",
+        "id": "0200000000000020"
+      },
+      "created": "2021-10-22T08:13:50.000+00:00",
+      "updated": "2021-10-22T08:13:50.000+00:00",
+      "deviceId": "AFAFAFAFAFAFAF00",
+      "properties": {},
+      "connectivity": "HTTP",
+      "onlineTimeout": 43200,
+      "online": false,
+      "onlineState": "OFFLINE",
+      "registered": null,
+      "dataFlowId": "0800000000000004",
+      "dataFlow": {
+        "id": "0800000000000004",
+        "name": "Kinesis flow",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000002",
+          "name": "http connector"
+        }
+      },
+      "loraProperties": null
+    },
+    {
+      "id": "0200000000000001",
+      "name": "mqtt device",
+      "description": "",
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": null,
+      "customFields": [
+        {
+          "meta": {
+            "id": "6900000000000000",
+            "workspaceId": "2900000000000000",
+            "name": "json",
+            "type": "JSON",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": null,
+          "NUMBER": null,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000011",
+            "workspaceId": "2900000000000000",
+            "name": "text",
+            "type": "STRING",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": "afafaf",
+          "NUMBER": null,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000012",
+            "workspaceId": "2900000000000000",
+            "name": "some text",
+            "type": "STRING",
+            "created": "2021-04-01T00:00:00.000+00:00",
+            "updated": "2021-04-01T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": "",
+          "NUMBER": null,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000020",
+            "workspaceId": "2900000000000000",
+            "name": "number",
+            "type": "NUMBER",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": null,
+          "NUMBER": 1.00000000000000000000,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000010",
+            "workspaceId": "2900000000000000",
+            "name": "date",
+            "type": "DATE",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": null,
+          "NUMBER": null,
+          "DATE": "2021-09-02T09:43:00.000+00:00",
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000121",
+            "workspaceId": "2900000000000000",
+            "name": "gps",
+            "type": "GPS_COORDINATES",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": null,
+          "NUMBER": null,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": 0.0,
+            "longitude": 0.0
+          }
+        }
+      ],
+      "tags": [
+        {
+          "id": "7100000000000000",
+          "name": "mqtt",
+          "description": null
+        },
+        {
+          "id": "7100000000000001",
+          "name": "test 2",
+          "description": null
+        },
+        {
+          "id": "7100000000000002",
+          "name": "tag",
+          "description": null
+        }
+      ],
+      "uplinkMetrics": {
+        "uplinkId": "7ac20ba8-fc97-412f-b033-52ba3135d3eb",
+        "akenzaDeviceId": "0200000000000001",
+        "uplinkSize": 31,
+        "timestamp": "2021-10-07T09:32:53Z",
+        "id": "0200000000000021"
+      },
+      "created": "2021-04-15T08:17:00.000+00:00",
+      "updated": "2021-10-07T09:30:17.000+00:00",
+      "deviceId": "AFAFAFAFAFAFAFAFAF00",
+      "properties": {},
+      "connectivity": "MQTT",
+      "onlineTimeout": 86400,
+      "online": false,
+      "onlineState": "OFFLINE",
+      "registered": null,
+      "dataFlowId": "0800000000000005",
+      "dataFlow": {
+        "id": "0800000000000005",
+        "name": "mqtt - pass - db",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000000",
+          "name": "mqtt connector"
+        }
+      },
+      "loraProperties": null
+    },
+    {
+      "id": "0200000000000003",
+      "name": "test deregister",
+      "description": null,
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": {
+        "id": "0600000000000000",
+        "name": "swisscom deRegister",
+        "type": "SWISSCOM_ACTILITY",
+        "global": false
+      },
+      "customFields": [],
+      "tags": [],
+      "uplinkMetrics": null,
+      "created": "2022-01-03T14:00:22.000+00:00",
+      "updated": "2022-01-18T11:10:54.000+00:00",
+      "deviceId": "AFAFAFAFAFAFAF01",
+      "properties": {},
+      "connectivity": "LORA",
+      "onlineTimeout": 86400,
+      "online": null,
+      "onlineState": "UNKNOWN",
+      "registered": true,
+      "dataFlowId": "0800000000000000",
+      "dataFlow": {
+        "id": "0800000000000000",
+        "name": "swisscom -> pass -> db",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000001",
+          "name": "Actility Connector"
+        }
+      },
+      "loraProperties": {
+        "carrier": "SWISSCOM_ACTILITY",
+        "activationMode": "OTAA",
+        "loraVersion": "1.0.0",
+        "deviceClass": "A",
+        "deviceEui": "AFAFAFAFAFAFAF01",
+        "deviceAddress": null,
+        "applicationEui": "AFAFAFAFAFAFAF01",
+        "joinEui": null,
+        "applicationKey": "AFAFAFAFAFAFAF01AFAFAFAFAFAFAF01",
+        "applicationSessionKey": null,
+        "networkSessionKey": null,
+        "forwardingNetworkSessionIntegrityKey": null,
+        "networkSessionEncryptionKey": null,
+        "servingNetworkSessionIntegrityKey": null,
+        "actilityProperties": {
+          "actilityId": "0000000",
+          "connectivityPlanId": "swisscom-cs/swisscom-cp-nb-notrouted",
+          "deviceProfileId": "LORA/SwisscomA.1_FCC_Rx2-SF9",
+          "motionIndicator": "NEAR_STATIC",
+          "routingProfileId": "TWA_100015943.49486"
+        },
+        "ttnProperties": null
+      }
+    },
+    {
+      "id": "0200000000000004",
+      "name": "test device error",
+      "description": null,
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": null,
+      "customFields": [
+        {
+          "meta": {
+            "id": "6900000000000010",
+            "workspaceId": "2900000000000000",
+            "name": "date",
+            "type": "DATE",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": null,
+          "NUMBER": null,
+          "DATE": "2021-09-02T09:43:00.000+00:00",
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        }
+      ],
+      "tags": [
+        {
+          "id": "7100000000000001",
+          "name": "test 2",
+          "description": null
+        },
+        {
+          "id": "7100000000000002",
+          "name": "tag",
+          "description": null
+        }
+      ],
+      "uplinkMetrics": null,
+      "created": "2021-08-31T09:46:57.000+00:00",
+      "updated": "2021-08-31T09:46:57.000+00:00",
+      "deviceId": "AFAFAFAFA",
+      "properties": {},
+      "connectivity": "HTTP",
+      "onlineTimeout": 86400,
+      "online": null,
+      "onlineState": "UNKNOWN",
+      "registered": null,
+      "dataFlowId": "0800000000000001",
+      "dataFlow": {
+        "id": "0800000000000001",
+        "name": "http -> pass -> db",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000002",
+          "name": "http connector"
+        }
+      },
+      "loraProperties": null
+    },
+    {
+      "id": "0200000000000005",
+      "name": "test device error",
+      "description": null,
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": null,
+      "customFields": [
+        {
+          "meta": {
+            "id": "6900000000000011",
+            "workspaceId": "2900000000000000",
+            "name": "text",
+            "type": "STRING",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": "asfasf",
+          "NUMBER": null,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000012",
+            "workspaceId": "2900000000000000",
+            "name": "some text",
+            "type": "STRING",
+            "created": "2021-04-01T00:00:00.000+00:00",
+            "updated": "2021-04-01T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": "asfasf",
+          "NUMBER": null,
+          "DATE": null,
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        },
+        {
+          "meta": {
+            "id": "6900000000000010",
+            "workspaceId": "2900000000000000",
+            "name": "date",
+            "type": "DATE",
+            "created": "2021-04-15T00:00:00.000+00:00",
+            "updated": "2021-04-15T00:00:00.000+00:00"
+          },
+          "created": null,
+          "updated": null,
+          "STRING": null,
+          "NUMBER": null,
+          "DATE": "2021-09-02T09:43:00.000+00:00",
+          "JSON": {},
+          "GPS_COORDINATES": {
+            "latitude": null,
+            "longitude": null
+          }
+        }
+      ],
+      "tags": [
+        {
+          "id": "7100000000000001",
+          "name": "test 2",
+          "description": null
+        },
+        {
+          "id": "7100000000000002",
+          "name": "tag",
+          "description": null
+        }
+      ],
+      "uplinkMetrics": null,
+      "created": "2021-08-31T09:46:40.000+00:00",
+      "updated": "2021-08-31T09:46:40.000+00:00",
+      "deviceId": "AFAFAFAFAF",
+      "properties": {},
+      "connectivity": "HTTP",
+      "onlineTimeout": 86400,
+      "online": null,
+      "onlineState": "UNKNOWN",
+      "registered": null,
+      "dataFlowId": "0800000000000001",
+      "dataFlow": {
+        "id": "0800000000000001",
+        "name": "http -> pass -> db",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000002",
+          "name": "http connector"
+        }
+      },
+      "loraProperties": null
+    },
+    {
+      "id": "0200000000000006",
+      "name": "test easy OCs",
+      "description": null,
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": null,
+      "customFields": [],
+      "tags": [],
+      "uplinkMetrics": {
+        "uplinkId": "5aa0950c-b61f-4c5a-9f7b-cf60f8c94bf6",
+        "akenzaDeviceId": "0200000000000006",
+        "uplinkSize": 29,
+        "timestamp": "2021-12-09T15:57:55Z",
+        "id": "0200000000000001"
+      },
+      "created": "2021-12-09T12:50:42.000+00:00",
+      "updated": "2021-12-09T12:50:42.000+00:00",
+      "deviceId": "AFAFAFAFAFAFAF02",
+      "properties": {},
+      "connectivity": "HTTP",
+      "onlineTimeout": 43200,
+      "online": false,
+      "onlineState": "OFFLINE",
+      "registered": null,
+      "dataFlowId": "0800000000000002",
+      "dataFlow": {
+        "id": "0800000000000002",
+        "name": "test easy oc",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000002",
+          "name": "http connector"
+        }
+      },
+      "loraProperties": null
+    },
+    {
+      "id": "0200000000000007",
+      "name": "test webhook bug",
+      "description": null,
+      "type": "DEVICE",
+      "workspaceId": "2900000000000000",
+      "organizationId": "2800000000000000",
+      "integration": null,
+      "customFields": [],
+      "tags": [],
+      "uplinkMetrics": {
+        "uplinkId": "a090d20d-eb9e-42d3-a016-581f0b6619ae",
+        "akenzaDeviceId": "0200000000000007",
+        "uplinkSize": 29,
+        "timestamp": "2021-11-16T13:00:01Z",
+        "id": "0200000000000000"
+      },
+      "created": "2021-11-16T09:33:24.000+00:00",
+      "updated": "2021-11-16T09:33:24.000+00:00",
+      "deviceId": "AFAFAFAFAFAFAF03",
+      "properties": {},
+      "connectivity": "HTTP",
+      "onlineTimeout": 43200,
+      "online": false,
+      "onlineState": "OFFLINE",
+      "registered": null,
+      "dataFlowId": "0800000000000003",
+      "dataFlow": {
+        "id": "0800000000000003",
+        "name": "test webhook bug",
+        "deviceType": null,
+        "deviceConnector": {
+          "id": "0700000000000002",
+          "name": "http connector"
+        }
+      },
+      "loraProperties": null
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "offset": 10,
+    "pageSize": 10,
+    "pageNumber": 1,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 2,
+  "totalElements": 17,
+  "last": true,
+  "number": 1,
+  "sort": {
+    "sorted": false,
+    "unsorted": true,
+    "empty": true
+  },
+  "size": 10,
+  "numberOfElements": 7,
+  "first": false,
+  "empty": false
+}

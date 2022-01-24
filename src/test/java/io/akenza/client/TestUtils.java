@@ -13,9 +13,9 @@ import static java.nio.charset.Charset.defaultCharset;
 
 public class TestUtils {
 
-    private static final String FIXTURE_ROOT = "io/akenza/client/v3/";
+    private static final String FIXTURE_ROOT = "io/akenza/client/";
 
-    public static String loadFixture(final String path) {
+    public static String getFixture(final String path) {
         try {
             return Resources.toString(getResource(FIXTURE_ROOT + path), defaultCharset());
         } catch (IOException e) {

@@ -4,6 +4,8 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 abstract class BaseClient {
+    protected static final String X_API_KEY = "x-api-key";
+
     protected final OkHttpClient client;
     protected final HttpUrl baseUrl;
     protected final String apiKey;

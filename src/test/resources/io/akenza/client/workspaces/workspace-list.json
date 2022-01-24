@@ -1,8 +1,8 @@
 {
   "content": [
     {
-      "id": "2960199385a7060f",
-      "name": "A",
+      "id": "2900000000000000",
+      "name": "workspace 1",
       "description": null,
       "version": 0,
       "properties": {},
@@ -11,13 +11,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-08-24T14:18:00.000+00:00"
     },
     {
-      "id": "297be5bd4e60c735",
-      "name": "asd",
+      "id": "2900000000000001",
+      "name": "workspace 2",
       "description": "asd",
       "version": 0,
       "properties": {},
@@ -26,13 +26,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-09-16T07:02:31.000+00:00"
     },
     {
-      "id": "29d89710a345cb5c",
-      "name": "Azure IoT Hub",
+      "id": "2900000000000002",
+      "name": "workspace 3",
       "description": null,
       "version": 0,
       "properties": {},
@@ -41,13 +41,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-08-19T09:15:02.000+00:00"
     },
     {
-      "id": "291df581d9a62322",
-      "name": "bulk import stuff",
+      "id": "2900000000000003",
+      "name": "workspace 4",
       "description": null,
       "version": 0,
       "properties": {},
@@ -56,13 +56,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-08-16T13:59:13.000+00:00"
     },
     {
-      "id": "29eb952000d455dc",
-      "name": "Dävu's Workspace - daily",
+      "id": "2900000000000004",
+      "name": "workspace 5",
       "description": null,
       "version": 4,
       "properties": {},
@@ -73,13 +73,13 @@
           "david@akenza.io"
         ]
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": "2021-11-23T17:01:47.000+00:00",
       "created": "2021-03-02T09:08:17.000+00:00"
     },
     {
-      "id": "29460fa8e406e3e0",
-      "name": "dävu's workspace - weakly",
+      "id": "2900000000000005",
+      "name": "workspace 6",
       "description": null,
       "version": 1,
       "properties": {},
@@ -91,13 +91,13 @@
           "david@akenza.io"
         ]
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": "2021-11-23T17:37:19.000+00:00",
       "created": "2021-11-23T17:02:46.000+00:00"
     },
     {
-      "id": "29d4d84b195be365",
-      "name": "Fabian's Workspace",
+      "id": "2900000000000006",
+      "name": "workspace 7",
       "description": "dont touch it",
       "version": 0,
       "properties": {},
@@ -106,13 +106,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-03-02T19:49:17.000+00:00"
     },
     {
-      "id": "29cb64eccc4e62d7",
-      "name": "Integration Tests",
+      "id": "2900000000000007",
+      "name": "workspace 8",
       "description": null,
       "version": 1,
       "properties": {},
@@ -121,13 +121,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": "2021-08-12T09:09:15.000+00:00",
       "created": "2021-08-12T09:00:15.000+00:00"
     },
     {
-      "id": "293181620804550a",
-      "name": "Load Testing",
+      "id": "2900000000000008",
+      "name": "workspace 9",
       "description": null,
       "version": 0,
       "properties": {},
@@ -136,13 +136,13 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-08-12T11:47:14.000+00:00"
     },
     {
-      "id": "2958db0c32bae76b",
-      "name": "Marius2",
+      "id": "2900000000000009",
+      "name": "workspace 10",
       "description": null,
       "version": 0,
       "properties": {},
@@ -151,7 +151,7 @@
         "lifecycleMessageInterval": "DAILY",
         "lifecycleMessageRecipients": []
       },
-      "organizationId": "28af7266058d1565",
+      "organizationId": "2800000000000000",
       "updated": null,
       "created": "2021-09-15T14:38:20.000+00:00"
     }

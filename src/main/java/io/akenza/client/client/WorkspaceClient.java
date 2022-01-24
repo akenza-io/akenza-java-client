@@ -11,16 +11,22 @@ import okhttp3.OkHttpClient;
 import java.util.Map;
 
 /**
- * Workspace API client
+ * Client for interacting with workspaces
  */
 public class WorkspaceClient extends BaseClient {
     private static final String WORKSPACE_URI_TEMPLATE = "v3/workspaces/%s";
-    public static final String X_API_KEY = "x-api-key";
 
     public WorkspaceClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
         super(client, baseUrl, apiKey);
     }
 
+    /**
+     * Retrieve a list of workspaces for the specified organization
+     *
+     * @param organizationId the akenza organization id
+     * @param filter         an optional filter for restricting the search and providing pagination parameters
+     * @return a page with workspace
+     */
     public Request<WorkspacePage> list(String organizationId, WorkspaceFilter filter) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, "");
 
@@ -42,6 +48,12 @@ public class WorkspaceClient extends BaseClient {
         return request;
     }
 
+    /**
+     * Retrieve a workspace by id
+     *
+     * @param workspaceId the akenza workspace id
+     * @return a workspace
+     */
     public Request<Workspace> getById(String workspaceId) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, workspaceId);
 
@@ -56,6 +68,12 @@ public class WorkspaceClient extends BaseClient {
         return request;
     }
 
+    /**
+     * Create a new workspace
+     *
+     * @param workspace a workspace create command
+     * @return the newly created workspace
+     */
     public Request<Workspace> create(CreateWorkspaceCommand workspace) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, "");
 
@@ -71,6 +89,12 @@ public class WorkspaceClient extends BaseClient {
         return request;
     }
 
+    /**
+     * Update an existing workspace
+     *
+     * @param workspace a workspace update command
+     * @return the updated workspace
+     */
     public Request<Workspace> update(ImmutableUpdateWorkspaceCommand workspace) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, workspace.id());
 
@@ -86,6 +110,12 @@ public class WorkspaceClient extends BaseClient {
         return request;
     }
 
+    /**
+     * Delete a workspace
+     *
+     * @param workspaceId the akenza workspace id
+     * @return
+     */
     public Request<Void> delete(String workspaceId) {
         final String path = String.format(WORKSPACE_URI_TEMPLATE, workspaceId);
 
