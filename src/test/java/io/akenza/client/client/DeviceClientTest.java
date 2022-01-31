@@ -124,7 +124,7 @@ class DeviceClientTest {
         //assert
         assertThat(device).isNotNull();
         RecordedRequest recordedRequest = server.takeRequest();
-        assertThat(recordedRequest.getPath()).isEqualTo("/v3/devices");
+        assertThat(recordedRequest.getPath()).isEqualTo("/v3/devices/");
         assertThat(recordedRequest.getMethod()).isEqualTo("POST");
     }
 
