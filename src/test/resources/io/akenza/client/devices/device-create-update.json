@@ -1,0 +1,88 @@
+{
+  "id": "0200000000000000",
+  "deviceId": "AFAFAFAFAFAFAFAF",
+  "name": "test deregister",
+  "description": null,
+  "properties": {},
+  "connectivity": "LORA",
+  "loraProperties": {
+    "carrier": "SWISSCOM_ACTILITY",
+    "activationMode": "OTAA",
+    "loraVersion": "1.0.0",
+    "deviceClass": "A",
+    "deviceEui": "AFAFAFAFAFAFAFAF",
+    "deviceAddress": null,
+    "applicationEui": "AFAFAFAFAFAFAFAF",
+    "joinEui": null,
+    "applicationKey": "AFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF",
+    "applicationSessionKey": null,
+    "networkSessionKey": null,
+    "forwardingNetworkSessionIntegrityKey": null,
+    "networkSessionEncryptionKey": null,
+    "servingNetworkSessionIntegrityKey": null,
+    "actilityProperties": {
+      "actilityId": "0000000",
+      "connectivityPlanId": "swisscom-cs/swisscom-cp-nb-notrouted",
+      "deviceProfileId": "LORA/SwisscomA.1_FCC_Rx2-SF9",
+      "motionIndicator": "NEAR_STATIC",
+      "routingProfileId": "TWA_100015943.49486"
+    },
+    "ttnProperties": null
+  },
+  "onlineTimeout": 86400,
+  "workspaceId": "29b1d22c3867f447",
+  "organizationId": "28af7266058d1565",
+  "dataFlowId": "080349db3c951f77",
+  "integrationId": "0652be0375261a98",
+  "customFields": [
+    {
+      "meta": {
+        "id": "6953d177506a0375",
+        "workspaceId": "29b1d22c3867f447",
+        "name": "json",
+        "type": "JSON",
+        "created": "2021-04-15T08:21:04.000+00:00",
+        "updated": "2021-04-15T08:21:04.000+00:00"
+      },
+      "created": "2022-01-21T10:56:01.000+00:00",
+      "updated": "2022-01-21T10:56:01.000+00:00",
+      "JSON": {
+        "key": "value"
+      }
+    },
+    {
+      "meta": {
+        "id": "6990ebcff08fd892",
+        "workspaceId": "29b1d22c3867f447",
+        "name": "number",
+        "type": "NUMBER",
+        "created": "2021-04-15T08:19:44.000+00:00",
+        "updated": "2021-04-15T08:19:44.000+00:00"
+      },
+      "created": "2022-01-21T10:56:01.000+00:00",
+      "updated": "2022-01-21T10:56:01.000+00:00",
+      "NUMBER": 12345
+    }
+  ],
+  "tags": [
+    {
+      "id": "712c794bb89d21d7",
+      "name": "mqtt",
+      "description": null,
+      "workspaceId": "29b1d22c3867f447",
+      "created": "2021-10-07T09:30:14.000+00:00",
+      "updated": "2021-10-07T09:30:14.000+00:00"
+    },
+    {
+      "id": "718fba6e357ba3c2",
+      "name": "tag1",
+      "description": null,
+      "workspaceId": "29b1d22c3867f447",
+      "created": "2021-09-21T11:32:36.000+00:00",
+      "updated": "2021-09-21T11:32:36.000+00:00"
+    }
+  ],
+  "created": "2022-01-03T14:00:22.000+00:00",
+  "updated": "2022-01-18T11:11:32.000+00:00",
+  "registered": true
+}
