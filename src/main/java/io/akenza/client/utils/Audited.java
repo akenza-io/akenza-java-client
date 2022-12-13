@@ -1,18 +1,11 @@
 package io.akenza.client.utils;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.immutables.value.Value;
-
 import javax.annotation.Nullable;
 import java.time.Instant;
 
 /**
  * Convenience interface for tracking creation and update times
  */
-@Value.Immutable
-@JsonSerialize(as = ImmutableAudited.class)
-@JsonDeserialize(as = ImmutableAudited.class)
 public interface Audited {
 
     /**

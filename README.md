@@ -41,3 +41,12 @@ mvn clean verify
 
 Inspired by the [Spotify Github Java Client](https://github.com/spotify/github-java-client/)
 and [Auth0 Java Client](https://github.com/auth0/auth0-java).
+
+## TODO
+
+- device type tests
+- return organization version
+- use Instants instead of strings for dates
+- conflicting models for asset and device
+- bulk operations
+- register/deregister

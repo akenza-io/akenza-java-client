@@ -13,7 +13,7 @@ import static java.nio.charset.Charset.defaultCharset;
 
 public class TestUtils {
 
-    private static final String FIXTURE_ROOT = "io/akenza/client/";
+    private static final String FIXTURE_ROOT = "io/akenza/client/v3/domain/";
 
     public static String getFixture(final String path) {
         try {
