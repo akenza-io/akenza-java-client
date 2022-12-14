@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.base.Preconditions;
 import io.akenza.client.utils.AkenzaStyle;
+import io.akenza.client.v3.domain.common.Carrier;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;

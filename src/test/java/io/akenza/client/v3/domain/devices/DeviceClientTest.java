@@ -2,9 +2,9 @@ package io.akenza.client.v3.domain.devices;
 
 import io.akenza.client.TestUtils;
 import io.akenza.client.v3.AkenzaAPI;
+import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.devices.commands.ImmutableCreateDeviceCommand;
 import io.akenza.client.v3.domain.devices.commands.ImmutableUpdateDeviceCommand;
-import io.akenza.client.v3.domain.devices.objects.Connectivity;
 import io.akenza.client.v3.domain.devices.queries.DeviceFilter;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;

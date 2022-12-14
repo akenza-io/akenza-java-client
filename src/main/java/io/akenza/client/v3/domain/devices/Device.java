@@ -3,7 +3,7 @@ package io.akenza.client.v3.domain.devices;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.akenza.client.v3.domain.assets.Asset;
-import io.akenza.client.v3.domain.devices.objects.Connectivity;
+import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.devices.objects.DeviceOnlineState;
 import io.akenza.client.v3.domain.devices.objects.LoRaProperties;
 import io.akenza.client.v3.domain.devices.objects.MinimalDataFlow;

@@ -3,9 +3,12 @@ package io.akenza.client.v3;
 import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.RateLimitInterceptor;
 import io.akenza.client.v3.domain.data.DataQueryClient;
+import io.akenza.client.v3.domain.data_flows.DataFlowClient;
+import io.akenza.client.v3.domain.device_connectors.DeviceConnectorClient;
 import io.akenza.client.v3.domain.device_types.DeviceTypeClient;
 import io.akenza.client.v3.domain.devices.DeviceClient;
 import io.akenza.client.v3.domain.organizations.OrganizationClient;
+import io.akenza.client.v3.domain.output_connectors.OutputConnectorClient;
 import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -137,4 +140,47 @@ public class AkenzaAPI {
     public DeviceTypeClient deviceTypes() {
         return new DeviceTypeClient(client, baseUrl, apiKey);
     }
+
+    public DeviceConnectorClient deviceConnectors() {
+        return new DeviceConnectorClient(client, baseUrl, apiKey);
+    }
+
+    public OutputConnectorClient outputConnectors() {
+        return new OutputConnectorClient(client, baseUrl, apiKey);
+    }
+
+    public DataFlowClient dataFlows() {
+        return new DataFlowClient(client, baseUrl, apiKey);
+    }
+
+//    public AggregationClient aggregations() {
+//        return new AggregationClient(client, baseUrl, apiKey);
+//    }
+//    public DownlinkClient downlinks() {
+//        return new DownlinkClient(client, baseUrl, apiKey);
+//    }
+//
+//    public OperationsClient operations() {
+//        return new OperationsClient(client, baseUrl, apiKey);
+//    }
+//
+//    public RuleClient rules() {
+//        return new RuleClient(client, baseUrl, apiKey);
+//    }
+//
+//    public ScriptRunnerClient scriptRunner() {
+//        return new ScriptRunnerClient(client, baseUrl, apiKey);
+//    }
+//
+//    public DeviceConfigurationClient deviceConfiguration() {
+//        return new DeviceConfigurationClient(client, baseUrl, apiKey);
+//    }
+//
+//    public DeviceCredentialsClient deviceCredentials() {
+//        return new DeviceCredentialsClient(client, baseUrl, apiKey);
+//    }
+//
+//    public CustomLogicBlockClient customLogicBlocks() {
+//        return new CustomLogicBlockClient(client, baseUrl, apiKey);
+//    }
 }

@@ -44,9 +44,14 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 
 ## TODO
 
-- device type tests
+- device types do not return the proper version, updated field, should use include non null for some of the fields
 - return organization version
 - use Instants instead of strings for dates
 - conflicting models for asset and device
 - bulk operations
 - register/deregister
+- check rate-limiting
+- check exception handling
+- async client
+- add instrumentation
+- add special http header with library version

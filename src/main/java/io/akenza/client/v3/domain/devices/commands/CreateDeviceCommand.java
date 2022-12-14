@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.base.Preconditions;
 import io.akenza.client.utils.AkenzaStyle;
-import io.akenza.client.v3.domain.devices.objects.Connectivity;
+import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.devices.objects.LoRaProperties;
 import io.akenza.client.v3.domain.devices.objects.TagAssignment;
 import io.akenza.client.v3.domain.devices.objects.UpsertCustomField;

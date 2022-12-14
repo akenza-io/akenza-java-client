@@ -49,4 +49,7 @@ class AkenzaClientTest {
             assertThat(ex.values().size()).isEqualTo(1);
         }
     }
+
+    //TODO test logging
+    //TODO test exception handling
 }
