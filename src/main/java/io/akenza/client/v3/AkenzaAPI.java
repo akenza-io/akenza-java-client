@@ -2,11 +2,13 @@ package io.akenza.client.v3;
 
 import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.RateLimitInterceptor;
+import io.akenza.client.v3.domain.aggregations.AggregationClient;
 import io.akenza.client.v3.domain.data.DataQueryClient;
 import io.akenza.client.v3.domain.data_flows.DataFlowClient;
 import io.akenza.client.v3.domain.device_connectors.DeviceConnectorClient;
 import io.akenza.client.v3.domain.device_types.DeviceTypeClient;
 import io.akenza.client.v3.domain.devices.DeviceClient;
+import io.akenza.client.v3.domain.downlinks.DownlinkClient;
 import io.akenza.client.v3.domain.organizations.OrganizationClient;
 import io.akenza.client.v3.domain.output_connectors.OutputConnectorClient;
 import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
@@ -153,12 +155,13 @@ public class AkenzaAPI {
         return new DataFlowClient(client, baseUrl, apiKey);
     }
 
-//    public AggregationClient aggregations() {
-//        return new AggregationClient(client, baseUrl, apiKey);
-//    }
-//    public DownlinkClient downlinks() {
-//        return new DownlinkClient(client, baseUrl, apiKey);
-//    }
+    public AggregationClient aggregations() {
+        return new AggregationClient(client, baseUrl, apiKey);
+    }
+
+    public DownlinkClient downlinks() {
+        return new DownlinkClient(client, baseUrl, apiKey);
+    }
 //
 //    public OperationsClient operations() {
 //        return new OperationsClient(client, baseUrl, apiKey);
