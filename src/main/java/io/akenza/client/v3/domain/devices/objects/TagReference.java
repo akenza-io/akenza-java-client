@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
 @Value.Immutable
-@JsonSerialize(as = ImmutableTagAssignment.class)
-@JsonDeserialize(as = ImmutableTagAssignment.class)
-public interface TagAssignment {
+@JsonSerialize(as = ImmutableTagReference.class)
+@JsonDeserialize(as = ImmutableTagReference.class)
+public interface TagReference {
     /**
      * ID
      */

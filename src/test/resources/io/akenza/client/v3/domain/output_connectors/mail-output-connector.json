@@ -1,0 +1,34 @@
+{
+  "id": "0900000000000001",
+  "version": 0,
+  "created": "2022-07-27T11:09:09.000+00:00",
+  "updated": null,
+  "name": "Mail Connector",
+  "workspaceId": "2900000000000000",
+  "deleted": false,
+  "global": false,
+  "sendConsecutiveAlerts": false,
+  "invokeRuleEngine": false,
+  "customPayload": null,
+  "useCustomPayload": false,
+  "type": "MAIL",
+  "scope": "DATA_FLOW",
+  "webhookProperties": null,
+  "mailProperties": {
+    "messageTemplate": "{{data}}",
+    "subjectTemplate": "A subject",
+    "recipients": [
+      "docs@akenza.io"
+    ]
+  },
+  "customAkenzaDbProperties": null,
+  "downlinkProperties": null,
+  "azureProperties": null,
+  "smsProperties": null,
+  "gcpProperties": null,
+  "influxProperties": null,
+  "amazonKinesisProperties": null,
+  "msTeamsProperties": null,
+  "kafkaProperties": null,
+  "slackProperties": null
+}

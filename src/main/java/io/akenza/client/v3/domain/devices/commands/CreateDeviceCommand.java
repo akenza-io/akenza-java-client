@@ -6,7 +6,7 @@ import com.google.common.base.Preconditions;
 import io.akenza.client.utils.AkenzaStyle;
 import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.devices.objects.LoRaProperties;
-import io.akenza.client.v3.domain.devices.objects.TagAssignment;
+import io.akenza.client.v3.domain.devices.objects.TagReference;
 import io.akenza.client.v3.domain.devices.objects.UpsertCustomField;
 import org.immutables.value.Value;
 
@@ -39,7 +39,7 @@ public abstract class CreateDeviceCommand {
      * Tags
      */
     @Nullable
-    public abstract List<TagAssignment> tags();
+    public abstract List<TagReference> tags();
 
     /**
      * Custom Fields

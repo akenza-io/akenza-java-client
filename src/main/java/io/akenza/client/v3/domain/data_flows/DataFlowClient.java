@@ -58,7 +58,7 @@ public class DataFlowClient extends BaseClient {
      * @param dataFlowId the data flow id
      * @return a data flow
      */
-    public Request<DataFlow> getById(String dataFlowId) {
+    public Request<DataFlowDetails> getById(String dataFlowId) {
         final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlowId);
 
         HttpUrl.Builder builder = baseUrl
@@ -66,7 +66,7 @@ public class DataFlowClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlowDetails>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         return request;
@@ -78,7 +78,7 @@ public class DataFlowClient extends BaseClient {
      * @param dataFlow a data flow create command
      * @return the newly created data flow
      */
-    public Request<DataFlow> create(CreateDataFlowCommand dataFlow) {
+    public Request<DataFlowDetails> create(CreateDataFlowCommand dataFlow) {
         final String path = DATA_FLOW_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
@@ -86,7 +86,7 @@ public class DataFlowClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DataFlowDetails>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         request.withBody(dataFlow);
@@ -99,7 +99,7 @@ public class DataFlowClient extends BaseClient {
      * @param dataFlow a data flow update command
      * @return the updated data flow
      */
-    public Request<DataFlow> update(UpdateDataFlowCommand dataFlow) {
+    public Request<DataFlowDetails> update(UpdateDataFlowCommand dataFlow) {
         final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlow.id());
 
         HttpUrl.Builder builder = baseUrl
@@ -107,7 +107,7 @@ public class DataFlowClient extends BaseClient {
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DataFlowDetails>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         request.withBody(dataFlow);

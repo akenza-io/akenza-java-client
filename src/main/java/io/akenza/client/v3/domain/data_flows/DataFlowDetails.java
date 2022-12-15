@@ -1,24 +1,24 @@
 package io.akenza.client.v3.domain.data_flows;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.akenza.client.utils.AkenzaStyle;
 import io.akenza.client.utils.Audited;
 import io.akenza.client.utils.Versioned;
-import io.akenza.client.v3.domain.data_flows.objects.DeviceConnectorReference;
-import io.akenza.client.v3.domain.data_flows.objects.MinimalDeviceType;
-import io.akenza.client.v3.domain.data_flows.objects.OutputConnectorReference;
+import io.akenza.client.v3.domain.device_connectors.DeviceConnector;
+import io.akenza.client.v3.domain.device_types.DeviceType;
+import io.akenza.client.v3.domain.output_connectors.OutputConnector;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 @Value.Immutable
-@JsonSerialize(as = ImmutableDataFlow.class)
-@JsonDeserialize(as = ImmutableDataFlow.class)
+@JsonSerialize(as = ImmutableDataFlowDetails.class)
+@JsonDeserialize(as = ImmutableDataFlowDetails.class)
 @AkenzaStyle
-public interface DataFlow extends Versioned, Audited {
+public interface DataFlowDetails extends Versioned, Audited {
     /**
      * ID
      */
@@ -29,14 +29,14 @@ public interface DataFlow extends Versioned, Audited {
      */
     String name();
 
-    DeviceConnectorReference deviceConnector();
+    DeviceConnector deviceConnector();
 
     @Nullable
-    MinimalDeviceType deviceType();
+    DeviceType deviceType();
 
-    List<OutputConnectorReference> outputConnectors();
+    List<OutputConnector> outputConnectors();
 
-    @JsonProperty("passThrough")
+    @JsonAlias("passThrough")
     Boolean isPassThrough();
 
     /**

@@ -19,7 +19,7 @@ public class OutputConnectorFilter extends BaseFilter<OutputConnectorFilter> {
         return this;
     }
 
-    public OutputConnectorFilter withScope(OutputConnectorType type) {
+    public OutputConnectorFilter withType(OutputConnectorType type) {
         parameters.put("type", type);
         return this;
     }

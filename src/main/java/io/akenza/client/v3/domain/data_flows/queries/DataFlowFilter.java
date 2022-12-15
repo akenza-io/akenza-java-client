@@ -12,11 +12,6 @@ public class DataFlowFilter extends BaseFilter<DataFlowFilter> {
         return this;
     }
 
-    public DataFlowFilter withDetails() {
-        parameters.put("details", true);
-        return this;
-    }
-
     @Override
     protected DataFlowFilter getThis() {
         return this;

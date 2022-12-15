@@ -1,0 +1,167 @@
+{
+  "content": [
+    {
+      "id": "0900000000000001",
+      "version": 0,
+      "created": "2022-07-27T11:09:09.000+00:00",
+      "updated": null,
+      "name": "Mail Connector",
+      "workspaceId": "2900000000000000",
+      "deleted": false,
+      "global": false,
+      "sendConsecutiveAlerts": false,
+      "invokeRuleEngine": false,
+      "customPayload": null,
+      "useCustomPayload": false,
+      "type": "MAIL",
+      "scope": "DATA_FLOW",
+      "webhookProperties": null,
+      "mailProperties": {
+        "messageTemplate": "{{data}}",
+        "subjectTemplate": "A subject",
+        "recipients": [
+          "docs@akenza.io"
+        ]
+      },
+      "customAkenzaDbProperties": null,
+      "downlinkProperties": null,
+      "azureProperties": null,
+      "smsProperties": null,
+      "gcpProperties": null,
+      "influxProperties": null,
+      "amazonKinesisProperties": null,
+      "msTeamsProperties": null,
+      "kafkaProperties": null,
+      "slackProperties": null
+    },
+    {
+      "id": "0900000000000000",
+      "version": 0,
+      "created": "2020-10-07T11:02:36.000+00:00",
+      "updated": "2020-10-07T11:02:36.000+00:00",
+      "name": "Akenza Database",
+      "workspaceId": null,
+      "deleted": false,
+      "global": true,
+      "sendConsecutiveAlerts": true,
+      "invokeRuleEngine": false,
+      "customPayload": null,
+      "useCustomPayload": false,
+      "type": "AKENZA_DATABASE",
+      "scope": "DATA_FLOW",
+      "webhookProperties": null,
+      "mailProperties": null,
+      "customAkenzaDbProperties": null,
+      "downlinkProperties": null,
+      "azureProperties": null,
+      "smsProperties": null,
+      "gcpProperties": null,
+      "influxProperties": null,
+      "amazonKinesisProperties": null,
+      "msTeamsProperties": null,
+      "kafkaProperties": null,
+      "slackProperties": null
+    },
+    {
+      "id": "0900000000000002",
+      "version": 0,
+      "created": "2022-09-26T07:20:39.000+00:00",
+      "updated": null,
+      "name": "DL",
+      "workspaceId": "2900000000000000",
+      "deleted": false,
+      "global": false,
+      "sendConsecutiveAlerts": true,
+      "invokeRuleEngine": false,
+      "customPayload": "{\n \"message\": {{data}} \n}",
+      "useCustomPayload": true,
+      "type": "DOWNLINK",
+      "scope": "RULE_ACTION",
+      "webhookProperties": null,
+      "mailProperties": null,
+      "customAkenzaDbProperties": null,
+      "downlinkProperties": {
+        "targetDeviceIds": [
+          "0280dcb5a2ae3a38"
+        ],
+        "downlinkType": "LORA",
+        "downlinkPayload": {},
+        "port": 1,
+        "confirmed": true,
+        "topic": null,
+        "dataFlowId": "0800000000000000",
+        "raw": false,
+        "rawDownlinkPayload": null
+      },
+      "azureProperties": null,
+      "smsProperties": null,
+      "gcpProperties": null,
+      "influxProperties": null,
+      "amazonKinesisProperties": null,
+      "msTeamsProperties": null,
+      "kafkaProperties": null,
+      "slackProperties": null
+    },
+    {
+      "id": "0900000000000003",
+      "version": 1,
+      "created": "2022-11-25T13:05:32.000+00:00",
+      "updated": "2022-11-25T13:05:38.000+00:00",
+      "name": "SMS Connector",
+      "workspaceId": "2900000000000000",
+      "deleted": false,
+      "global": false,
+      "sendConsecutiveAlerts": true,
+      "invokeRuleEngine": false,
+      "customPayload": null,
+      "useCustomPayload": false,
+      "type": "SMS",
+      "scope": "RULE_ACTION",
+      "webhookProperties": null,
+      "mailProperties": null,
+      "customAkenzaDbProperties": null,
+      "downlinkProperties": null,
+      "azureProperties": null,
+      "smsProperties": {
+        "messageText": "{{result}}",
+        "recipientPhones": [
+          {
+            "prefix": "+41",
+            "phone": "790000000"
+          }
+        ]
+      },
+      "gcpProperties": null,
+      "influxProperties": null,
+      "amazonKinesisProperties": null,
+      "msTeamsProperties": null,
+      "kafkaProperties": null,
+      "slackProperties": null
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true,
+      "sorted": false,
+      "unsorted": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 50,
+    "unpaged": false,
+    "paged": true
+  },
+  "totalPages": 1,
+  "totalElements": 4,
+  "last": true,
+  "size": 50,
+  "number": 0,
+  "sort": {
+    "empty": true,
+    "sorted": false,
+    "unsorted": true
+  },
+  "numberOfElements": 4,
+  "first": true,
+  "empty": false
+}

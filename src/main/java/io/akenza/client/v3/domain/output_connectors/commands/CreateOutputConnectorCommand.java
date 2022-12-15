@@ -49,9 +49,10 @@ public abstract class CreateOutputConnectorCommand {
      */
     public abstract OutputConnectorType type();
 
-
+    @Nullable
     public abstract Boolean useCustomPayload();
 
+    @Nullable
     public abstract String customPayload();
 
     @Nullable
@@ -92,6 +93,11 @@ public abstract class CreateOutputConnectorCommand {
 
     @Value.Check
     protected void check() {
-        Preconditions.checkState(Boolean.TRUE.equals(useCustomPayload()) && customPayload() == null, "Custom payload should only be set if useCustomPayload is true.");
+        if (useCustomPayload() != null) {
+            Preconditions.checkState(Boolean.TRUE.equals(useCustomPayload()) && customPayload() == null, "Custom payload should only be set if useCustomPayload is true.");
+        }
+
+        //TODO validate properties by type
+        //TODO validate customPayload by type
     }
 }

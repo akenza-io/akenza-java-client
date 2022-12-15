@@ -57,3 +57,8 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - add special http header with library version
 - deprecate the use of custom payload on properties level
 - check downlink properties (custom payload vs raw payload)
+- use JSON include non null for output connectors
+- data flows do not return created updated version
+- isPassThrough is somehow serialized as passThrough for data flows
+- provide an easy way of mapping entity to update command
+- add support for bearer token authentication

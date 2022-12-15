@@ -35,8 +35,10 @@ public abstract class UpdateOutputConnectorCommand {
     @Nullable
     public abstract Boolean invokeRuleEngine();
 
+    @Nullable
     public abstract Boolean useCustomPayload();
 
+    @Nullable
     public abstract String customPayload();
 
     @Nullable
