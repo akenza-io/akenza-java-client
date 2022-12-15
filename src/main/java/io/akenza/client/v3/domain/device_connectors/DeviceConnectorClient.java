@@ -5,11 +5,9 @@ import io.akenza.client.http.HttpMethod;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
-import io.akenza.client.v3.domain.data_flows.DataFlow;
-import io.akenza.client.v3.domain.data_flows.DataFlowPage;
-import io.akenza.client.v3.domain.data_flows.commands.CreateDataFlowCommand;
-import io.akenza.client.v3.domain.data_flows.commands.UpdateDataFlowCommand;
-import io.akenza.client.v3.domain.data_flows.queries.DataFlowFilter;
+import io.akenza.client.v3.domain.device_connectors.commands.CreateDeviceConnectorCommand;
+import io.akenza.client.v3.domain.device_connectors.commands.UpdateDeviceConnectorCommand;
+import io.akenza.client.v3.domain.device_connectors.queries.DeviceConnectorFilter;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
@@ -19,22 +17,22 @@ import java.util.Map;
  * Client for interacting with device connectors
  */
 public class DeviceConnectorClient extends BaseClient {
-    private static final String DATA_FLOW_URI_TEMPLATE = "v3/data-flows";
-    private static final String DATA_FLOW_BY_ID_URI_TEMPLATE = "v3/data-flows/%s";
+    private static final String DEVICE_CONNECTOR_URI_TEMPLATE = "v3/device-connectors";
+    private static final String DEVICE_CONNECTOR_BY_ID_URI_TEMPLATE = "v3/device-connectors/%s";
 
     public DeviceConnectorClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
         super(client, baseUrl, apiKey);
     }
 
     /**
-     * Retrieve a list of data flows for the specified workspace
+     * Retrieve a list of device connectors for the specified workspace
      *
      * @param workspaceId the workspace id
      * @param filter      an optional filter for restricting the search and providing pagination parameters
-     * @return a page with data flows
+     * @return a page with device connectors
      */
-    public Request<DataFlowPage> list(String workspaceId, DataFlowFilter filter) {
-        final String path = DATA_FLOW_URI_TEMPLATE;
+    public Request<DeviceConnectorPage> list(String workspaceId, DeviceConnectorFilter filter) {
+        final String path = DEVICE_CONNECTOR_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
@@ -48,81 +46,81 @@ public class DeviceConnectorClient extends BaseClient {
         builder.addQueryParameter("workspaceId", workspaceId);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlowPage>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConnectorPage>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 
     /**
-     * Retrieve a data flow by id
+     * Retrieve a device connector by id
      *
-     * @param dataFlowId the data flow id
-     * @return a data flow
+     * @param deviceConnectorId the device connector id
+     * @return a device connector
      */
-    public Request<DataFlow> getById(String dataFlowId) {
-        final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlowId);
+    public Request<DeviceConnector> getById(String deviceConnectorId) {
+        final String path = String.format(DEVICE_CONNECTOR_BY_ID_URI_TEMPLATE, deviceConnectorId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConnector>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 
     /**
-     * Create a new data flow
+     * Create a new device connector
      *
-     * @param dataFlow a data flow create command
-     * @return the newly created data flow
+     * @param deviceConnector a device connector create command
+     * @return the newly created device connector
      */
-    public Request<DataFlow> create(CreateDataFlowCommand dataFlow) {
-        final String path = DATA_FLOW_URI_TEMPLATE;
+    public Request<DeviceConnector> create(CreateDeviceConnectorCommand deviceConnector) {
+        final String path = DEVICE_CONNECTOR_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceConnector>() {
         });
         request.withHeader(X_API_KEY, apiKey);
-        request.withBody(dataFlow);
+        request.withBody(deviceConnector);
         return request;
     }
 
     /**
-     * Update a data flow
+     * Update a device connector
      *
-     * @param dataFlow a data flow update command
-     * @return the updated data flow
+     * @param deviceConnector a device connector update command
+     * @return the updated device connector
      */
-    public Request<DataFlow> update(UpdateDataFlowCommand dataFlow) {
-        final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlow.id());
+    public Request<DeviceConnector> update(UpdateDeviceConnectorCommand deviceConnector) {
+        final String path = String.format(DEVICE_CONNECTOR_BY_ID_URI_TEMPLATE, deviceConnector.id());
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DeviceConnector>() {
         });
         request.withHeader(X_API_KEY, apiKey);
-        request.withBody(dataFlow);
+        request.withBody(deviceConnector);
         return request;
     }
 
     /**
-     * Delete a data flow (NOTE: it must not be assigned to any devices)
+     * Delete a device connector (NOTE: it must not be assigned to any data flows)
      *
-     * @param dataFlowId the data flow id
+     * @param deviceConnectorId the device connector id
      */
-    public Request<Void> delete(String dataFlowId) {
-        final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlowId);
+    public Request<Void> delete(String deviceConnectorId) {
+        final String path = String.format(DEVICE_CONNECTOR_BY_ID_URI_TEMPLATE, deviceConnectorId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()

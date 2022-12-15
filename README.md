@@ -55,3 +55,5 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - async client
 - add instrumentation
 - add special http header with library version
+- deprecate the use of custom payload on properties level
+- check downlink properties (custom payload vs raw payload)

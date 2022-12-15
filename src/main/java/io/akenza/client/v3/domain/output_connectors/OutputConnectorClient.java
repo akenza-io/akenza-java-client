@@ -5,11 +5,9 @@ import io.akenza.client.http.HttpMethod;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
-import io.akenza.client.v3.domain.data_flows.DataFlow;
-import io.akenza.client.v3.domain.data_flows.DataFlowPage;
-import io.akenza.client.v3.domain.data_flows.commands.CreateDataFlowCommand;
-import io.akenza.client.v3.domain.data_flows.commands.UpdateDataFlowCommand;
-import io.akenza.client.v3.domain.data_flows.queries.DataFlowFilter;
+import io.akenza.client.v3.domain.output_connectors.commands.CreateOutputConnectorCommand;
+import io.akenza.client.v3.domain.output_connectors.commands.UpdateOutputConnectorCommand;
+import io.akenza.client.v3.domain.output_connectors.queries.OutputConnectorFilter;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
@@ -19,22 +17,22 @@ import java.util.Map;
  * Client for interacting with output connectors
  */
 public class OutputConnectorClient extends BaseClient {
-    private static final String DATA_FLOW_URI_TEMPLATE = "v3/output-connectors";
-    private static final String DATA_FLOW_BY_ID_URI_TEMPLATE = "v3/output-connectors/%s";
+    private static final String OUTPUT_CONNECTOR_URI_TEMPLATE = "v3/output-connectors";
+    private static final String OUTPUT_CONNECTOR_BY_ID_URI_TEMPLATE = "v3/output-connectors/%s";
 
     public OutputConnectorClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
         super(client, baseUrl, apiKey);
     }
 
     /**
-     * Retrieve a list of data flows for the specified workspace
+     * Retrieve a list of output connectors for the specified workspace
      *
      * @param workspaceId the workspace id
      * @param filter      an optional filter for restricting the search and providing pagination parameters
-     * @return a page with data flows
+     * @return a page with output connectors
      */
-    public Request<DataFlowPage> list(String workspaceId, DataFlowFilter filter) {
-        final String path = DATA_FLOW_URI_TEMPLATE;
+    public Request<OutputConnectorPage> list(String workspaceId, OutputConnectorFilter filter) {
+        final String path = OUTPUT_CONNECTOR_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
@@ -48,81 +46,81 @@ public class OutputConnectorClient extends BaseClient {
         builder.addQueryParameter("workspaceId", workspaceId);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlowPage>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<OutputConnectorPage>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 
     /**
-     * Retrieve a data flow by id
+     * Retrieve an output connector by id
      *
-     * @param dataFlowId the data flow id
-     * @return a data flow
+     * @param outputConnectorId the output connector id
+     * @return an output connector
      */
-    public Request<DataFlow> getById(String dataFlowId) {
-        final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlowId);
+    public Request<OutputConnector> getById(String outputConnectorId) {
+        final String path = String.format(OUTPUT_CONNECTOR_BY_ID_URI_TEMPLATE, outputConnectorId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<OutputConnector>() {
         });
         request.withHeader(X_API_KEY, apiKey);
         return request;
     }
 
     /**
-     * Create a new data flow
+     * Create a new output connector
      *
-     * @param dataFlow a data flow create command
-     * @return the newly created data flow
+     * @param outputConnector an output connector create command
+     * @return the newly created output connector
      */
-    public Request<DataFlow> create(CreateDataFlowCommand dataFlow) {
-        final String path = DATA_FLOW_URI_TEMPLATE;
+    public Request<OutputConnector> create(CreateOutputConnectorCommand outputConnector) {
+        final String path = OUTPUT_CONNECTOR_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<OutputConnector>() {
         });
         request.withHeader(X_API_KEY, apiKey);
-        request.withBody(dataFlow);
+        request.withBody(outputConnector);
         return request;
     }
 
     /**
-     * Update a data flow
+     * Update an output connector
      *
-     * @param dataFlow a data flow update command
-     * @return the updated data flow
+     * @param outputConnector an output connector update command
+     * @return the updated output connector
      */
-    public Request<DataFlow> update(UpdateDataFlowCommand dataFlow) {
-        final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlow.id());
+    public Request<OutputConnector> update(UpdateOutputConnectorCommand outputConnector) {
+        final String path = String.format(OUTPUT_CONNECTOR_BY_ID_URI_TEMPLATE, outputConnector.id());
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
                 .addPathSegments(path);
 
         String url = builder.build().toString();
-        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DataFlow>() {
+        var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<OutputConnector>() {
         });
         request.withHeader(X_API_KEY, apiKey);
-        request.withBody(dataFlow);
+        request.withBody(outputConnector);
         return request;
     }
 
     /**
-     * Delete a data flow (NOTE: it must not be assigned to any devices)
+     * Delete an output connector (NOTE: it must not be assigned to a data flow)
      *
-     * @param dataFlowId the data flow id
+     * @param outputConnectorId the data flow id
      */
-    public Request<Void> delete(String dataFlowId) {
-        final String path = String.format(DATA_FLOW_BY_ID_URI_TEMPLATE, dataFlowId);
+    public Request<Void> delete(String outputConnectorId) {
+        final String path = String.format(OUTPUT_CONNECTOR_BY_ID_URI_TEMPLATE, outputConnectorId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
