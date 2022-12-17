@@ -6,6 +6,7 @@ import io.akenza.client.v3.domain.aggregations.AggregationClient;
 import io.akenza.client.v3.domain.custom_fields.CustomFieldClient;
 import io.akenza.client.v3.domain.data.DataQueryClient;
 import io.akenza.client.v3.domain.data_flows.DataFlowClient;
+import io.akenza.client.v3.domain.device_configuration.DeviceConfigurationClient;
 import io.akenza.client.v3.domain.device_connectors.DeviceConnectorClient;
 import io.akenza.client.v3.domain.device_credentials.DeviceCredentialsClient;
 import io.akenza.client.v3.domain.device_types.DeviceTypeClient;
@@ -15,6 +16,7 @@ import io.akenza.client.v3.domain.operations.OperationClient;
 import io.akenza.client.v3.domain.organizations.OrganizationClient;
 import io.akenza.client.v3.domain.output_connectors.OutputConnectorClient;
 import io.akenza.client.v3.domain.rules.RuleClient;
+import io.akenza.client.v3.domain.script_runner.ScriptRunnerClient;
 import io.akenza.client.v3.domain.tags.TagClient;
 import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
 import okhttp3.HttpUrl;
@@ -187,15 +189,15 @@ public class AkenzaAPI {
     public RuleClient rules() {
         return new RuleClient(client, baseUrl, apiKey);
     }
-//
-//    public ScriptRunnerClient scriptRunner() {
-//        return new ScriptRunnerClient(client, baseUrl, apiKey);
-//    }
-//
-//    public DeviceConfigurationClient deviceConfiguration() {
-//        return new DeviceConfigurationClient(client, baseUrl, apiKey);
-//    }
-//
+
+    public ScriptRunnerClient scripts() {
+        return new ScriptRunnerClient(client, baseUrl, apiKey);
+    }
+
+    public DeviceConfigurationClient deviceConfigurations() {
+        return new DeviceConfigurationClient(client, baseUrl, apiKey);
+    }
+
 //    public CustomLogicBlockClient customLogicBlocks() {
 //        return new CustomLogicBlockClient(client, baseUrl, apiKey);
 //    }

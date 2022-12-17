@@ -35,7 +35,10 @@ public abstract class CreateDeviceConnectorCommand {
     /**
      * Auth type of the device connector (BASIC or DEVICE_CREDENTIALS)
      */
-    public abstract AuthType authType();
+    @Value.Default
+    public AuthType authType() {
+        return AuthType.BASIC;
+    }
 
     /**
      * Connectivity of the connector

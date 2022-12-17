@@ -63,3 +63,4 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - provide an easy way of mapping entity to update command
 - add support for bearer token authentication
 - add rule validations
+- the list device configuration endpoint should not require the workspaceId
