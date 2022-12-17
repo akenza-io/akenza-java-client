@@ -64,3 +64,6 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - add support for bearer token authentication
 - add rule validations
 - the list device configuration endpoint should not require the workspaceId
+- custom logic blocks do not have created and updated
+- add shortcuts for the list calls with default pagination
+- change filters to builder pattern
