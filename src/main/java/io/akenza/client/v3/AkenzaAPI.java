@@ -14,6 +14,7 @@ import io.akenza.client.v3.domain.downlinks.DownlinkClient;
 import io.akenza.client.v3.domain.operations.OperationClient;
 import io.akenza.client.v3.domain.organizations.OrganizationClient;
 import io.akenza.client.v3.domain.output_connectors.OutputConnectorClient;
+import io.akenza.client.v3.domain.rules.RuleClient;
 import io.akenza.client.v3.domain.tags.TagClient;
 import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
 import okhttp3.HttpUrl;
@@ -182,10 +183,10 @@ public class AkenzaAPI {
     public OperationClient operations() {
         return new OperationClient(client, baseUrl, apiKey);
     }
-//
-//    public RuleClient rules() {
-//        return new RuleClient(client, baseUrl, apiKey);
-//    }
+
+    public RuleClient rules() {
+        return new RuleClient(client, baseUrl, apiKey);
+    }
 //
 //    public ScriptRunnerClient scriptRunner() {
 //        return new ScriptRunnerClient(client, baseUrl, apiKey);

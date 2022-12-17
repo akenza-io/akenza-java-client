@@ -62,3 +62,4 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - isPassThrough is somehow serialized as passThrough for data flows
 - provide an easy way of mapping entity to update command
 - add support for bearer token authentication
+- add rule validations
