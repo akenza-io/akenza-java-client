@@ -12,14 +12,6 @@ jobs:
         with:
           java-version: '18'
           distribution: 'temurin'
-      - name: Increment Version
-        run: |
-          mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit
-          git config user.name my-bot-user
-          git config user.email my-bot-user@email.com
-          git add .
-          git commit -m "updated version in pom.xml"
-          git push
       - name: Release to Nexus Repository
         uses: samuelmeuli/action-maven-publish@v1
         with:
@@ -27,3 +19,5 @@ jobs:
           gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
           nexus_username: ${{ secrets.OSSRH_USERNAME }}
           nexus_password: ${{ secrets.OSSRH_PASSWORD }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3

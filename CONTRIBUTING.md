@@ -34,6 +34,24 @@ repository.
 mvn clean deploy -P release
 ```
 
+## Releasing
+
+Can only be performed by CODEOWNERS
+
+```
+export VERSION=0.0.1-SNAPSHOT
+
+git checkout main
+mvn versions:set -DnewVersion=$VERSION
+
+git commit -m "updated version in pom.xml"
+git push
+
+git tag $VERSION
+git push origin --tags
+gh release create $VERSION
+```
+
 ## Troubleshooting
 
 - Maven Central Password contains special characters: make sure to properly XML-escape all special chars that will end
