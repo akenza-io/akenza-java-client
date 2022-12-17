@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>akenza-java-client</artifactId>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>0.0.1</version>
     <groupId>io.akenza</groupId>
 
     <licenses>

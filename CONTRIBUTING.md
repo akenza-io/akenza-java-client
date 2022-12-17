@@ -39,7 +39,7 @@ mvn clean deploy -P release
 Can only be performed by CODEOWNERS
 
 ```
-export VERSION=0.0.7-SNAPSHOT
+export VERSION=0.0.1
 
 git checkout main
 git pull
