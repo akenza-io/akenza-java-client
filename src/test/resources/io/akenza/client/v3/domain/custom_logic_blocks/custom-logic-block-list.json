@@ -1,0 +1,77 @@
+{
+  "content": [
+    {
+      "customLogicId": "3700000000000000",
+      "organizationId": "2800000000000000",
+      "name": "Smart Temperature Alert",
+      "description": null,
+      "dataSources": [
+        {
+          "name": "Temperature",
+          "description": null,
+          "variableName": "temperature",
+          "defaultTopic": "default",
+          "defaultDataKey": "temperature",
+          "lastSample": false,
+          "triggerOnUplink": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "Initial Threshold",
+          "description": null,
+          "variableName": "initialThreshold",
+          "defaultValue": "20",
+          "type": "NUMERICAL"
+        }
+      ],
+      "script": "// A smart temperature monitoring rule that uses an adaptive threshold based\n// on the moving average of the temperature.\n// An alert is triggered if the temperature exceeds the adaptive threshold by 20%\n//\n// The threshold starts with an initial threshold and\n// slowly converges (exponential smoothing) to the moving average as data arrives\n// the convergence rate can be controlled by alpha (0 - 1)\n\nfunction consume(event) {\n  const alpha = 0.2;\n  const initialThreshold = Number(event.properties.initialThreshold) || 20;\n  const currentTemperature = Number(event.inputs.temperature);\n\n  let state = event.state || {};\n  let movingAverage = state.movingAverage || 0;\n  let threshold = state.threshold || initialThreshold;\n\n  let numberOfSamples = state.numberOfSamples || 0;\n\n  //compute a moving average\n  movingAverage =\n    (currentTemperature + numberOfSamples * movingAverage) /\n    (numberOfSamples + 1);\n\n  // let's define the threshold by 20% above the average\n  const currentThreshold = movingAverage * 1.2;\n\n  // exponentially smooth the threshold in order to account\n  // for the phase where not much data is present\n  threshold = alpha * currentThreshold + (1 - alpha) * threshold;\n  if (currentTemperature > threshold) {\n    emit(\"action\", {\n      message: `temperature (${currentTemperature} °C) is above threshold (${threshold} °C)`,\n    });\n  }\n\n  numberOfSamples += 1;\n  state = { threshold, numberOfSamples, movingAverage };\n  emit(\"state\", state);\n}\n",
+      "id": "3700000000000000"
+    },
+    {
+      "customLogicId": "3700000000000000",
+      "organizationId": "2800000000000000",
+      "name": "Send Once Custom Logic Block",
+      "description": null,
+      "dataSources": [
+        {
+          "name": "temperature",
+          "description": null,
+          "variableName": "temperature",
+          "defaultTopic": null,
+          "defaultDataKey": null,
+          "lastSample": false,
+          "triggerOnUplink": false
+        }
+      ],
+      "properties": [],
+      "script": "function consume(event) {\n  var temperature = event.inputs[\"temperature\"]\n  if(temperature > 20) {\n    emit(\"action\", { message: \"Send once from Custom Logic Block\" });\n  }\n}",
+      "id": "3700000000000000"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "pageNumber": 1,
+    "pageSize": 10,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": false,
+  "size": 10,
+  "number": 1,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 2,
+  "first": false,
+  "empty": false
+}

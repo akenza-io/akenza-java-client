@@ -5,7 +5,7 @@ import io.akenza.client.v3.domain.assets.objects.AssetType;
 import io.akenza.client.v3.domain.assets.objects.Integration;
 import io.akenza.client.v3.domain.assets.objects.UplinkMetrics;
 import io.akenza.client.v3.domain.devices.objects.CustomField;
-import io.akenza.client.v3.domain.devices.objects.Tag;
+import io.akenza.client.v3.domain.devices.objects.MinimalTag;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
@@ -46,7 +46,7 @@ public interface Asset extends Audited {
     }
 
     @Value.Default
-    default List<Tag> tags() {
+    default List<MinimalTag> tags() {
         return new ArrayList<>();
     }
 

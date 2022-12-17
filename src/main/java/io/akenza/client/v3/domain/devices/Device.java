@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.devices;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.akenza.client.utils.AkenzaStyle;
 import io.akenza.client.v3.domain.assets.Asset;
 import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.devices.objects.DeviceOnlineState;
@@ -15,6 +16,7 @@ import java.util.Map;
 @Value.Immutable
 @JsonSerialize(as = ImmutableDevice.class)
 @JsonDeserialize(as = ImmutableDevice.class)
+@AkenzaStyle
 public interface Device extends Asset {
     String deviceId();
 

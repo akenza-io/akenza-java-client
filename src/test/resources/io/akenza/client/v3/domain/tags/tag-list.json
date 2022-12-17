@@ -1,0 +1,49 @@
+{
+  "content": [
+    {
+      "id": "7100000000000001",
+      "name": "co2",
+      "description": null,
+      "workspaceId": "2900000000000000",
+      "color": null,
+      "taggedDevices": 1,
+      "created": "2022-05-25T17:40:43.000+00:00",
+      "updated": "2022-05-25T17:40:43.000+00:00"
+    },
+    {
+      "id": "7100000000000002",
+      "name": "living",
+      "description": "devices in the living room",
+      "workspaceId": "2900000000000000",
+      "color": "#FFFFFF",
+      "taggedDevices": 1,
+      "created": "2022-07-28T11:27:39.000+00:00",
+      "updated": "2022-07-28T11:27:39.000+00:00"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": true,
+      "sorted": false,
+      "unsorted": true
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 10,
+    "unpaged": false,
+    "paged": true
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": true,
+  "size": 10,
+  "number": 0,
+  "sort": {
+    "empty": true,
+    "sorted": false,
+    "unsorted": true
+  },
+  "numberOfElements": 2,
+  "first": true,
+  "empty": false
+}

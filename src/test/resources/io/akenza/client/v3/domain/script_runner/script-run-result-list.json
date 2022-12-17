@@ -1,0 +1,20 @@
+[
+  {
+    "type": "SAMPLE",
+    "event": {
+      "data": "bar"
+    }
+  },
+  {
+    "type": "ERROR",
+    "event": {
+      "message": "invalid emit type foo"
+    }
+  },
+  {
+    "type": "LOG",
+    "event": {
+      "data": "bar"
+    }
+  }
+]

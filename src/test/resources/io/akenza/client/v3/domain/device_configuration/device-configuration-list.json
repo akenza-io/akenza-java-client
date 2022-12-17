@@ -1,0 +1,53 @@
+{
+  "content": [
+    {
+      "deviceId": "0200000000000000",
+      "workspaceId": "2900000000000000",
+      "configuration": {
+        "bar": {
+          "foo": "bar"
+        },
+        "foo": "bar"
+      },
+      "created": "2022-07-28T15:55:50.257+00:00",
+      "version": 1
+    },
+    {
+      "deviceId": "0200000000000002",
+      "workspaceId": "2900000000000000",
+      "configuration": {
+        "bar": {
+          "foo": "bar"
+        },
+        "foo": "bar"
+      },
+      "created": "2022-07-28T15:55:50.257+00:00",
+      "version": 2
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 20,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": true,
+  "size": 20,
+  "number": 0,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 2,
+  "first": true,
+  "empty": false
+}

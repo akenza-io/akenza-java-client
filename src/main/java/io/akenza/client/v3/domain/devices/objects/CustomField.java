@@ -3,6 +3,7 @@ package io.akenza.client.v3.domain.devices.objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.akenza.client.utils.AkenzaStyle;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
@@ -13,8 +14,9 @@ import java.util.Map;
 @Value.Immutable
 @JsonSerialize(as = ImmutableCustomField.class)
 @JsonDeserialize(as = ImmutableCustomField.class)
+@AkenzaStyle
 public interface CustomField {
-    CustomFieldMeta meta();
+    MinimalCustomFieldMeta meta();
 
     @JsonProperty("STRING")
     @Nullable

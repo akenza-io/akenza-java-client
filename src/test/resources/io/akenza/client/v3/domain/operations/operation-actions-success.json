@@ -1,0 +1,25 @@
+{
+  "id": "6600000000000000",
+  "workspaceId": "2900000000000000",
+  "creator": "5200000000000000",
+  "type": "BULK_CREATE",
+  "actions": [
+    {
+      "id": "6700000000000000",
+      "type": "CREATE",
+      "state": "SUCCEEDED",
+      "data": {
+        "name": "create device with deviceId: 5400000000000000",
+        "id": "0200000000000000",
+        "deviceId": "5400000000000000"
+      },
+      "started": "2022-12-17T12:12:26.000+00:00",
+      "completed": "2022-12-17T12:12:26.000+00:00"
+    }
+  ],
+  "started": "2022-12-17T12:12:26.000+00:00",
+  "completed": "2022-12-17T12:12:26.000+00:00",
+  "totalActionsRequired": 1,
+  "actionsCompleted": 1,
+  "succeeded": true
+}

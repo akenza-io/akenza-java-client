@@ -8,14 +8,14 @@ import io.akenza.client.utils.Versioned;
 import io.akenza.client.v3.domain.common.Carrier;
 import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.device_connectors.objects.AuthType;
-import io.akenza.client.v3.domain.device_types.ImmutableDeviceType;
+import io.akenza.client.v3.domain.device_connectors.objects.YanziProperties;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;
 
 @Value.Immutable
-@JsonSerialize(as = ImmutableDeviceType.class)
-@JsonDeserialize(as = ImmutableDeviceType.class)
+@JsonSerialize(as = ImmutableDeviceConnector.class)
+@JsonDeserialize(as = ImmutableDeviceConnector.class)
 @AkenzaStyle
 public interface DeviceConnector extends Versioned, Audited {
     /**
@@ -84,7 +84,7 @@ public interface DeviceConnector extends Versioned, Audited {
      * Yanzi properties (only set for Yanzi connectors)
      */
     @Nullable
-    Object yanziProperties();
+    YanziProperties yanziProperties();
 
     /**
      * Whether the integration was deleted.
@@ -97,4 +97,9 @@ public interface DeviceConnector extends Versioned, Audited {
      */
     @Nullable
     String decodingType();
+
+    /**
+     * Whether to push back device configuration automatically during connection (only supported for MQTT devices)
+     */
+    Boolean pushConfigurationAutomatically();
 }

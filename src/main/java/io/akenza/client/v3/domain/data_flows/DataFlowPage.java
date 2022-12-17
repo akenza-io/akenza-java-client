@@ -6,9 +6,12 @@ import io.akenza.client.utils.AkenzaStyle;
 import io.akenza.client.utils.Page;
 import org.immutables.value.Value;
 
+import java.util.List;
+
 @Value.Immutable
 @JsonSerialize(as = ImmutableDataFlowPage.class)
 @JsonDeserialize(as = ImmutableDataFlowPage.class)
 @AkenzaStyle
-public interface DataFlowPage extends Page<DataFlow> {
+public abstract class DataFlowPage implements Page<DataFlow> {
+    public abstract List<DataFlow> content();
 }
