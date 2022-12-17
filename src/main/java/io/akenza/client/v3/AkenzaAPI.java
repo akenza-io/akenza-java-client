@@ -14,6 +14,7 @@ import io.akenza.client.v3.domain.downlinks.DownlinkClient;
 import io.akenza.client.v3.domain.operations.OperationClient;
 import io.akenza.client.v3.domain.organizations.OrganizationClient;
 import io.akenza.client.v3.domain.output_connectors.OutputConnectorClient;
+import io.akenza.client.v3.domain.tags.TagClient;
 import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -174,10 +175,10 @@ public class AkenzaAPI {
         return new CustomFieldClient(client, baseUrl, apiKey);
     }
 
-    //    public TagClient tags() {
-//        return new TagClient(client, baseUrl, apiKey);
-//    }
-//
+    public TagClient tags() {
+        return new TagClient(client, baseUrl, apiKey);
+    }
+
     public OperationClient operations() {
         return new OperationClient(client, baseUrl, apiKey);
     }
@@ -193,7 +194,6 @@ public class AkenzaAPI {
 //    public DeviceConfigurationClient deviceConfiguration() {
 //        return new DeviceConfigurationClient(client, baseUrl, apiKey);
 //    }
-//
 //
 //    public CustomLogicBlockClient customLogicBlocks() {
 //        return new CustomLogicBlockClient(client, baseUrl, apiKey);

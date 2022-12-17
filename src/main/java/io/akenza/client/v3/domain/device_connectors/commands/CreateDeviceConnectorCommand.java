@@ -30,13 +30,11 @@ public abstract class CreateDeviceConnectorCommand {
     /**
      * Workspace ID
      */
-    @Nullable
     public abstract String workspaceId();
 
     /**
      * Auth type of the device connector (BASIC or DEVICE_CREDENTIALS)
      */
-    @Nullable
     public abstract AuthType authType();
 
     /**

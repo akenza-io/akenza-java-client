@@ -9,10 +9,10 @@ import org.immutables.value.Value;
 import javax.annotation.Nullable;
 
 @Value.Immutable
-@JsonSerialize(as = ImmutableTag.class)
-@JsonDeserialize(as = ImmutableTag.class)
+@JsonSerialize(as = ImmutableMinimalTag.class)
+@JsonDeserialize(as = ImmutableMinimalTag.class)
 @AkenzaStyle
-public interface Tag extends Audited {
+public interface MinimalTag extends Audited {
     String id();
 
     String name();
