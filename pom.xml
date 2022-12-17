@@ -4,8 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>akenza-java-client</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <groupId>io.akenza</groupId>
+    <name>Akenza Java Client SDK</name>
+    <description>akenza is the IoT platform at the heart of your smart solution. This is a Java client library for
+        interacting with the akenza REST API.
+    </description>
+    <url>https://akenza.io/</url>
 
     <licenses>
         <license>
@@ -14,6 +19,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/akenza-io/akenza-java-client.git</connection>
+        <developerConnection>scm:git:git@github.com:akenza-io/akenza-java-client.git</developerConnection>
+        <url>scm:https://github.com/akenza-io/akenza-java-client/</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <organization>
         <name>Akenza AG</name>
