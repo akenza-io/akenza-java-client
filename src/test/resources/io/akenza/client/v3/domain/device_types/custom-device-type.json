@@ -1,0 +1,31 @@
+{
+  "id": "33dbb14a0b86fc90",
+  "name": "Sensecap",
+  "description": null,
+  "type": "manual",
+  "organizationId": "2800000000000000",
+  "version": 0,
+  "meta": {
+    "manufacturer": "Akenza",
+    "url": null,
+    "author": null,
+    "properties": null,
+    "firmwareVersion": null,
+    "encoding": null,
+    "connectivity": null,
+    "availableSensors": null,
+    "outputTopics": null
+  },
+  "created": "2022-12-13T20:33:18.372745521Z",
+  "schemas": null,
+  "uplinkScript": {
+    "code": "function toLittleEndianSigned(hex) {\n  // Creating little endian hex DCBA\n  const hexArray = [];\n  let tempHex = hex;\n  while (tempHex.length >= 2) {\n    hexArray.push(tempHex.substring(0, 2));\n    tempHex = tempHex.substring(2, tempHex.length);\n  }\n  hexArray.reverse();\n  // To signed\n  return Bits.bitsToSigned(Bits.hexToBits(hexArray.join(\"\")));\n}\n\nfunction consume(event) {\n  const payload = event.data.payload_hex;\n  const data = {};\n  // 0-2 Channel Number\n  // 2-4 Measurement ID\n  data.temperature = toLittleEndianSigned(payload.substr(6, 8)) / 1000;\n  // 14-16 Channel Number\n  // 16-20 Measurement ID\n  data.soilMoisture = toLittleEndianSigned(payload.substr(20, 8)) / 1000;\n\n  emit(\"sample\", { data, topic: \"default\" });\n}\n",
+    "version": 1
+  },
+  "downlinkScript": {
+    "code": null,
+    "version": 1
+  },
+  "libraryPath": null,
+  "pictureUrl": null
+}

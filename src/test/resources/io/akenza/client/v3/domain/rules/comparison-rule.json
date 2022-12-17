@@ -1,0 +1,83 @@
+{
+  "id": "2100000000000000",
+  "workspaceId": "2900000000000000",
+  "name": "CO2 Alert",
+  "description": "",
+  "inputs": [
+    {
+      "id": "7100000000000000",
+      "name": "co2",
+      "workspaceId": null,
+      "type": "ASSET_TAG",
+      "tagCombination": null,
+      "device": false,
+      "trigger": false,
+      "tag": true
+    }
+  ],
+  "timer": {
+    "enabled": false,
+    "schedule": null,
+    "type": null,
+    "startAt": null
+  },
+  "nextExecution": null,
+  "logic": {
+    "type": "COMPARISON",
+    "dataSources": [
+      {
+        "id": "dataSource::L3LVHL5JM81HG1LJYHI",
+        "inputIds": [
+          "7100000000000000"
+        ],
+        "dataTopic": "default",
+        "dataKey": "co2",
+        "variableName": null,
+        "valueType": "NUMERICAL",
+        "lastSample": false,
+        "triggerOnUplink": true
+      }
+    ],
+    "logicBlocks": [
+      {
+        "conditions": [
+          {
+            "operandFirst": {
+              "valueType": null,
+              "dataKey": "co2",
+              "dataSourceId": "dataSource::L3LVHL5JM81HG1LJYHI",
+              "type": "DATA_SOURCE"
+            },
+            "operator": "GT",
+            "operandSecond": {
+              "type": "CONSTANT",
+              "valueType": null,
+              "value": 800
+            },
+            "order": 0,
+            "chainOperator": null
+          }
+        ],
+        "actionIds": [
+          "0900000000000000"
+        ]
+      }
+    ],
+    "geoFenceLogicBlock": null,
+    "customLogic": null
+  },
+  "actions": [
+    {
+      "id": "0900000000000000",
+      "name": "CO2 Alert",
+      "type": "SMS",
+      "configuration": {}
+    }
+  ],
+  "active": true,
+  "deleted": false,
+  "created": "2022-05-25T17:42:30Z",
+  "updated": "2022-05-25T17:42:30Z",
+  "version": 0,
+  "ruleId": "2100000000000000"
+}

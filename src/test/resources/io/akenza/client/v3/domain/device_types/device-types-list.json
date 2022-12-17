@@ -1,0 +1,609 @@
+{
+  "content": [
+    {
+      "id": "3354f631e6bde9a4",
+      "name": "612 WisNode Button",
+      "description": "WisNode Button (RAK612 model) is a remote wireless trigger and supports user-defined functions for each key.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "RAK",
+        "url": "https://docs.rakwireless.com/Product-Categories/WisNode/RAK612/Overview/#product-description",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Button"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.422438959Z"
+    },
+    {
+      "id": "33b655ec51bfe4b1",
+      "name": "ALEVEL 1x5 V1",
+      "description": "ALEVEL 1x5 is an IoT smart tank sensor that clicks in to standard Rochester R3D® mechanical dials commonly used on float arm level gauges. Functions include tank fill detection, dial removal, spill detection, and high & low level alerts.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Aiut",
+        "url": "https://aiut.com/en/solutions/iot/iot-systems-for-lpg/remote-monitoring-system-for-lpg-tanks/alevel-1x5-for-non-cellular-iot/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Tank fill"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.423690498Z"
+    },
+    {
+      "id": "33365e491c0c4720",
+      "name": "ALEVEL 1x5 V2",
+      "description": "ALEVEL 1x5 is an IoT smart tank sensor that clicks in to standard Rochester R3D® mechanical dials commonly used on float arm level gauges. Functions include tank fill detection, dial removal, spill detection, and high & low level alerts.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Aiut",
+        "url": "https://aiut.com/en/solutions/iot/iot-systems-for-lpg/remote-monitoring-system-for-lpg-tanks/alevel-1x5-for-non-cellular-iot/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V2.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Tank fill"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.424052336Z"
+    },
+    {
+      "id": "334022b118086b32",
+      "name": "AM104",
+      "description": "AM104 is a compact indoor ambience monitoring sensor for measurement of temperature, humidity, motion & light. These data will be shown on the E-ink screen in real-time, which allow to quantify the indoor environment and comfort.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Milesight",
+        "url": "https://www.milesight-iot.com/lorawan/sensor/am100/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Temperature",
+          "Humidity",
+          "PIR",
+          "Light"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.424359728Z"
+    },
+    {
+      "id": "3377931433a05a4a",
+      "name": "AM107",
+      "description": "AM107 is a compact indoor ambience monitoring sensor for measurement of temperature, humidity, light, CO2 concentration, TVOC, barometric pressure and motion. These data will be shown on the E-ink screen in real-time, which allow to quantify the indoor environment and comfort.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Milesight",
+        "url": "https://www.milesight-iot.com/lorawan/sensor/am100/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Temperature",
+          "Humidity",
+          "PIR",
+          "Light",
+          "CO2",
+          "TVOC",
+          "Barometric Pressure"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.424661012Z"
+    },
+    {
+      "id": "33e38b17dc87c778",
+      "name": "AM319",
+      "description": "AM319 is a compact indoor ambience monitoring sensor for measurement of multiple environmental conditions. Values are shown on the E-ink screen in real-time that allows to quantify the indoor environment and comfort.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Milesight",
+        "url": "https://www.milesight-iot.com/lorawan/sensor/am300/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Temperature",
+          "Humidity",
+          "PIR",
+          "Light",
+          "TVOC",
+          "Pressure",
+          "CO2",
+          "PM 2.5",
+          "PM 10",
+          "Formaldehyde",
+          "Ozone"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.424950068Z"
+    },
+    {
+      "id": "33b0b4693d793800",
+      "name": "ax-dist",
+      "description": "The ax-dist is a distance measuring sensor with LoRaWAN wireless technology. It measures distances of up to 5m and can be used for a variety of applications such as parking, fill level or seat occupation measurement. The ax-dist has a battery lifespan of up to five years depending on the settings and can be used both indoors and outdoors.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "adnexo",
+        "url": "https://www.adnexo.ch/de/unser-angebot/hardware/#ax-dist",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Distance"
+        ],
+        "outputTopics": [
+          "error",
+          "lifecycle",
+          "measurement",
+          "invalid_measurement"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.425279955Z"
+    },
+    {
+      "id": "33777e08546a97b3",
+      "name": "ax-opto",
+      "description": "The ax-opto distance sensor with LoRaWAN wireless technology. It can measure distances up to 1.3 meters and can be used in different application. F.e parking and fill level of tanks. The battery can have lifetime up to multiple years.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "adnexo",
+        "url": "https://www.adnexo.ch/de/unser-angebot/hardware/#ax-opto",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Distance",
+          "Accelerometer"
+        ],
+        "outputTopics": [
+          "acceleration",
+          "error",
+          "lifecycle",
+          "measurement"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.425543916Z"
+    },
+    {
+      "id": "335881b36d211dad",
+      "name": "Badge Tracker",
+      "description": "A multi-mode tracker with embedded sensors combining GPS, Low-power GPS, Wi-Fi Sniffer, BLE and LoRaWAN TDoA geolocation technologies, supporting accurate outdoor & indoor geolocation. Ideal for tracking, zone notification or monitoring of workforce safety and security.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Abeeway",
+        "url": "https://www.abeeway.com/smart-badge/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V2.1.6",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "GPS",
+          "Temperature"
+        ],
+        "outputTopics": [
+          "activity_status",
+          "angle_detection",
+          "ble",
+          "gps",
+          "gps_timeout",
+          "lifecycle",
+          "operation_status",
+          "shocks",
+          "side_operation",
+          "configuration",
+          "wifi"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.425766657Z"
+    },
+    {
+      "id": "334cbc1d25be6e83",
+      "name": "BoB Assistant",
+      "description": "BoB Assistant for predictive maintenance and operational assistance. Permanent monitoring of vibrations and recorded temperatures for isolated systems such as pumps, air conditioning or cooling units.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "nke Watteco",
+        "url": "https://bobassistant.com/en/offer/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Vibration",
+          "Temperature"
+        ],
+        "outputTopics": [
+          "alarm",
+          "learning",
+          "lifecycle",
+          "report"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.426114102Z"
+    },
+    {
+      "id": "33aec09b658d672f",
+      "name": "Bolt 2",
+      "description": "Plug-and-play OBDII GPS tracking device with backup battery for real-time vehicle and fleet management",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Digital Matter",
+        "url": "https://www.digitalmatter.com/devices/bolt2/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "JSON",
+        "connectivity": "HTTP",
+        "availableSensors": [
+          "GPS"
+        ],
+        "outputTopics": [
+          "analog",
+          "digital",
+          "gps"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.426367499Z"
+    },
+    {
+      "id": "3398bdb944ba9572",
+      "name": "Buttonboard",
+      "description": "The Buttonboard is a flexible event triggering device with 6 touch sensor buttons. The case of the Buttonboard is easily cleanable (splash-proof) and transparent. The six capacitive touch sensor buttons can individual be enabled or disabled and comes with a RGB-LED ring each.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Oxon",
+        "url": "https://oxobutton.ch/products/buttonboard-lorawan",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Button",
+          "Temperature",
+          "Acceleration"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.426600917Z"
+    },
+    {
+      "id": "33e56ffd72d1c8b3",
+      "name": "CO2",
+      "description": "MClimate CO2 Sensor and Notifier is a device that uses NDIR technology to measure the actual CO2 and has built in temperature and humidity sensors. The device also has acoustic and visual notification abilities to indicate occupants whether a room should be ventilated.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "MClimate",
+        "url": "https://mclimate.eu/products/mclimate-co2-sensor-notifier-lorawan",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Temperature",
+          "Humidity",
+          "CO2"
+        ],
+        "outputTopics": [
+          "default"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.426821829Z"
+    },
+    {
+      "id": "3354c6d6a24d9fd6",
+      "name": "CO2, VOC luminaire",
+      "description": "AstraLED Indoor LoRaWAN® device for measuring the indoor environment and signaling those through different colors",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "AstraLED",
+        "url": "https://www.hsi-astra.ch/produkte/raumluftqualitaet/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V0.0.3",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Temperature",
+          "Humidity",
+          "VOC",
+          "CO2",
+          "eCO2",
+          "PM1.0",
+          "PM2.5",
+          "PM4.0",
+          "PM10",
+          "Latitude",
+          "Longitude",
+          "Altitude",
+          "Light State",
+          "Energy"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.427112220Z"
+    },
+    {
+      "id": "3331de94b14ba1fb",
+      "name": "Comfort",
+      "description": "This device monitors indoor air quality, temperature, humidity, barometric pressure, and ambient noise. It also measures the level of carbon dioxide (CO2) and volatile organic compounds.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Yanzi",
+        "url": "https://yanzi.se/products/#",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "JSON",
+        "connectivity": "HTTP",
+        "availableSensors": [
+          "VOC",
+          "Temperature",
+          "Humidity",
+          "Pressure",
+          "Noise",
+          "CO2"
+        ],
+        "outputTopics": [
+          "barometer",
+          "temperature",
+          "humidity",
+          "sound",
+          "tvoc",
+          "co2"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.427331481Z"
+    },
+    {
+      "id": "333ed7574abee277",
+      "name": "Comfort sensor",
+      "description": "Measure indoor comfort by monitoring CO2, temperature, humidity, presence.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "IMBuildings",
+        "url": "https://www.imbuildings.com/lorawan-comfort-sensor/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "CO2",
+          "Temperature",
+          "Humidity",
+          "Presence"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.427538055Z"
+    },
+    {
+      "id": "3391fe143a567443",
+      "name": "Compact Tracker",
+      "description": "A multi-mode tracker with embedded sensors combining GPS, Low-power GPS, Wi-Fi Sniffer, BLE and LoRaWAN TDoA geolocation technologies, supporting accurate outdoor & indoor geolocation. Compact and robust form factor, designed to resist harsh surroundings.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Abeeway",
+        "url": "https://www.abeeway.com/compact-tracker/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V2.2.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "GPS",
+          "Temperature"
+        ],
+        "outputTopics": [
+          "activity_status",
+          "angle_detection",
+          "ble",
+          "gps",
+          "gps_timeout",
+          "lifecycle",
+          "operation_status",
+          "shocks",
+          "side_operation",
+          "configuration",
+          "wifi"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.427768254Z"
+    },
+    {
+      "id": "332a0afba97abaa5",
+      "name": "Dart 3",
+      "description": "Robust and affordable vehicle tracking device with inputs/outputs, remote immobilization for fleet management, driver ID, driver safety and behavior monitoring, theft recovery, and more",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Digital Matter",
+        "url": "https://www.digitalmatter.com/devices/dart3/",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V1.0.0",
+        "encoding": "JSON",
+        "connectivity": "HTTP",
+        "availableSensors": [
+          "GPS"
+        ],
+        "outputTopics": [
+          "analog",
+          "digital",
+          "gps"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.428026538Z"
+    },
+    {
+      "id": "33dbb14a0b86fc90",
+      "name": "Sensecap",
+      "description": null,
+      "type": "manual",
+      "organizationId": "2800000000000000",
+      "version": 1,
+      "meta": {
+        "manufacturer": null,
+        "url": null,
+        "author": null,
+        "properties": null,
+        "firmwareVersion": null,
+        "encoding": null,
+        "connectivity": null,
+        "availableSensors": null,
+        "outputTopics": null
+      },
+      "created": "2022-12-13T20:06:15.845269869Z"
+    },
+    {
+      "id": "33dd62d6487c263c",
+      "name": "DL-ATM41",
+      "description": "All-in-one weather station with sensors for solar radiation, precipitation, air temperature, relative humidity, indoor temperature, vapor pressure, air pressure, barometric pressure, wind speed and direction, maximum wind speed, tilt sensor, number of lightning strikes and average lightning distance.",
+      "type": "library",
+      "organizationId": null,
+      "version": 0,
+      "meta": {
+        "manufacturer": "Decentlab",
+        "url": "https://www.decentlab.com/products/eleven-parameter-weather-station-for-lorawan",
+        "author": "Akenza AG",
+        "properties": null,
+        "firmwareVersion": "V2.0.0",
+        "encoding": "HEX",
+        "connectivity": "LORA",
+        "availableSensors": [
+          "Solar radiation",
+          "Precipitation",
+          "Lightning strike detector",
+          "Wind speed",
+          "Wind direction",
+          "Humidity",
+          "Temperature",
+          "Vapor Pressure",
+          "Barometric Pressure"
+        ],
+        "outputTopics": [
+          "default",
+          "lifecycle"
+        ]
+      },
+      "created": "2022-12-13T20:05:57.428427729Z"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 20,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 7,
+  "totalElements": 132,
+  "last": false,
+  "size": 20,
+  "number": 0,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 20,
+  "first": true,
+  "empty": false
+}

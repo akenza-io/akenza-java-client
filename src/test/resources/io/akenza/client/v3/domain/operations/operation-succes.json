@@ -1,0 +1,12 @@
+{
+  "id": "6600000000000000",
+  "workspaceId": "2900000000000000",
+  "creator": "5200000000000000",
+  "type": "INTEGRATION_SYNC",
+  "actions": [],
+  "started": "2022-12-17T12:08:43.000+00:00",
+  "completed": "2022-12-17T12:09:14.000+00:00",
+  "totalActionsRequired": 0,
+  "actionsCompleted": 0,
+  "succeeded": true
+}

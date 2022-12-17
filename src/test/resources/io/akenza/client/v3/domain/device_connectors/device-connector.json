@@ -1,0 +1,22 @@
+{
+  "id": "0700000000000001",
+  "version": 0,
+  "created": "2022-08-02T15:31:49.000+00:00",
+  "updated": null,
+  "name": "HTTP Device Connector",
+  "readOnly": false,
+  "pushConfigurationAutomatically": false,
+  "uplinkSecret": "uplinkSecretValue",
+  "connectivity": "HTTP",
+  "carrier": null,
+  "provider": null,
+  "integrationId": null,
+  "description": null,
+  "workspaceId": "2900000000000000",
+  "authType": "BASIC",
+  "yanziProperties": null,
+  "spacetiProperties": null,
+  "global": false,
+  "integrationDeleted": false,
+  "decodingType": "NONE"
+}
