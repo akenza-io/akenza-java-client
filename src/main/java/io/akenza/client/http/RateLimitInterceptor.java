@@ -1,5 +1,6 @@
 package io.akenza.client.http;
 
+import io.akenza.client.v3.AkenzaAPI;
 import net.jodah.failsafe.Failsafe;
 import net.jodah.failsafe.RetryPolicy;
 import net.jodah.failsafe.event.ExecutionAttemptedEvent;
@@ -15,7 +16,7 @@ import java.time.temporal.ChronoUnit;
  * An OkHttp {@linkplain Interceptor} responsible for retrying rate-limit errors (429) using a configurable maximum
  * number of retries, and an exponential backoff on retry attempts.
  * <p>
- * See {@link HttpOptions#setMaxRetries(int)} and {@link io.akenza.client.AkenzaAPI#AkenzaAPI(String, HttpOptions)}
+ * See {@link HttpOptions#setMaxRetries(int)} and {@link AkenzaAPI#AkenzaAPI(String, HttpOptions)}
  * </p>
  * <p>
  * <strong>Note: This class is not intended for general use or extension, and may change at any time.</strong>

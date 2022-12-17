@@ -1,0 +1,310 @@
+{
+  "content": [
+    {
+      "id": "2100000000000000",
+      "workspaceId": "2900000000000000",
+      "name": "CO2 Alert",
+      "description": "",
+      "inputs": [
+        {
+          "id": "713003281c40361b",
+          "name": "co2",
+          "workspaceId": null,
+          "type": "ASSET_TAG",
+          "tagCombination": null,
+          "device": false,
+          "trigger": false,
+          "tag": true
+        }
+      ],
+      "timer": {
+        "enabled": false,
+        "schedule": null,
+        "type": null,
+        "startAt": null
+      },
+      "nextExecution": null,
+      "logic": {
+        "type": "COMPARISON",
+        "dataSources": [
+          {
+            "id": "dataSource::L3LVHL5JM81HG1LJYHI",
+            "inputIds": [
+              "713003281c40361b"
+            ],
+            "dataTopic": "default",
+            "dataKey": "co2",
+            "variableName": null,
+            "valueType": "NUMERICAL",
+            "lastSample": false,
+            "triggerOnUplink": true
+          }
+        ],
+        "logicBlocks": [
+          {
+            "conditions": [
+              {
+                "operandFirst": {
+                  "valueType": null,
+                  "dataKey": "co2",
+                  "dataSourceId": "dataSource::L3LVHL5JM81HG1LJYHI",
+                  "type": "DATA_SOURCE"
+                },
+                "operator": "GT",
+                "operandSecond": {
+                  "type": "CONSTANT",
+                  "valueType": null,
+                  "value": 800
+                },
+                "order": 0,
+                "chainOperator": null
+              }
+            ],
+            "actionIds": [
+              "0900000000000000"
+            ]
+          }
+        ],
+        "geoFenceLogicBlock": null,
+        "customLogic": null
+      },
+      "actions": [
+        {
+          "id": "0900000000000000",
+          "name": "CO2 Alert",
+          "type": "SMS",
+          "configuration": {}
+        }
+      ],
+      "active": true,
+      "deleted": false,
+      "created": "2022-05-25T17:42:30Z",
+      "updated": "2022-05-25T17:42:30Z",
+      "version": 0,
+      "ruleId": "2100000000000000"
+    },
+    {
+      "id": "2100000000000000",
+      "workspaceId": "2900000000000000",
+      "name": "Geo Park Monitor",
+      "description": "",
+      "inputs": [
+        {
+          "id": "7100000000000000",
+          "name": "asset_tracking",
+          "workspaceId": null,
+          "type": "ASSET_TAG",
+          "tagCombination": null,
+          "device": false,
+          "trigger": false,
+          "tag": true
+        }
+      ],
+      "timer": {
+        "enabled": false,
+        "schedule": null,
+        "type": null,
+        "startAt": null
+      },
+      "nextExecution": null,
+      "logic": {
+        "type": "GEO_FENCE",
+        "dataSources": [
+          {
+            "id": "dataSource::LBS093BNUD1UNILLZMC",
+            "inputIds": [
+              "7100000000000000"
+            ],
+            "dataTopic": "gps",
+            "dataKey": "longitude",
+            "variableName": "longitude",
+            "valueType": "NUMERICAL",
+            "lastSample": false,
+            "triggerOnUplink": true
+          },
+          {
+            "id": "dataSource::LBS093BNUIWQ728VKX",
+            "inputIds": [
+              "7100000000000000"
+            ],
+            "dataTopic": "gps",
+            "dataKey": "latitude",
+            "variableName": "latitude",
+            "valueType": "NUMERICAL",
+            "lastSample": false,
+            "triggerOnUplink": true
+          }
+        ],
+        "logicBlocks": null,
+        "geoFenceLogicBlock": {
+          "address": "",
+          "geoJson": {
+            "features": [
+              {
+                "id": "643603f6b4ce343bc871aad6a252d926",
+                "type": "Feature",
+                "properties": {
+                  "shape": "Polygon"
+                },
+                "geometry": {
+                  "coordinates": [
+                    [
+                      [
+                        8.536651071612198,
+                        47.415366351481
+                      ],
+                      [
+                        8.53647936159058,
+                        47.41451668707808
+                      ],
+                      [
+                        8.539183794439367,
+                        47.414327870904714
+                      ],
+                      [
+                        8.539355504460985,
+                        47.41522111067428
+                      ],
+                      [
+                        8.536651071612198,
+                        47.415366351481
+                      ]
+                    ]
+                  ],
+                  "type": "Polygon"
+                }
+              }
+            ],
+            "type": "FeatureCollection"
+          },
+          "insideActionIds": [
+            "0900000000000000"
+          ],
+          "outsideActionIds": [
+            "0900000000000000"
+          ]
+        },
+        "customLogic": null
+      },
+      "actions": [
+        {
+          "id": "0900000000000000",
+          "name": "Inside Alert",
+          "type": "MAIL",
+          "configuration": {}
+        },
+        {
+          "id": "0900000000000000",
+          "name": "Outside Alert",
+          "type": "MAIL",
+          "configuration": {}
+        }
+      ],
+      "active": true,
+      "deleted": false,
+      "created": "2022-12-17T14:01:15Z",
+      "updated": "2022-12-17T14:01:15Z",
+      "version": 0,
+      "ruleId": "2100000000000002"
+    },
+    {
+      "id": "2100000000000003",
+      "workspaceId": "2900000000000000",
+      "name": "Smart Temperature Alert",
+      "description": "",
+      "inputs": [
+        {
+          "id": "0200000000000000",
+          "name": "Ambiance Sensor",
+          "workspaceId": null,
+          "type": "DEVICE",
+          "tagCombination": null,
+          "device": true,
+          "trigger": false,
+          "tag": false
+        }
+      ],
+      "timer": {
+        "enabled": false,
+        "schedule": null,
+        "type": null,
+        "startAt": null
+      },
+      "nextExecution": null,
+      "logic": {
+        "type": "CUSTOM_LOGIC",
+        "dataSources": [
+          {
+            "id": "dataSource::LBS0FN1X11VXIF20ATMJ",
+            "inputIds": [
+              "0200000000000000"
+            ],
+            "dataTopic": "default",
+            "dataKey": "temperature",
+            "variableName": "temperature",
+            "valueType": "NUMERICAL",
+            "lastSample": false,
+            "triggerOnUplink": true
+          }
+        ],
+        "logicBlocks": null,
+        "geoFenceLogicBlock": null,
+        "customLogic": {
+          "customLogicId": "3700000000000000",
+          "actionIds": [
+            "0900000000000000"
+          ],
+          "properties": [
+            {
+              "name": "Initial Threshold",
+              "description": null,
+              "variableName": "initialThreshold",
+              "value": "20",
+              "type": "NUMERICAL"
+            }
+          ],
+          "name": "Smart Temperature Alert"
+        }
+      },
+      "actions": [
+        {
+          "id": "0900000000000000",
+          "name": "Temperature Alert",
+          "type": "SMS",
+          "configuration": {}
+        }
+      ],
+      "active": true,
+      "deleted": false,
+      "created": "2022-12-17T14:04:42Z",
+      "updated": "2022-12-17T14:04:42Z",
+      "version": 0,
+      "ruleId": "2100000000000003"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 10,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": true,
+  "size": 10,
+  "number": 0,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 2,
+  "first": true,
+  "empty": false
+}

@@ -108,9 +108,7 @@ public class RequestImpl<T> implements Request<T> {
             return null;
         }
         byte[] jsonBody = json.toJson(body);
-        // Use OkHttp v3 signature to ensure binary compatibility between v3 and v4
-        //TODO is this still necessary?
-        return RequestBody.create(MediaType.parse(CONTENT_TYPE_APPLICATION_JSON), jsonBody);
+        return RequestBody.create(jsonBody, MediaType.parse(CONTENT_TYPE_APPLICATION_JSON));
     }
 
     protected T parseResponse(Response response) throws AkenzaException {

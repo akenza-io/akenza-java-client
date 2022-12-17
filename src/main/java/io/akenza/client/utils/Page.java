@@ -1,10 +1,7 @@
 package io.akenza.client.utils;
 
-import org.immutables.value.Value;
-
 import java.util.List;
 
-@Value.Immutable
 public interface Page<T> {
     Integer totalElements();
 

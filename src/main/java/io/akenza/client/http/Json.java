@@ -3,11 +3,7 @@ package io.akenza.client.http;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.guava.GuavaModule;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
@@ -15,7 +11,6 @@ import io.akenza.client.exceptions.DeserializationException;
 
 import java.io.IOException;
 
-import static com.fasterxml.jackson.databind.PropertyNamingStrategy.LOWER_CAMEL_CASE;
 import static java.util.Objects.isNull;
 
 /**
@@ -231,13 +226,12 @@ public class Json {
                         .registerModule(new ParameterNamesModule())
                         .registerModule(new Jdk8Module())
                         .registerModule(new JavaTimeModule())
-                        .registerModule(new GuavaModule())
                         .disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE)
                         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
                         .enable(SerializationFeature.WRITE_DATES_WITH_ZONE_ID)
                         .enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
                         .setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                        .setPropertyNamingStrategy(LOWER_CAMEL_CASE);
+                        .setPropertyNamingStrategy(PropertyNamingStrategies.LOWER_CAMEL_CASE);
     }
 }

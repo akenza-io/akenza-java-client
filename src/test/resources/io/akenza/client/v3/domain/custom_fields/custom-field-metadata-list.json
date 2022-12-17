@@ -1,0 +1,55 @@
+{
+  "content": [
+    {
+      "id": "6900000000000001",
+      "workspaceId": "2900000000000000",
+      "name": "Last Battery Change",
+      "type": "DATE",
+      "description": null,
+      "required": false,
+      "selectOptions": null,
+      "created": "2022-05-25T17:36:22.000+00:00",
+      "updated": "2022-05-25T17:36:22.000+00:00"
+    },
+    {
+      "id": "6900000000000002",
+      "workspaceId": "2900000000000000",
+      "name": "Room",
+      "type": "STRING",
+      "description": null,
+      "required": false,
+      "selectOptions": [
+        "Living Room",
+        "Bed Room",
+        "Kitchen"
+      ],
+      "created": "2022-12-17T11:48:03.000+00:00",
+      "updated": "2022-12-17T11:48:03.000+00:00"
+    }
+  ],
+  "pageable": {
+    "sort": {
+      "empty": false,
+      "sorted": true,
+      "unsorted": false
+    },
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 10,
+    "unpaged": false,
+    "paged": true
+  },
+  "totalPages": 1,
+  "totalElements": 2,
+  "last": true,
+  "size": 10,
+  "number": 0,
+  "sort": {
+    "empty": false,
+    "sorted": true,
+    "unsorted": false
+  },
+  "numberOfElements": 2,
+  "first": true,
+  "empty": false
+}

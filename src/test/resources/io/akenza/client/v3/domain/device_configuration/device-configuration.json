@@ -1,0 +1,12 @@
+{
+  "deviceId": "0200000000000000",
+  "workspaceId": "2900000000000000",
+  "configuration": {
+    "key": {
+      "key3": "value"
+    },
+    "key2": "value"
+  },
+  "created": "2022-07-28T15:55:50.257+00:00",
+  "version": 2
+}
