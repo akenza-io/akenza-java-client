@@ -8,7 +8,7 @@ import io.akenza.client.v3.domain.data.DataQueryClient;
 import io.akenza.client.v3.domain.data_flows.DataFlowClient;
 import io.akenza.client.v3.domain.device_configuration.DeviceConfigurationClient;
 import io.akenza.client.v3.domain.device_connectors.DeviceConnectorClient;
-import io.akenza.client.v3.domain.device_credentials.DeviceCredentialsClient;
+import io.akenza.client.v3.domain.device_credentials.DeviceCredentialClient;
 import io.akenza.client.v3.domain.device_types.DeviceTypeClient;
 import io.akenza.client.v3.domain.devices.DeviceClient;
 import io.akenza.client.v3.domain.downlinks.DownlinkClient;
@@ -170,8 +170,8 @@ public class AkenzaAPI {
         return new DownlinkClient(client, baseUrl, apiKey);
     }
 
-    public DeviceCredentialsClient deviceCredentials() {
-        return new DeviceCredentialsClient(client, baseUrl, apiKey);
+    public DeviceCredentialClient deviceCredentials() {
+        return new DeviceCredentialClient(client, baseUrl, apiKey);
     }
 
     public CustomFieldClient customFields() {

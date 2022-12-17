@@ -12,11 +12,11 @@ import okhttp3.OkHttpClient;
 /**
  * Client for interacting with device credentials
  */
-public class DeviceCredentialsClient extends BaseClient {
+public class DeviceCredentialClient extends BaseClient {
     private static final String DEVICE_CREDENTIALS_URI_TEMPLATE = "v3/device-authorization/devices/%s/credentials";
     private static final String DEVICE_CREDENTIALS_BY_ID_URI_TEMPLATE = "v3/device-authorization/devices/%s/credentials/%s";
 
-    public DeviceCredentialsClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
+    public DeviceCredentialClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
         super(client, baseUrl, apiKey);
     }
 
