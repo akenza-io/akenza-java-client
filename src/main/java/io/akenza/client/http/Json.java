@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
@@ -227,7 +226,6 @@ public class Json {
                         .registerModule(new ParameterNamesModule())
                         .registerModule(new Jdk8Module())
                         .registerModule(new JavaTimeModule())
-                        .registerModule(new GuavaModule())
                         .disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE)
                         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)

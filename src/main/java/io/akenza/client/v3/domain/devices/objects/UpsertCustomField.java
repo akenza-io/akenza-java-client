@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.base.Preconditions;
+import io.akenza.client.utils.AkenzaStyle;
 import org.immutables.value.Value;
 
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ import java.util.Map;
 @Value.Immutable
 @JsonSerialize(as = ImmutableUpsertCustomField.class)
 @JsonDeserialize(as = ImmutableUpsertCustomField.class)
+@AkenzaStyle
 public abstract class UpsertCustomField {
     public abstract String fieldMetaId();
 

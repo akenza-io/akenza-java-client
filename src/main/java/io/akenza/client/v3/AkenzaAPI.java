@@ -11,6 +11,7 @@ import io.akenza.client.v3.domain.device_credentials.DeviceCredentialsClient;
 import io.akenza.client.v3.domain.device_types.DeviceTypeClient;
 import io.akenza.client.v3.domain.devices.DeviceClient;
 import io.akenza.client.v3.domain.downlinks.DownlinkClient;
+import io.akenza.client.v3.domain.operations.OperationClient;
 import io.akenza.client.v3.domain.organizations.OrganizationClient;
 import io.akenza.client.v3.domain.output_connectors.OutputConnectorClient;
 import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
@@ -173,13 +174,13 @@ public class AkenzaAPI {
         return new CustomFieldClient(client, baseUrl, apiKey);
     }
 
-//    public TagClient tags() {
+    //    public TagClient tags() {
 //        return new TagClient(client, baseUrl, apiKey);
 //    }
 //
-//    public OperationsClient operations() {
-//        return new OperationsClient(client, baseUrl, apiKey);
-//    }
+    public OperationClient operations() {
+        return new OperationClient(client, baseUrl, apiKey);
+    }
 //
 //    public RuleClient rules() {
 //        return new RuleClient(client, baseUrl, apiKey);

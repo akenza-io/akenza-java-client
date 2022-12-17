@@ -3,6 +3,7 @@ package io.akenza.client.v3.domain.devices.commands;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.base.Preconditions;
+import io.akenza.client.utils.AkenzaStyle;
 import io.akenza.client.v3.domain.common.Connectivity;
 import io.akenza.client.v3.domain.devices.objects.LoRaProperties;
 import io.akenza.client.v3.domain.devices.objects.TagReference;
@@ -16,6 +17,7 @@ import java.util.Map;
 @Value.Immutable
 @JsonSerialize(as = ImmutableUpdateDeviceCommand.class)
 @JsonDeserialize(as = ImmutableUpdateDeviceCommand.class)
+@AkenzaStyle
 public abstract class UpdateDeviceCommand {
     /**
      * ID
