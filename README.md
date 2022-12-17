@@ -2,6 +2,8 @@
 
 A Java client library for interacting with the `akenza` API.
 
+**Disclaimer: this project is under active development and the APIs are not yet stable**
+
 ## Getting Started
 
 Include the latest version of akenza-client into your project:
@@ -11,9 +13,9 @@ In Maven:
 ```xml
 
 <dependency>
-    <groupId>io.akenza.client</groupId>
+    <groupId>io.akenza</groupId>
     <artifactId>akenza-java-client</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
 </dependency>
 ```
 
@@ -29,7 +31,7 @@ Refer to [akenza API Keys](https://docs.akenza.io/api-reference/api-documentatio
 
 ## Usage
 
-Refer to the `./akenza-java-client/test` directory to see examples on how to use the library.
+Refer to the [`./src/test`](./src/test) directory to see examples on how to use the library.
 
 ## Contributing
 
@@ -39,6 +41,7 @@ This project uses Maven. To run the tests locally, just run:
 mvn clean verify
 ```
 
+For more infos about contributing refer to [CONTRIBUTING.md](./CONTRIBUTING.md)
 Inspired by the [Spotify Github Java Client](https://github.com/spotify/github-java-client/)
 and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 
