@@ -3,9 +3,11 @@ package io.akenza.client.v3;
 import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.RateLimitInterceptor;
 import io.akenza.client.v3.domain.aggregations.AggregationClient;
+import io.akenza.client.v3.domain.custom_fields.CustomFieldClient;
 import io.akenza.client.v3.domain.data.DataQueryClient;
 import io.akenza.client.v3.domain.data_flows.DataFlowClient;
 import io.akenza.client.v3.domain.device_connectors.DeviceConnectorClient;
+import io.akenza.client.v3.domain.device_credentials.DeviceCredentialsClient;
 import io.akenza.client.v3.domain.device_types.DeviceTypeClient;
 import io.akenza.client.v3.domain.devices.DeviceClient;
 import io.akenza.client.v3.domain.downlinks.DownlinkClient;
@@ -162,6 +164,18 @@ public class AkenzaAPI {
     public DownlinkClient downlinks() {
         return new DownlinkClient(client, baseUrl, apiKey);
     }
+
+    public DeviceCredentialsClient deviceCredentials() {
+        return new DeviceCredentialsClient(client, baseUrl, apiKey);
+    }
+
+    public CustomFieldClient customFields() {
+        return new CustomFieldClient(client, baseUrl, apiKey);
+    }
+
+//    public TagClient tags() {
+//        return new TagClient(client, baseUrl, apiKey);
+//    }
 //
 //    public OperationsClient operations() {
 //        return new OperationsClient(client, baseUrl, apiKey);
@@ -179,9 +193,6 @@ public class AkenzaAPI {
 //        return new DeviceConfigurationClient(client, baseUrl, apiKey);
 //    }
 //
-//    public DeviceCredentialsClient deviceCredentials() {
-//        return new DeviceCredentialsClient(client, baseUrl, apiKey);
-//    }
 //
 //    public CustomLogicBlockClient customLogicBlocks() {
 //        return new CustomLogicBlockClient(client, baseUrl, apiKey);

@@ -14,7 +14,7 @@ import java.util.Map;
 @JsonSerialize(as = ImmutableCustomField.class)
 @JsonDeserialize(as = ImmutableCustomField.class)
 public interface CustomField {
-    CustomFieldMeta meta();
+    MinimalCustomFieldMeta meta();
 
     @JsonProperty("STRING")
     @Nullable

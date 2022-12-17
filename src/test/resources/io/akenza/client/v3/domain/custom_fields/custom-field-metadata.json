@@ -1,0 +1,15 @@
+{
+  "id": "6900000000000000",
+  "workspaceId": "2900000000000000",
+  "name": "Room",
+  "type": "STRING",
+  "description": null,
+  "required": false,
+  "selectOptions": [
+    "Living Room",
+    "Bed Room",
+    "Kitchen"
+  ],
+  "created": "2022-12-17T11:48:03.000+00:00",
+  "updated": "2022-12-17T11:48:03.000+00:00"
+}
