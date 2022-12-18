@@ -6,7 +6,7 @@
 [![GitHub tag](https://img.shields.io/github/tag/akenza-io/akenza-java-client?include_prereleases=&sort=semver&color=blue)](https://github.com/akenza-io/akenza-java-client/releases/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![lifecycle: alpha](https://img.shields.io/badge/lifecycle-alpha-cf3d26.svg)
-![Maven Central](https://img.shields.io/maven-central/v/io.akenza/akenza-java-client)
+[![Maven Central](https://img.shields.io/maven-central/v/io.akenza/akenza-java-client)](https://search.maven.org/artifact/io.akenza/akenza-java-client)
 
 A Java client library for interacting with the [`akenza`](https://akenza.io/) API.
 
