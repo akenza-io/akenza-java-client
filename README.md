@@ -1,5 +1,10 @@
 # akenza-java-client
 
+![release](https://github.com/akenza-io/akenza-java-client/actions/workflows/release.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![lifecycle: alpha](https://img.shields.io/badge/lifecycle-alpha-cf3d26.svg)
+![Maven Central](https://img.shields.io/maven-central/v/io.akenza/akenza-java-client)
+
 A Java client library for interacting with the `akenza` API.
 
 **Disclaimer: this project is under active development and the APIs are not yet stable**
@@ -24,7 +29,7 @@ Start using the akenza API.
 ```java
 final String apiKey="";
 final AkenzaAPI client=AkenzaAPI.create(apiKey);
-final Workspace workspace=akenza.workspaces().getById("<workspaceId>").execute();
+final Workspace workspace=client.workspaces().getById("<workspaceId>").execute();
 ```
 
 Refer to [akenza API Keys](https://docs.akenza.io/api-reference/api-documentation#api-keys) for more information.
@@ -70,3 +75,5 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - add shortcuts for the list calls with default pagination
 - change filters to builder pattern instead of .create()
 - add examples on how to use the library
+- find out if shading works as it should
+- add more logs
