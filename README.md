@@ -1,19 +1,22 @@
 # akenza-java-client
 
-![release](https://github.com/akenza-io/akenza-java-client/actions/workflows/release.yml/badge.svg)
+![build](https://github.com/akenza-io/akenza-java-client/actions/workflows/pullrequest.yml/badge.svg?query=branch%3Amain)
+[![codecov](https://codecov.io/github/akenza-io/akenza-java-client/branch/main/graph/badge.svg?token=MHT923B1BC)](https://codecov.io/github/akenza-io/akenza-java-client)
+[![CodeQL](https://github.com/akenza-io/akenza-java-client/workflows/CodeQL/badge.svg)](https://github.com/akenza-io/akenza-java-client/actions?query=workflow%3ACodeQL "Code quality workflow status")
+[![GitHub tag](https://img.shields.io/github/tag/akenza-io/akenza-java-client?include_prereleases=&sort=semver&color=blue)](https://github.com/akenza-io/akenza-java-client/releases/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![lifecycle: alpha](https://img.shields.io/badge/lifecycle-alpha-cf3d26.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.akenza/akenza-java-client)
 
-A Java client library for interacting with the `akenza` API.
+A Java client library for interacting with the [`akenza`](https://akenza.io/) API.
 
-**Disclaimer: this project is under active development and the APIs are not yet stable**
+**Disclaimer: this project is under active development and APIs are not yet guaranteed to be stable.**
 
 ## Getting Started
 
-Include the latest version of akenza-client into your project:
+Include the latest version of `akenza-java-client` into your project:
 
-In Maven:
+Maven:
 
 ```xml
 
@@ -24,7 +27,7 @@ In Maven:
 </dependency>
 ```
 
-Start using the akenza API.
+Start using the akenza API:
 
 ```java
 final String apiKey="";
@@ -32,23 +35,28 @@ final AkenzaAPI client=AkenzaAPI.create(apiKey);
 final Workspace workspace=client.workspaces().getById("<workspaceId>").execute();
 ```
 
-Refer to [akenza API Keys](https://docs.akenza.io/api-reference/api-documentation#api-keys) for more information.
+To create an api key, [sign up](https://auth.akenza.io/register) to  akenza and refer to [akenza API Keys](https://docs.akenza.io/api-reference/api-documentation#api-keys) to get started.
+
+Refer to the [akenza documentation](https://docs.akenza.io/) and the [akenza API docs](https://docs.api.akenza.io/) for further information.
 
 ## Usage
 
-Refer to the [`./src/test`](./src/test) directory to see examples on how to use the library.
+Refer to the [`./src/test`](./src/test) directory for examples on how to use this library.
 
 ## Contributing
 
-This project uses Maven. To run the tests locally, just run:
+This project uses Maven. To run the tests locally, run:
 
 ```bash
 mvn clean verify
 ```
 
 For more infos about contributing refer to [CONTRIBUTING.md](./CONTRIBUTING.md)
-Inspired by the [Spotify Github Java Client](https://github.com/spotify/github-java-client/)
-and [Auth0 Java Client](https://github.com/auth0/auth0-java).
+
+
+## License
+
+Released under [MIT](/LICENSE) by [@akenza-io](https://github.com/akenza-io).
 
 ## Open Points
 
@@ -77,3 +85,8 @@ and [Auth0 Java Client](https://github.com/auth0/auth0-java).
 - add examples on how to use the library
 - find out if shading works as it should
 - add more logs
+
+
+
+This library is inspired by [Spotify Github Java Client](https://github.com/spotify/github-java-client/)
+and [Auth0 Java Client](https://github.com/auth0/auth0-java).
