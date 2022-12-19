@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.device_credentials;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -16,8 +17,8 @@ public class DeviceCredentialClient extends BaseClient {
     private static final String DEVICE_CREDENTIALS_URI_TEMPLATE = "v3/device-authorization/devices/%s/credentials";
     private static final String DEVICE_CREDENTIALS_BY_ID_URI_TEMPLATE = "v3/device-authorization/devices/%s/credentials/%s";
 
-    public DeviceCredentialClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public DeviceCredentialClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -36,7 +37,7 @@ public class DeviceCredentialClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceCredentialPage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -56,7 +57,7 @@ public class DeviceCredentialClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceCredential>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(deviceCredential);
         return request;
     }
@@ -77,7 +78,7 @@ public class DeviceCredentialClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

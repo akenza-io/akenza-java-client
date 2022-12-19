@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.aggregations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -19,8 +20,8 @@ import java.time.temporal.ChronoUnit;
 public class AggregationClient extends BaseClient {
     private static final String AGGREGATIONS_URI_TEMPLATE = "v3/devices/%s/query";
 
-    public AggregationClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public AggregationClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -46,7 +47,7 @@ public class AggregationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<TimeSeriesAggregationResult>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(query);
         return request;
     }
@@ -74,7 +75,7 @@ public class AggregationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<KpiAggregationResult>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(query);
         return request;
     }

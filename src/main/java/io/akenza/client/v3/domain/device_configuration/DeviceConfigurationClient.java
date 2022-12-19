@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.device_configuration;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -20,8 +21,8 @@ public class DeviceConfigurationClient extends BaseClient {
     private static final String DEVICE_CONFIGURATION_URI_TEMPLATE = "v3/devices/%s/configuration";
     private static final String DEVICE_CONNECTOR_BY_VERSION_URI_TEMPLATE = "v3/devices/%s/configuration/%s";
 
-    public DeviceConfigurationClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public DeviceConfigurationClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -49,7 +50,7 @@ public class DeviceConfigurationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConfigurationPage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -70,7 +71,7 @@ public class DeviceConfigurationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConfiguration>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -90,7 +91,7 @@ public class DeviceConfigurationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConfiguration>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -112,7 +113,7 @@ public class DeviceConfigurationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceConfiguration>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(deviceConfiguration);
         return request;
     }
@@ -134,7 +135,7 @@ public class DeviceConfigurationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<MessageResponse>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(Map.of());
         return request;
     }
@@ -155,7 +156,7 @@ public class DeviceConfigurationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

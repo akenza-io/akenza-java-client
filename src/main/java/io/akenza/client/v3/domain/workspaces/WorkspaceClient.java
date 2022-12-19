@@ -1,14 +1,14 @@
 package io.akenza.client.v3.domain.workspaces;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import io.akenza.client.v3.domain.workspaces.WorkspacePage;
-import io.akenza.client.v3.domain.workspaces.commands.CreateWorkspaceCommand;
-import io.akenza.client.v3.domain.workspaces.commands.UpdateWorkspaceCommand;
-import io.akenza.client.v3.domain.workspaces.queries.WorkspaceFilter;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
+import io.akenza.client.v3.domain.workspaces.commands.CreateWorkspaceCommand;
+import io.akenza.client.v3.domain.workspaces.commands.UpdateWorkspaceCommand;
+import io.akenza.client.v3.domain.workspaces.queries.WorkspaceFilter;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
@@ -21,8 +21,8 @@ public class WorkspaceClient extends BaseClient {
     private static final String WORKSPACE_URI_TEMPLATE = "v3/workspaces";
     private static final String WORKSPACE_BY_ID_URI_TEMPLATE = "v3/workspaces/%s";
 
-    public WorkspaceClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public WorkspaceClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -49,7 +49,7 @@ public class WorkspaceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<WorkspacePage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -69,7 +69,7 @@ public class WorkspaceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<Workspace>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -89,7 +89,7 @@ public class WorkspaceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Workspace>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(workspace);
         return request;
     }
@@ -110,7 +110,7 @@ public class WorkspaceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<Workspace>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(workspace);
         return request;
     }
@@ -131,7 +131,7 @@ public class WorkspaceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

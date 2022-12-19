@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.script_runner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -18,8 +19,8 @@ import java.util.List;
 public class ScriptRunnerClient extends BaseClient {
     private static final String RUN_SCRIPT_URI_TEMPLATE = "v3/run-script";
 
-    public ScriptRunnerClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public ScriptRunnerClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -38,7 +39,7 @@ public class ScriptRunnerClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<List<ScriptRunResult>>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(runScriptCommand);
         return request;
     }

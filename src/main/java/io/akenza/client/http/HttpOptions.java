@@ -1,133 +1,99 @@
 package io.akenza.client.http;
 
+import com.google.common.base.Preconditions;
+import io.akenza.client.utils.AkenzaStyle;
+import org.immutables.value.Value;
+
+import javax.annotation.Nullable;
+
 /**
  * Configures the AkenzaAPI HTTP client
  */
-public class HttpOptions {
-    private ProxyOptions proxyOptions;
-    private int maxRequests = 64;
-    private int maxRequestsPerHost = 5;
-    private int connectTimeout = 10;
-    private int readTimeout = 10;
-    private int maxRetries = 3;
-
+@Value.Immutable
+@AkenzaStyle
+public abstract class HttpOptions {
+    public static final String DEFAULT_BASE_URL = "https://api.akenza.io";
 
     /**
      * Proxy configuration options
-     *
-     * @return the Proxy configuration options if set, null otherwise.
      */
-    public ProxyOptions getProxyOptions() {
-        return proxyOptions;
+    @Nullable
+    public abstract ProxyOptions proxyOptions();
+
+    /**
+     * Auth options
+     */
+    public abstract AuthOptions authOptions();
+
+    /**
+     * Akenza API base url to use, used for configuring private cloud domains
+     * <p>
+     * Defaults to the akenza public cloud.
+     */
+    @Value.Default
+    public String baseUrl() {
+        return DEFAULT_BASE_URL;
     }
 
     /**
-     * Set Proxy configuration options
-     *
-     * @param proxyOptions the Proxy configuration options
+     * Maximum number of requests to execute concurrently
+     * <p>
+     * Defaults to 64.
      */
-    public void setProxyOptions(ProxyOptions proxyOptions) {
-        this.proxyOptions = proxyOptions;
+    @Value.Default
+    public Integer maxRequests() {
+        return 64;
+    }
+
+    /**
+     * Maximum number of requests for each host to execute concurrently
+     * <p>
+     * Defaults to 5.
+     */
+    @Value.Default
+    public Integer maxRequestsPerHost() {
+        return 5;
+    }
+
+    /**
+     * The connect timeout, in seconds.
+     * <p>
+     * Defaults to ten seconds. A value of zero results in no connect timeout.
+     */
+    @Value.Default
+    public Integer connectTimeout() {
+        return 10;
     }
 
 
     /**
-     * @return the connect timeout, in seconds
+     * The value of the read timeout, in seconds.
+     * <p>
+     * Defaults to ten seconds. A value of zero results in no read timeout.
      */
-    public int getConnectTimeout() {
-        return connectTimeout;
+    @Value.Default
+    public Integer readTimeout() {
+        return 10;
     }
 
     /**
-     * Sets the value of the connect timeout, in seconds. Defaults to ten seconds. A value of zero results in no connect timeout.
-     * Negative numbers will be treated as zero.
-     *
-     * @param connectTimeout the value of the connect timeout to use.
-     */
-    public void setConnectTimeout(int connectTimeout) {
-        if (connectTimeout < 0) {
-            connectTimeout = 0;
-        }
-        this.connectTimeout = connectTimeout;
-    }
-
-    /**
-     * @return the read timeout, in seconds
-     */
-    public int getReadTimeout() {
-        return readTimeout;
-    }
-
-    /**
-     * Sets the value of the read timeout, in seconds. Defaults to ten seconds. A value of zero results in no read timeout.
-     * Negative numbers will be treated as zero.
-     *
-     * @param readTimeout the value of the read timeout to use.
-     */
-    public void setReadTimeout(int readTimeout) {
-        if (readTimeout < 0) {
-            readTimeout = 0;
-        }
-        this.readTimeout = readTimeout;
-    }
-
-    /**
-     * @return the configured number of maximum retries to attempt when a rate-limit error is encountered.
-     */
-    public int getMaxRetries() {
-        return maxRetries;
-    }
-
-    /**
-     * Sets the maximum number of consecutive retries for Akenza API requests that fail due to rate-limits being reached.
+     * Maximum number of consecutive retries for Akenza API requests that fail due to rate-limits being reached.
      * By default, rate-limited requests will be retried a maximum of three times. To disable retries on rate-limit
      * errors, set this value to zero.
-     *
-     * @param maxRetries the maximum number of consecutive retries to attempt upon a rate-limit error. Defaults to three.
-     *                   Must be a number between zero (do not retry) and ten.
+     * <p>
+     * Defaults to three. Must be a number between zero (do not retry) and ten.
      */
-    public void setMaxRetries(int maxRetries) {
-        if (maxRetries < 0 || maxRetries > 10) {
-            throw new IllegalArgumentException("Retries must be between zero and ten");
-        }
-        this.maxRetries = maxRetries;
+    @Value.Default
+    public Integer maxRetries() {
+        return 3;
     }
 
-    /**
-     * Set the maximum number of requests for each host to execute concurrently
-     *
-     * @param maxRequestsPerHost the maximum number of requests for each host to execute concurrently
-     */
-    public void setMaxRequestsPerHost(int maxRequestsPerHost) {
-        if (maxRequestsPerHost < 1) {
-            throw new IllegalArgumentException("maxRequestsPerHost must be one or greater");
-        }
-        this.maxRequestsPerHost = maxRequestsPerHost;
-    }
-
-    /**
-     * @return the maximum number of requests for each host to execute concurrently.
-     */
-    public int getMaxRequestsPerHost() {
-        return this.maxRequestsPerHost;
-    }
-
-    /**
-     * Set the maximum number of requests to execute concurrently
-     *
-     * @param maxRequests the number of requests to execute concurrently
-     */
-    public void setMaxRequests(int maxRequests) {
-        if (maxRequests < 1) {
-            throw new IllegalArgumentException("maxRequests must be one or greater");
-        }
-        this.maxRequests = maxRequests;
-    }
-
-    /**
-     * @return the number of requests to execute concurrently
-     */
-    public int getMaxRequests() {
-        return this.maxRequests;
+    @Value.Check
+    protected void check() {
+        Preconditions.checkState(maxRequests() >= 1, "maxRequests must be one or greater");
+        Preconditions.checkState(maxRequestsPerHost() >= 1, "maxRequestsPerHost must be one or greater");
+        Preconditions.checkState(maxRetries() >= 0 && maxRetries() <= 10, "maxRetries must be between zero and ten");
+        Preconditions.checkState(readTimeout() >= 0, "readTimeout must be positive");
+        Preconditions.checkState(connectTimeout() >= 0, "connectTimeout must be positive");
     }
 }

@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.data_flows;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -20,8 +21,8 @@ public class DataFlowClient extends BaseClient {
     private static final String DATA_FLOW_URI_TEMPLATE = "v3/data-flows";
     private static final String DATA_FLOW_BY_ID_URI_TEMPLATE = "v3/data-flows/%s";
 
-    public DataFlowClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public DataFlowClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -48,7 +49,7 @@ public class DataFlowClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlowPage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -68,7 +69,7 @@ public class DataFlowClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DataFlowDetails>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -88,7 +89,7 @@ public class DataFlowClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DataFlowDetails>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(dataFlow);
         return request;
     }
@@ -109,7 +110,7 @@ public class DataFlowClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DataFlowDetails>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(dataFlow);
         return request;
     }
@@ -129,7 +130,7 @@ public class DataFlowClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

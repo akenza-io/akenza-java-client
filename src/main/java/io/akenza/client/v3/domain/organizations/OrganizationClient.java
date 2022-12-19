@@ -1,8 +1,8 @@
 package io.akenza.client.v3.domain.organizations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import io.akenza.client.v3.domain.organizations.Organization;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -15,8 +15,8 @@ import okhttp3.OkHttpClient;
 public class OrganizationClient extends BaseClient {
     private static final String ORGANIZATION_URI_TEMPLATE = "v3/organizations/%s";
 
-    public OrganizationClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public OrganizationClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -35,7 +35,7 @@ public class OrganizationClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<Organization>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }
