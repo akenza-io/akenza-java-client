@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.device_connectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -20,8 +21,8 @@ public class DeviceConnectorClient extends BaseClient {
     private static final String DEVICE_CONNECTOR_URI_TEMPLATE = "v3/device-connectors";
     private static final String DEVICE_CONNECTOR_BY_ID_URI_TEMPLATE = "v3/device-connectors/%s";
 
-    public DeviceConnectorClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public DeviceConnectorClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -48,7 +49,7 @@ public class DeviceConnectorClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConnectorPage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -68,7 +69,7 @@ public class DeviceConnectorClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceConnector>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -88,7 +89,7 @@ public class DeviceConnectorClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceConnector>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(deviceConnector);
         return request;
     }
@@ -109,7 +110,7 @@ public class DeviceConnectorClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DeviceConnector>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(deviceConnector);
         return request;
     }
@@ -129,7 +130,7 @@ public class DeviceConnectorClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

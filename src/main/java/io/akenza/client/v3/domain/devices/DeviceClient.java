@@ -2,6 +2,7 @@ package io.akenza.client.v3.domain.devices;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
@@ -21,8 +22,8 @@ public class DeviceClient extends BaseClient {
     private static final String DEVICE_BY_ID_URI_TEMPLATE = "v3/devices/%s";
     private static final String ASSET_URI_TEMPLATE = "v3/assets/%s";
 
-    public DeviceClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public DeviceClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -59,7 +60,7 @@ public class DeviceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DevicePage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -79,7 +80,7 @@ public class DeviceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<Device>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -99,7 +100,7 @@ public class DeviceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Device>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(device);
 
         //TODO make sure that we do not have conflicting models between device and asset
@@ -122,7 +123,7 @@ public class DeviceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<Device>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(device);
 
         //TODO make sure that we do not have conflicting models between device and asset
@@ -145,7 +146,7 @@ public class DeviceClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

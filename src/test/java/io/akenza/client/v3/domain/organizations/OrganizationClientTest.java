@@ -20,7 +20,7 @@ class OrganizationClientTest {
     @BeforeEach
     public void setup() {
         server = new MockWebServer();
-        client = new AkenzaAPI(String.format("http://localhost:%s", server.getPort()), "apiKey");
+        client = AkenzaAPI.create(String.format("http://localhost:%s", server.getPort()), "apiKey");
     }
 
     @AfterEach

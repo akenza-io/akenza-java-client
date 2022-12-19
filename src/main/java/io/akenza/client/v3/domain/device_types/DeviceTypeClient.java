@@ -1,15 +1,14 @@
 package io.akenza.client.v3.domain.device_types;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import io.akenza.client.v3.domain.device_types.DeviceType;
-import io.akenza.client.v3.domain.device_types.DeviceTypePage;
-import io.akenza.client.v3.domain.device_types.commands.CreateDeviceTypeCommand;
-import io.akenza.client.v3.domain.device_types.commands.UpdateDeviceTypeCommand;
-import io.akenza.client.v3.domain.device_types.queries.DeviceTypeFilter;
 import io.akenza.client.http.HttpMethod;
+import io.akenza.client.http.HttpOptions;
 import io.akenza.client.http.Request;
 import io.akenza.client.http.RequestImpl;
 import io.akenza.client.utils.BaseClient;
+import io.akenza.client.v3.domain.device_types.commands.CreateDeviceTypeCommand;
+import io.akenza.client.v3.domain.device_types.commands.UpdateDeviceTypeCommand;
+import io.akenza.client.v3.domain.device_types.queries.DeviceTypeFilter;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
@@ -22,8 +21,8 @@ public class DeviceTypeClient extends BaseClient {
     private static final String DEVICE_TYPE_URI_TEMPLATE = "v3/device-types";
     private static final String DEVICE_TYPE_BY_ID_URI_TEMPLATE = "v3/device-types/%s";
 
-    public DeviceTypeClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
-        super(client, baseUrl, apiKey);
+    public DeviceTypeClient(OkHttpClient client, HttpOptions options) {
+        super(client, options);
     }
 
     /**
@@ -50,7 +49,7 @@ public class DeviceTypeClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceTypePage>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -70,7 +69,7 @@ public class DeviceTypeClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.GET, new TypeReference<DeviceType>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 
@@ -90,7 +89,7 @@ public class DeviceTypeClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceType>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(deviceType);
         return request;
     }
@@ -111,7 +110,7 @@ public class DeviceTypeClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.PUT, new TypeReference<DeviceType>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         request.withBody(deviceType);
         return request;
     }
@@ -131,7 +130,7 @@ public class DeviceTypeClient extends BaseClient {
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.DELETE, new TypeReference<Void>() {
         });
-        request.withHeader(X_API_KEY, apiKey);
+        addAuthentication(request);
         return request;
     }
 }

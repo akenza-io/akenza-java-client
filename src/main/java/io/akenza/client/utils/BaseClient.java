@@ -1,5 +1,7 @@
 package io.akenza.client.utils;
 
+import io.akenza.client.http.HttpOptions;
+import io.akenza.client.http.RequestImpl;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
@@ -8,11 +10,19 @@ public abstract class BaseClient {
 
     protected final OkHttpClient client;
     protected final HttpUrl baseUrl;
-    protected final String apiKey;
+    private final HttpOptions options;
 
-    public BaseClient(OkHttpClient client, HttpUrl baseUrl, String apiKey) {
+    public BaseClient(OkHttpClient client, HttpOptions options) {
         this.client = client;
-        this.baseUrl = baseUrl;
-        this.apiKey = apiKey;
+        this.baseUrl = HttpUrl.parse(options.baseUrl());
+        this.options = options;
+    }
+
+    protected void addAuthentication(RequestImpl request) {
+        if (options.authOptions().apiKey() != null) {
+            request.withHeader(X_API_KEY, options.authOptions().apiKey());
+        } else if (options.authOptions().bearerToken() != null) {
+            request.withHeader("Authorization", String.format("Bearer %s", options.authOptions().bearerToken()));
+        }
     }
 }

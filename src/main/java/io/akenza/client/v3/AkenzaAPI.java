@@ -1,9 +1,6 @@
 package io.akenza.client.v3;
 
-import io.akenza.client.http.HttpOptions;
-import io.akenza.client.http.ProxyOptions;
-import io.akenza.client.http.RateLimitInterceptor;
-import io.akenza.client.http.TelemetryInterceptor;
+import io.akenza.client.http.*;
 import io.akenza.client.v3.domain.aggregations.AggregationClient;
 import io.akenza.client.v3.domain.custom_fields.CustomFieldClient;
 import io.akenza.client.v3.domain.custom_logic_blocks.CustomLogicBlockClient;
@@ -30,31 +27,24 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class AkenzaAPI {
-    private static final String DEFAULT_BASE_URL = "https://api.akenza.io";
 
-    private final HttpUrl baseUrl;
     private final TelemetryInterceptor telemetry;
-    private String apiKey;
+    private final HttpOptions options;
 
     private final OkHttpClient client;
     private final HttpLoggingInterceptor logging;
 
-    public AkenzaAPI(String baseUrl, String apiKey, HttpOptions options) {
-        Objects.requireNonNull(baseUrl, "baseUrl must not be null");
-        Objects.requireNonNull(apiKey, "apiKey must not be null");
+    public AkenzaAPI(HttpOptions options) {
+        this.options = options;
         Objects.requireNonNull(options, "options must not be null");
-
-        this.baseUrl = HttpUrl.parse(baseUrl);
-        this.apiKey = apiKey;
 
         logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.NONE);
-
         telemetry = new TelemetryInterceptor();
 
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
-        final ProxyOptions proxyOptions = options.getProxyOptions();
+        final ProxyOptions proxyOptions = options.proxyOptions();
         if (proxyOptions != null) {
             clientBuilder.proxy(proxyOptions.getProxy());
             final String proxyAuth = proxyOptions.getBasicAuthentication();
@@ -78,36 +68,19 @@ public class AkenzaAPI {
         Dispatcher dispatcher = new Dispatcher();
         // maximum number of requests to execute concurrently
         // https://square.github.io/okhttp/4.x/okhttp/okhttp3/-dispatcher/max-requests/
-        dispatcher.setMaxRequests(options.getMaxRequests());
+        dispatcher.setMaxRequests(options.maxRequests());
         // maximum number of requests for each host to execute concurrently
         // https://square.github.io/okhttp/4.x/okhttp/okhttp3/-dispatcher/max-requests-per-host/
-        dispatcher.setMaxRequestsPerHost(options.getMaxRequestsPerHost());
+        dispatcher.setMaxRequestsPerHost(options.maxRequestsPerHost());
 
         this.client = clientBuilder
                 .addInterceptor(logging)
                 .addInterceptor(telemetry)
-                .addInterceptor(new RateLimitInterceptor(options.getMaxRetries()))
-                .connectTimeout(options.getConnectTimeout(), TimeUnit.SECONDS)
-                .readTimeout(options.getReadTimeout(), TimeUnit.SECONDS)
+                .addInterceptor(new RateLimitInterceptor(options.maxRetries()))
+                .connectTimeout(options.connectTimeout(), TimeUnit.SECONDS)
+                .readTimeout(options.readTimeout(), TimeUnit.SECONDS)
                 .dispatcher(dispatcher)
                 .build();
-    }
-
-    /**
-     * Creates an instance of the akenza client for a private cloud baseUrl and API key.
-     * Additionally, {@link HttpOptions} can be provided that will be used to configure the underlying HTTP client.
-     *
-     * @param baseUrl the akenza private cloud domain
-     * @param apiKey  the API key to authenticate the calls with
-     * @param options configuration options for this client
-     * @see #AkenzaAPI(String, String)
-     */
-    public static AkenzaAPI create(String baseUrl, String apiKey, HttpOptions options) {
-        return new AkenzaAPI(baseUrl, apiKey, options);
-    }
-
-    public AkenzaAPI(String baseUrl, String apiKey) {
-        this(baseUrl, apiKey, new HttpOptions());
     }
 
     /**
@@ -117,27 +90,12 @@ public class AkenzaAPI {
      * @param apiKey  the API key to authenticate the calls with
      */
     public static AkenzaAPI create(String baseUrl, String apiKey) {
-        return new AkenzaAPI(baseUrl, apiKey);
-    }
-
-    public AkenzaAPI(String apiKey, HttpOptions options) {
-        this(DEFAULT_BASE_URL, apiKey, options);
-    }
-
-    /**
-     * Creates an instance of the akenza client with a given API key.
-     * Additionally, {@link HttpOptions} can be provided that will be used to configure the underlying HTTP client.
-     *
-     * @param apiKey  the API key to authenticate the calls with
-     * @param options configuration options for this client
-     * @see #AkenzaAPI(String)
-     */
-    public static AkenzaAPI create(String apiKey, HttpOptions options) {
-        return new AkenzaAPI(apiKey, options);
-    }
-
-    public AkenzaAPI(String apiKey) {
-        this(DEFAULT_BASE_URL, apiKey, new HttpOptions());
+        return new AkenzaAPI(ImmutableHttpOptions.builder()
+                .baseUrl(baseUrl)
+                .authOptions(ImmutableAuthOptions.builder()
+                        .apiKey(apiKey)
+                        .build())
+                .build());
     }
 
     /**
@@ -146,17 +104,19 @@ public class AkenzaAPI {
      * @param apiKey the API key to authenticate the calls with
      */
     public static AkenzaAPI create(String apiKey) {
-        return new AkenzaAPI(apiKey);
+        return new AkenzaAPI(ImmutableHttpOptions.builder()
+                .authOptions(ImmutableAuthOptions.builder()
+                        .apiKey(apiKey).build())
+                .build());
     }
 
     /**
-     * Update the API key to use on new calls.
+     * Creates an instance of the akenza client for the given HttpOptions
      *
-     * @param apiKey the API key to authenticate calls with.
+     * @param options the HttpOptions to use
      */
-    public void setApiKey(String apiKey) {
-        Objects.requireNonNull(apiKey, "api key must not be null");
-        this.apiKey = apiKey;
+    public static AkenzaAPI create(HttpOptions options) {
+        return new AkenzaAPI(options);
     }
 
     /**
@@ -176,74 +136,74 @@ public class AkenzaAPI {
     }
 
     public WorkspaceClient workspaces() {
-        return new WorkspaceClient(client, baseUrl, apiKey);
+        return new WorkspaceClient(client, options);
     }
 
     public OrganizationClient organizations() {
-        return new OrganizationClient(client, baseUrl, apiKey);
+        return new OrganizationClient(client, options);
     }
 
     public DataQueryClient dataQuery() {
-        return new DataQueryClient(client, baseUrl, apiKey);
+        return new DataQueryClient(client, options);
     }
 
     public DeviceClient devices() {
-        return new DeviceClient(client, baseUrl, apiKey);
+        return new DeviceClient(client, options);
     }
 
     public DeviceTypeClient deviceTypes() {
-        return new DeviceTypeClient(client, baseUrl, apiKey);
+        return new DeviceTypeClient(client, options);
     }
 
     public DeviceConnectorClient deviceConnectors() {
-        return new DeviceConnectorClient(client, baseUrl, apiKey);
+        return new DeviceConnectorClient(client, options);
     }
 
     public OutputConnectorClient outputConnectors() {
-        return new OutputConnectorClient(client, baseUrl, apiKey);
+        return new OutputConnectorClient(client, options);
     }
 
     public DataFlowClient dataFlows() {
-        return new DataFlowClient(client, baseUrl, apiKey);
+        return new DataFlowClient(client, options);
     }
 
     public AggregationClient aggregations() {
-        return new AggregationClient(client, baseUrl, apiKey);
+        return new AggregationClient(client, options);
     }
 
     public DownlinkClient downlinks() {
-        return new DownlinkClient(client, baseUrl, apiKey);
+        return new DownlinkClient(client, options);
     }
 
     public DeviceCredentialClient deviceCredentials() {
-        return new DeviceCredentialClient(client, baseUrl, apiKey);
+        return new DeviceCredentialClient(client, options);
     }
 
     public CustomFieldClient customFields() {
-        return new CustomFieldClient(client, baseUrl, apiKey);
+        return new CustomFieldClient(client, options);
     }
 
     public TagClient tags() {
-        return new TagClient(client, baseUrl, apiKey);
+        return new TagClient(client, options);
     }
 
     public OperationClient operations() {
-        return new OperationClient(client, baseUrl, apiKey);
+        return new OperationClient(client, options);
     }
 
     public RuleClient rules() {
-        return new RuleClient(client, baseUrl, apiKey);
+        return new RuleClient(client, options);
     }
 
     public ScriptRunnerClient scripts() {
-        return new ScriptRunnerClient(client, baseUrl, apiKey);
+        return new ScriptRunnerClient(client, options);
     }
 
     public DeviceConfigurationClient deviceConfigurations() {
-        return new DeviceConfigurationClient(client, baseUrl, apiKey);
+        return new DeviceConfigurationClient(client, options);
     }
 
     public CustomLogicBlockClient customLogicBlocks() {
-        return new CustomLogicBlockClient(client, baseUrl, apiKey);
+        return new CustomLogicBlockClient(client, options);
     }
 }
