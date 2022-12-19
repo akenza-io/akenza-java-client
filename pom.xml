@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>akenza-java-client</artifactId>
-    <version>0.0.3</version>
+    <version>0.1.0</version>
     <groupId>io.akenza</groupId>
     <name>Akenza Java Client SDK</name>
     <description>akenza is the IoT platform at the heart of your smart solution. This is a Java client library for
