@@ -47,6 +47,7 @@ public interface DeviceType extends Versioned, Audited {
     /**
      * Device Type Metadata
      */
+    @Nullable
     DeviceTypeMetadata meta();
 
     /**
