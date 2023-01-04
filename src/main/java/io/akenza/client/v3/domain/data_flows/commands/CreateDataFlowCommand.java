@@ -1,5 +1,6 @@
 package io.akenza.client.v3.domain.data_flows.commands;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.akenza.client.utils.AkenzaStyle;
@@ -29,6 +30,7 @@ public abstract class CreateDataFlowCommand {
     public abstract List<OutputConnectorReference> outputConnectors();
 
     @Value.Default
+    @JsonAlias("passThrough")
     public Boolean isPassThrough() {
         return true;
     }

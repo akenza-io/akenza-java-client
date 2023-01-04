@@ -6,6 +6,7 @@ import io.akenza.client.v3.domain.data_flows.commands.ImmutableCreateDataFlowCom
 import io.akenza.client.v3.domain.data_flows.commands.ImmutableUpdateDataFlowCommand;
 import io.akenza.client.v3.domain.data_flows.objects.ImmutableDeviceConnectorReference;
 import io.akenza.client.v3.domain.data_flows.objects.ImmutableOutputConnectorReference;
+import io.akenza.client.v3.domain.data_flows.objects.OutputConnectorReference;
 import io.akenza.client.v3.domain.data_flows.queries.DataFlowFilter;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
@@ -92,7 +93,7 @@ class DataFlowClientTest {
                 .workspaceId("2900000000000000")
                 .deviceConnector(ImmutableDeviceConnectorReference.builder().id("0700000000000000").build())
                 .isPassThrough(true)
-                .addOutputConnectors(ImmutableOutputConnectorReference.builder().topic("*").id("0900000000000000").build())
+                .addOutputConnectors(OutputConnectorReference.akenzaDatabase())
                 .build()).execute();
 
         //assert

@@ -18,9 +18,9 @@ import java.util.Map;
  * Client for querying device data
  */
 public class DeviceClient extends BaseClient {
+    private static final String ASSET_URI_TEMPLATE = "v3/assets";
     private static final String DEVICE_URI_TEMPLATE = "v3/devices";
     private static final String DEVICE_BY_ID_URI_TEMPLATE = "v3/devices/%s";
-    private static final String ASSET_URI_TEMPLATE = "v3/assets/%s";
 
     public DeviceClient(OkHttpClient client, HttpOptions options) {
         super(client, options);
@@ -71,7 +71,7 @@ public class DeviceClient extends BaseClient {
      * @return a device
      */
     public Request<Device> getById(String akenzaDeviceId) {
-        final String path = String.format(ASSET_URI_TEMPLATE, akenzaDeviceId);
+        final String path = String.format(DEVICE_BY_ID_URI_TEMPLATE, akenzaDeviceId);
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()

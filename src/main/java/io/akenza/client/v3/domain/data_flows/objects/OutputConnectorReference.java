@@ -10,6 +10,8 @@ import org.immutables.value.Value;
 @JsonDeserialize(as = ImmutableOutputConnectorReference.class)
 @AkenzaStyle
 public abstract class OutputConnectorReference {
+    public static final String AKENZA_DB_ID = "0900000000000000";
+
     /**
      * ID
      */
@@ -21,5 +23,9 @@ public abstract class OutputConnectorReference {
     @Value.Default
     public String topic() {
         return "*";
+    }
+
+    public static OutputConnectorReference akenzaDatabase() {
+        return ImmutableOutputConnectorReference.builder().id(AKENZA_DB_ID).topic("*").build();
     }
 }
