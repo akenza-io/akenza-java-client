@@ -75,7 +75,7 @@
         <junit-jupiter-api.version>5.9.0</junit-jupiter-api.version>
 
         <shade.id>${project.groupId}.akenzaclient.shade</shade.id>
-        <assertj-core.version>3.23.1</assertj-core.version>
+        <assertj-core.version>3.24.1</assertj-core.version>
         <guava.version>31.1-jre</guava.version>
         <log4j-api.version>2.19.0</log4j-api.version>
         <failsafe.version>2.4.4</failsafe.version>
