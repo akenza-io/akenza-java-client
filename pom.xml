@@ -76,7 +76,7 @@
 
         <shade.id>${project.groupId}.akenzaclient.shade</shade.id>
         <assertj-core.version>3.24.2</assertj-core.version>
-        <guava.version>31.1-jre</guava.version>
+        <guava.version>32.0.1-jre</guava.version>
         <log4j-api.version>2.20.0</log4j-api.version>
         <failsafe.version>2.4.4</failsafe.version>
 
