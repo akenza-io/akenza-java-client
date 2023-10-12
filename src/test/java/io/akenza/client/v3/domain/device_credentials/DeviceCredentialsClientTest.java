@@ -32,7 +32,7 @@ class DeviceCredentialsClientTest {
     }
 
     @Test
-    void getAll() throws IOException {
+    void getAll() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -48,7 +48,7 @@ class DeviceCredentialsClientTest {
     }
 
     @Test
-    void create() throws IOException, InterruptedException {
+    void create() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(201)

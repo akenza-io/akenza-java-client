@@ -29,7 +29,7 @@ class OperationClientTest {
     }
 
     @Test
-    void getById() throws IOException {
+    void getById() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -53,7 +53,7 @@ class OperationClientTest {
     }
 
     @Test
-    void getByIdFailed() throws IOException {
+    void getByIdFailed() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)

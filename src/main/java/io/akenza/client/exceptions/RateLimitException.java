@@ -1,9 +1,9 @@
 package io.akenza.client.exceptions;
 
 public class RateLimitException extends AkenzaException {
-    private long limit;
-    private long remaining;
-    private long reset;
+    private final long limit;
+    private final long remaining;
+    private final long reset;
 
     public RateLimitException(long limit, long remaining, long reset) {
         super();

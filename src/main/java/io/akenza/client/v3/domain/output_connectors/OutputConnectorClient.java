@@ -33,11 +33,9 @@ public class OutputConnectorClient extends BaseClient {
      * @return a page with output connectors
      */
     public Request<OutputConnectorPage> list(String workspaceId, OutputConnectorFilter filter) {
-        final String path = OUTPUT_CONNECTOR_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(OUTPUT_CONNECTOR_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +78,9 @@ public class OutputConnectorClient extends BaseClient {
      * @return the newly created output connector
      */
     public Request<OutputConnector> create(CreateOutputConnectorCommand outputConnector) {
-        final String path = OUTPUT_CONNECTOR_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(OUTPUT_CONNECTOR_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<OutputConnector>() {

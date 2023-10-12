@@ -33,11 +33,9 @@ public class WorkspaceClient extends BaseClient {
      * @return a page with workspace
      */
     public Request<WorkspacePage> list(String organizationId, WorkspaceFilter filter) {
-        final String path = WORKSPACE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(WORKSPACE_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +78,9 @@ public class WorkspaceClient extends BaseClient {
      * @return the newly created workspace
      */
     public Request<Workspace> create(CreateWorkspaceCommand workspace) {
-        final String path = WORKSPACE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(WORKSPACE_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Workspace>() {

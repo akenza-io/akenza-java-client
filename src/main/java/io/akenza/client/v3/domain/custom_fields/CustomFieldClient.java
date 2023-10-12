@@ -33,11 +33,10 @@ public class CustomFieldClient extends BaseClient {
      * @return a page with custom field metadata
      */
     public Request<CustomFieldPage> listMetadata(String workspaceId, CustomFieldFilter filter) {
-        final String path = CUSTOM_FIELD_META_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(CUSTOM_FIELD_META_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +79,10 @@ public class CustomFieldClient extends BaseClient {
      * @return the newly created custom field metadata
      */
     public Request<CustomFieldMetadata> createMetadata(CreateCustomFieldMetadataCommand customField) {
-        final String path = CUSTOM_FIELD_META_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(CUSTOM_FIELD_META_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<CustomFieldMetadata>() {

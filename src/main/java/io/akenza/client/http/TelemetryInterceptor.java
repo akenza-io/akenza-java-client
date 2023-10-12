@@ -4,6 +4,7 @@ package io.akenza.client.http;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 
 /**
@@ -25,8 +26,9 @@ public class TelemetryInterceptor implements Interceptor {
         this.enabled = true;
     }
 
+    @Nonnull
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(@Nonnull Chain chain) throws IOException {
         if (!enabled) {
             return chain.proceed(chain.request());
         }

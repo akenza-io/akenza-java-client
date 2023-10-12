@@ -33,11 +33,9 @@ public class DeviceConnectorClient extends BaseClient {
      * @return a page with device connectors
      */
     public Request<DeviceConnectorPage> list(String workspaceId, DeviceConnectorFilter filter) {
-        final String path = DEVICE_CONNECTOR_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(DEVICE_CONNECTOR_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +78,9 @@ public class DeviceConnectorClient extends BaseClient {
      * @return the newly created device connector
      */
     public Request<DeviceConnector> create(CreateDeviceConnectorCommand deviceConnector) {
-        final String path = DEVICE_CONNECTOR_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(DEVICE_CONNECTOR_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceConnector>() {

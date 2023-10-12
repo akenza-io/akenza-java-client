@@ -30,11 +30,9 @@ public class ScriptRunnerClient extends BaseClient {
      * @return a list of script run results
      */
     public Request<List<ScriptRunResult>> runScript(RunScriptCommand runScriptCommand) {
-        final String path = RUN_SCRIPT_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(RUN_SCRIPT_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<List<ScriptRunResult>>() {

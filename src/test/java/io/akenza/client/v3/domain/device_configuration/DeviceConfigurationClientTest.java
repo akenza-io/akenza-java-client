@@ -35,7 +35,7 @@ class DeviceConfigurationClientTest {
     }
 
     @Test
-    void getByVersion() throws IOException {
+    void getByVersion() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -55,7 +55,7 @@ class DeviceConfigurationClientTest {
     }
 
     @Test
-    void getLatest() throws IOException, InterruptedException {
+    void getLatest() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -78,7 +78,7 @@ class DeviceConfigurationClientTest {
     }
 
     @Test
-    void getAll() throws IOException {
+    void getAll() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -94,7 +94,7 @@ class DeviceConfigurationClientTest {
     }
 
     @Test
-    void create() throws IOException, InterruptedException {
+    void create() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(201)
@@ -120,7 +120,7 @@ class DeviceConfigurationClientTest {
     }
 
     @Test
-    void push() throws IOException, InterruptedException {
+    void push() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(201)

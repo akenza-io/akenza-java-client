@@ -4,5 +4,5 @@ public enum Connectivity {
     LORA,
     MQTT,
     HTTP,
-    COAP;
+    COAP
 }

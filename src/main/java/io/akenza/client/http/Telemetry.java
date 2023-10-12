@@ -3,6 +3,8 @@ package io.akenza.client.http;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Base64;
 import java.util.Collections;
@@ -17,6 +19,8 @@ import java.util.Map;
  * @see TelemetryInterceptor
  */
 public class Telemetry {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Telemetry.class);
     static final String HEADER_NAME = "Akenza-Client";
 
     private static final String JAVA_SPECIFICATION_VERSION = "java.specification.version";
@@ -31,6 +35,8 @@ public class Telemetry {
     private final String libraryVersion;
     private final Map<String, String> env;
     private final String value;
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public Telemetry(String name, String version) {
         this(name, version, null);
@@ -63,11 +69,11 @@ public class Telemetry {
 
         String tmpValue;
         try {
-            String json = new ObjectMapper().writeValueAsString(values);
+            String json = objectMapper.writeValueAsString(values);
             tmpValue = Base64.getUrlEncoder().encodeToString(json.getBytes());
         } catch (JsonProcessingException e) {
             tmpValue = null;
-            e.printStackTrace();
+            LOGGER.error("Failed to serialize properties", e);
         }
         value = tmpValue;
     }
@@ -95,13 +101,13 @@ public class Telemetry {
     }
 
     private String getJDKVersion() {
-        String version;
+        String jdkVersion;
         try {
-            version = System.getProperty(JAVA_SPECIFICATION_VERSION);
+            jdkVersion = System.getProperty(JAVA_SPECIFICATION_VERSION);
         } catch (Exception ignored) {
-            version = Runtime.class.getPackage().getSpecificationVersion();
+            jdkVersion = Runtime.class.getPackage().getSpecificationVersion();
         }
-        return version;
+        return jdkVersion;
     }
 
 }

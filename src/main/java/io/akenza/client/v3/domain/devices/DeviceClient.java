@@ -36,11 +36,9 @@ public class DeviceClient extends BaseClient {
      * @return a page with devices
      */
     public Request<DevicePage> list(DeviceFilter filter, String workspaceId, String organizationId) {
-        final String path = String.format(ASSET_URI_TEMPLATE, "");
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(ASSET_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -91,11 +89,9 @@ public class DeviceClient extends BaseClient {
      * @return the newly created device
      */
     public Request<Device> create(ImmutableCreateDeviceCommand device) {
-        final String path = DEVICE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(DEVICE_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Device>() {

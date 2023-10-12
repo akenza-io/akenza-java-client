@@ -36,7 +36,7 @@ class DeviceTypeClientTest {
     }
 
     @Test
-    void getById() throws IOException, InterruptedException {
+    void getById() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -65,7 +65,7 @@ class DeviceTypeClientTest {
     }
 
     @Test
-    void getAll() throws IOException {
+    void getAll() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -81,7 +81,7 @@ class DeviceTypeClientTest {
     }
 
     @Test
-    void create() throws IOException, InterruptedException {
+    void create() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(201)
@@ -111,7 +111,7 @@ class DeviceTypeClientTest {
     }
 
     @Test
-    void update() throws IOException, InterruptedException {
+    void update() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)

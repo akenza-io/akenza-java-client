@@ -2,8 +2,8 @@ package io.akenza.client.v3.domain.output_connectors.commands;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.google.common.base.Preconditions;
 import io.akenza.client.utils.AkenzaStyle;
+import io.akenza.client.utils.Preconditions;
 import io.akenza.client.v3.domain.output_connectors.objects.*;
 import org.immutables.value.Value;
 

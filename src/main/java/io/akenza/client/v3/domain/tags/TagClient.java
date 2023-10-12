@@ -33,11 +33,9 @@ public class TagClient extends BaseClient {
      * @return a page with tags
      */
     public Request<TagPage> list(String workspaceId, TagFilter filter) {
-        final String path = TAG_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(TAG_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +78,9 @@ public class TagClient extends BaseClient {
      * @return the newly created tag
      */
     public Request<Tag> create(CreateTagCommand tag) {
-        final String path = TAG_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(TAG_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Tag>() {

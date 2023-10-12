@@ -22,7 +22,7 @@ info: ## Show info
 	@echo "  App: ${JAR_FILE}"
 
 install:
-    mvn clean verify
+	mvn clean verify
 
 test: ## Runs the tests
 	mvn test
