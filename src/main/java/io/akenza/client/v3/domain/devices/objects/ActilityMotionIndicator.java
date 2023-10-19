@@ -5,5 +5,5 @@ public enum ActilityMotionIndicator {
     WALKING_SPEED,
     VEHICLE_SPEED,
     BIKE_SPEED,
-    RANDOM;
+    RANDOM
 }

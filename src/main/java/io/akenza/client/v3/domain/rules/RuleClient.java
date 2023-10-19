@@ -33,11 +33,9 @@ public class RuleClient extends BaseClient {
      * @return a page with rules
      */
     public Request<RulePage> list(String workspaceId, RuleFilter filter) {
-        final String path = RULE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(RULE_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +78,9 @@ public class RuleClient extends BaseClient {
      * @return the newly created rule
      */
     public Request<Rule> create(CreateRuleCommand rule) {
-        final String path = RULE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(RULE_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<Rule>() {

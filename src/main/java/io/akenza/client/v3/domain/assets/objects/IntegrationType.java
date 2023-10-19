@@ -5,5 +5,5 @@ public enum IntegrationType {
     SWISSCOM_ACTILITY,
     SWISSCOM_CMP,
     LORIOT,
-    TTN;
+    TTN
 }

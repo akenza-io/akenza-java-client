@@ -22,6 +22,7 @@ import io.akenza.client.v3.domain.workspaces.WorkspaceClient;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -53,7 +54,7 @@ public class AkenzaAPI {
                     private static final String PROXY_AUTHORIZATION_HEADER = "Proxy-Authorization";
 
                     @Override
-                    public okhttp3.Request authenticate(Route route, Response response) throws IOException {
+                    public okhttp3.Request authenticate(Route route, @Nonnull Response response) throws IOException {
                         if (response.request().header(PROXY_AUTHORIZATION_HEADER) != null) {
                             return null;
                         }

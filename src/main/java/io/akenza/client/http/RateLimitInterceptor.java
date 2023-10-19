@@ -9,7 +9,6 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -60,7 +59,7 @@ public class RateLimitInterceptor implements Interceptor {
 
     @NotNull
     @Override
-    public Response intercept(@NotNull Chain chain) throws IOException {
+    public Response intercept(@NotNull Chain chain) {
 
         RetryPolicy<Response> retryPolicy = new RetryPolicy<Response>()
                 .withMaxRetries(maxRetries)

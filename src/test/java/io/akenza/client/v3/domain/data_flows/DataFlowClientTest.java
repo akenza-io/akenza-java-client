@@ -36,7 +36,7 @@ class DataFlowClientTest {
     }
 
     @Test
-    void getById() throws IOException {
+    void getById() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -59,7 +59,7 @@ class DataFlowClientTest {
     }
 
     @Test
-    void getAll() throws IOException, InterruptedException {
+    void getAll() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -79,7 +79,7 @@ class DataFlowClientTest {
     }
 
     @Test
-    void create() throws IOException, InterruptedException {
+    void create() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -113,7 +113,7 @@ class DataFlowClientTest {
     }
 
     @Test
-    void update() throws IOException, InterruptedException {
+    void update() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)

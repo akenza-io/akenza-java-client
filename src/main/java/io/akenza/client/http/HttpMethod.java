@@ -8,7 +8,7 @@ public enum HttpMethod {
     HEAD("HEAD"),
     OPTIONS("OPTIONS");
 
-    private String value;
+    private final String value;
 
     HttpMethod(String value) {
         this.value = value;

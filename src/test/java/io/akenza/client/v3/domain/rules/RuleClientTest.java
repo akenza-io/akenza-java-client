@@ -36,7 +36,7 @@ class RuleClientTest {
     }
 
     @Test
-    void getById() throws IOException {
+    void getById() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -63,7 +63,7 @@ class RuleClientTest {
     }
 
     @Test
-    void getAll() throws IOException {
+    void getAll() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -79,7 +79,7 @@ class RuleClientTest {
     }
 
     @Test
-    void create() throws IOException, InterruptedException {
+    void create() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(201)
@@ -144,7 +144,7 @@ class RuleClientTest {
     }
 
     @Test
-    void update() throws IOException, InterruptedException {
+    void update() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)

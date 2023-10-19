@@ -55,7 +55,7 @@ public class RequestImpl<T> implements Request<T> {
 
     @Override
     public CompletableFuture<T> executeAsync() {
-        final CompletableFuture<T> future = new CompletableFuture<T>();
+        final CompletableFuture<T> future = new CompletableFuture<>();
 
         okhttp3.Request request;
         try {
@@ -72,7 +72,7 @@ public class RequestImpl<T> implements Request<T> {
             }
 
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            public void onResponse(@NotNull Call call, @NotNull Response response) {
                 try {
                     T parsedResponse = parseResponse(response);
                     future.complete(parsedResponse);
@@ -87,15 +87,15 @@ public class RequestImpl<T> implements Request<T> {
 
 
     protected okhttp3.Request createRequest() throws AkenzaException {
-        RequestBody body;
+        RequestBody requestBody;
         try {
-            body = this.createRequestBody();
+            requestBody = this.createRequestBody();
         } catch (IOException e) {
             throw new AkenzaException("Couldn't create the request body.", e);
         }
         okhttp3.Request.Builder builder = new okhttp3.Request.Builder()
                 .url(url)
-                .method(method.value(), body);
+                .method(method.value(), requestBody);
         for (Map.Entry<String, String> e : headers.entrySet()) {
             builder.addHeader(e.getKey(), e.getValue());
         }
@@ -116,8 +116,8 @@ public class RequestImpl<T> implements Request<T> {
             throw createResponseException(response);
         }
 
-        try (ResponseBody body = response.body()) {
-            return readResponseBody(body);
+        try (ResponseBody responseBody = response.body()) {
+            return readResponseBody(responseBody);
         } catch (IOException ex) {
             throw new HttpClientResponseException(response.request().url().url().getPath(), response.code(), "Failed to parse the response body.", ex);
         }
@@ -163,8 +163,8 @@ public class RequestImpl<T> implements Request<T> {
         }
 
         String payload = null;
-        try (ResponseBody body = response.body()) {
-            payload = body.string();
+        try (ResponseBody responseBody = response.body()) {
+            payload = responseBody.string();
             MapType mapType = json.getMapper().getTypeFactory().constructMapType(HashMap.class, String.class, Object.class);
             Map<String, Object> values = json.fromJson(payload, mapType);
             return new HttpClientResponseException(response.request().url().url().getPath(), response.code(), values);

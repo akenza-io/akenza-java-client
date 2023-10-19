@@ -34,7 +34,7 @@ class CustomFieldClientTest {
     }
 
     @Test
-    void getById() throws IOException {
+    void getById() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -57,7 +57,7 @@ class CustomFieldClientTest {
     }
 
     @Test
-    void getAll() throws IOException {
+    void getAll() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -73,7 +73,7 @@ class CustomFieldClientTest {
     }
 
     @Test
-    void create() throws IOException, InterruptedException {
+    void create() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(201)
@@ -108,7 +108,7 @@ class CustomFieldClientTest {
     }
 
     @Test
-    void update() throws IOException, InterruptedException {
+    void update() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)

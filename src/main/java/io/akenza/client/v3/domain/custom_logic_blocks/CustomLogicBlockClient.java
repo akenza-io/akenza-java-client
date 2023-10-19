@@ -33,11 +33,10 @@ public class CustomLogicBlockClient extends BaseClient {
      * @return a page with custom logic blocks
      */
     public Request<CustomLogicBlockPage> list(String organizationId, CustomLogicBlockFilter filter) {
-        final String path = CUSTOM_LOGIC_BLOCK_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(CUSTOM_LOGIC_BLOCK_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +79,10 @@ public class CustomLogicBlockClient extends BaseClient {
      * @return the newly created custom logic block
      */
     public Request<CustomLogicBlock> create(CreateCustomLogicBlockCommand customLogicBlock) {
-        final String path = CUSTOM_LOGIC_BLOCK_URI_TEMPLATE;
 
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(CUSTOM_LOGIC_BLOCK_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<CustomLogicBlock>() {

@@ -33,11 +33,9 @@ public class DeviceTypeClient extends BaseClient {
      * @return a page with device types
      */
     public Request<DeviceTypePage> list(String organizationId, DeviceTypeFilter filter) {
-        final String path = DEVICE_TYPE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(DEVICE_TYPE_URI_TEMPLATE);
         if (filter != null) {
             for (Map.Entry<String, Object> e : filter.getAsMap().entrySet()) {
                 builder.addQueryParameter(e.getKey(), String.valueOf(e.getValue()));
@@ -80,11 +78,9 @@ public class DeviceTypeClient extends BaseClient {
      * @return the newly created device type
      */
     public Request<DeviceType> create(CreateDeviceTypeCommand deviceType) {
-        final String path = DEVICE_TYPE_URI_TEMPLATE;
-
         HttpUrl.Builder builder = baseUrl
                 .newBuilder()
-                .addPathSegments(path);
+                .addPathSegments(DEVICE_TYPE_URI_TEMPLATE);
 
         String url = builder.build().toString();
         var request = new RequestImpl<>(client, url, HttpMethod.POST, new TypeReference<DeviceType>() {

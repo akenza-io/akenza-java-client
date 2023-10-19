@@ -33,7 +33,7 @@ class DownlinkClientTest {
     }
 
     @Test
-    void sendMqttDownlink() throws IOException, InterruptedException {
+    void sendMqttDownlink() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(204)
@@ -52,7 +52,7 @@ class DownlinkClientTest {
 
 
     @Test
-    void sendLoRaDownlink() throws IOException, InterruptedException {
+    void sendLoRaDownlink() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(204)

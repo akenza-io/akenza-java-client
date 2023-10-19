@@ -1,8 +1,8 @@
 package io.akenza.client.http;
 
 
-import com.google.common.base.Preconditions;
 import io.akenza.client.utils.AkenzaStyle;
+import io.akenza.client.utils.Preconditions;
 import org.immutables.value.Value;
 
 import javax.annotation.Nullable;

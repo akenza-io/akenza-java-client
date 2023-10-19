@@ -37,7 +37,7 @@ class AggregationClientTest {
     }
 
     @Test
-    void timeSeriesAggregated() throws IOException, InterruptedException {
+    void timeSeriesAggregated() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -63,7 +63,7 @@ class AggregationClientTest {
     }
 
     @Test
-    void timeSeriesRaw() throws IOException, InterruptedException {
+    void timeSeriesRaw() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -89,7 +89,7 @@ class AggregationClientTest {
     }
 
     @Test
-    void kpiAggregated() throws IOException, InterruptedException {
+    void kpiAggregated() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
@@ -116,7 +116,7 @@ class AggregationClientTest {
     }
 
     @Test
-    void kpiRaw() throws IOException, InterruptedException {
+    void kpiRaw() throws InterruptedException {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)

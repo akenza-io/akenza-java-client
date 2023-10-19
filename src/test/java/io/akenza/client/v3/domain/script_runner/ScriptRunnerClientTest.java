@@ -32,7 +32,7 @@ class ScriptRunnerClientTest {
     }
 
     @Test
-    void runScript() throws IOException {
+    void runScript() {
         //arrange
         server.enqueue(new MockResponse()
                 .setResponseCode(200)
