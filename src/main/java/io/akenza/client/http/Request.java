@@ -16,7 +16,7 @@ public interface Request<T> {
      *
      * @return the response body JSON decoded as T
      * @throws HttpClientResponseException if the request was executed but the response wasn't successful.
-     * @throws AkenzaException             if the request couldn't be created or executed successfully.
+     * @throws io.akenza.client.exceptions.AkenzaException if the request couldn't be created or executed successfully.
      */
     T execute() throws HttpClientResponseException;
 
