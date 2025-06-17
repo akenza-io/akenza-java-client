@@ -76,7 +76,7 @@
 
         <shade.id>${project.groupId}.akenzaclient.shade</shade.id>
         <assertj-core.version>3.27.3</assertj-core.version>
-        <log4j-api.version>2.24.3</log4j-api.version>
+        <log4j-api.version>2.25.0</log4j-api.version>
         <failsafe.version>2.4.4</failsafe.version>
 
         <maven.compiler.source>11</maven.compiler.source>
