@@ -231,7 +231,7 @@ public class Json {
                         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
                         .enable(SerializationFeature.WRITE_DATES_WITH_ZONE_ID)
                         .enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
-                        .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                        .setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL)
                         .setPropertyNamingStrategy(PropertyNamingStrategies.LOWER_CAMEL_CASE);
     }
 }
