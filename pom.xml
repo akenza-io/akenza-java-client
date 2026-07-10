@@ -65,23 +65,23 @@
         <jsr305.version>3.0.2</jsr305.version>
         <jsr311-api.version>1.1.1</jsr311-api.version>
         <slf4j-api.version>2.0.17</slf4j-api.version>
-        <mockito-core.version>5.22.0</mockito-core.version>
+        <mockito-core.version>5.23.0</mockito-core.version>
         <commons-io.version>2.21.0</commons-io.version>
-        <jackson.version>2.21.1</jackson.version>
-        <immutables.version>2.12.1</immutables.version>
+        <jackson.version>2.22.1</jackson.version>
+        <immutables.version>2.12.2</immutables.version>
         <powermock.version>2.0.9</powermock.version>
         <objenesis.version>3.5</objenesis.version>
-        <okhttp.version>5.3.2</okhttp.version>
-        <junit-jupiter-api.version>6.0.3</junit-jupiter-api.version>
-        <jackson-annotations.version>2.21</jackson-annotations.version>
+        <okhttp.version>5.4.0</okhttp.version>
+        <junit-jupiter-api.version>6.1.1</junit-jupiter-api.version>
+        <jackson-annotations.version>2.22</jackson-annotations.version>
         <assertj-core.version>3.27.7</assertj-core.version>
-        <log4j-api.version>2.25.3</log4j-api.version>
+        <log4j-api.version>2.26.1</log4j-api.version>
         <failsafe.version>2.4.4</failsafe.version>
 
         <shade.id>${project.groupId}.akenzaclient.shade</shade.id>
 
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>26</maven.compiler.source>
+        <maven.compiler.target>26</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -198,7 +198,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.0</version>
+                <version>3.15.0</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
@@ -206,7 +206,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
+                <version>3.5.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -227,7 +227,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.13</version>
+                <version>0.8.15</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -266,7 +266,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.3.1</version>
+                        <version>3.4.0</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -319,7 +319,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-shade-plugin</artifactId>
-                        <version>3.6.0</version>
+                        <version>3.6.2</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
