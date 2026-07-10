@@ -37,7 +37,7 @@ Full install (same as CI's `mvn verify -B`):
 mvn clean install
 ```
 
-Deploy a snapshot (requires `~/.m2/settings.xml` with OSSRH credentials):
+Deploy a snapshot (requires `~/.m2/settings.xml` with a Central Portal user token under server id `central`):
 
 ```bash
 mvn clean deploy -P release

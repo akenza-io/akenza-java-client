@@ -27,8 +27,9 @@ mvn clean install
 
 ### Deploying a Snapshot Version
 
-Make sure that `~/.m2/settings.xml` exists and that you have the appropriate access to publish to the snapshot
-repository.
+Make sure that `~/.m2/settings.xml` has a `<server>` entry with `<id>central</id>` holding a
+[Central Portal user token](https://central.sonatype.org/publish/generate-portal-token/) (username/password pair),
+and that this token has publishing access to the `io.akenza` namespace.
 
 ```
 mvn clean deploy -P release
