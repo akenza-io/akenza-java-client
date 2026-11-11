@@ -68,7 +68,7 @@
         <objenesis.version>3.5</objenesis.version>
         <okhttp.version>5.5.0</okhttp.version>
         <junit-jupiter-api.version>6.1.2</junit-jupiter-api.version>
-        <jackson-annotations.version>2.22</jackson-annotations.version>
+        <jackson-annotations.version>2.23</jackson-annotations.version>
         <assertj-core.version>3.27.7</assertj-core.version>
         <log4j-api.version>2.26.1</log4j-api.version>
         <failsafe.version>2.4.4</failsafe.version>
